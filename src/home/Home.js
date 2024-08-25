@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <header>
-        <h2>
+        <h2 name="title">
           Hello, my name is Shaun and this is my personal site, I hope you enjoy
           it :)
         </h2>

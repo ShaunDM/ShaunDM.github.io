@@ -2,12 +2,16 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Nav from "./Nav";
 import Footer from "./Footer";
+import Header from "./Header";
+import Nav from "./Nav";
 
 function Layout() {
   return (
     <Container>
+      <Row>
+        <Header />
+      </Row>
       <Row>
         <Nav />
       </Row>
