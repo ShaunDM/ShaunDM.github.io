@@ -13,7 +13,6 @@ export default function Books() {
     carousel[item.replace("./", "")] = images(item);
   });
 
-  console.log(images);
   return (
     <Main title="Books">
       <Content carousel={carousel} />

@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
     "@testing-library/cypress": "^10.0.1",
     "cypress": "^13.7.1",
     "react-test-renderer": "^18.2.0"

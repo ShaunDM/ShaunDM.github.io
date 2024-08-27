@@ -22,14 +22,6 @@ function Content({ carousel, full, slide = 0 }) {
     const alt =
       key.substring(0, key.lastIndexOf(".")).replace(/_/g, " ") || key;
     const id = key.substring(0, key.lastIndexOf(".")) || key;
-    const img_title = key
-      .substring(0, key.lastIndexOf("_"))
-      .replace(/_/g, " ")
-      .replace(
-        /\w\S*/g,
-        (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
-      )
-      .trim();
 
     carouselItems.push(
       <Carousel.Item>

@@ -14,20 +14,18 @@ import "./App.css";
 
 function App() {
   return (
-    <body>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="portfolio" element={<Portfolio />} />
-          <Route path="books" element={<Books />} />
-          <Route path="music" element={<Music />} />
-          <Route path="movies_tv" element={<MoviesTV />} />
-          <Route path="games" element={<Games />} />
-          <Route path="contact" element={<Contact />} />
-          <Route element={<ErrorPage />} />
-        </Route>
-      </Routes>
-    </body>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="portfolio" element={<Portfolio />} />
+        <Route path="books" element={<Books />} />
+        <Route path="music" element={<Music />} />
+        <Route path="movies_tv" element={<MoviesTV />} />
+        <Route path="games" element={<Games />} />
+        <Route path="contact" element={<Contact />} />
+        <Route element={<ErrorPage />} />
+      </Route>
+    </Routes>
   );
 }
 
