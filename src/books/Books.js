@@ -3,19 +3,29 @@ import Main from "../layout/Main";
 import Content from "../layout/Content";
 
 export default function Books() {
-  const images = require.context(
+  const carouselImages = require.context(
     "../assets/books/carousel",
     false,
     /\.(png|jpe?g|svg)$/
   );
   let carousel = {};
-  images.keys().forEach((item, index) => {
-    carousel[item.replace("./", "")] = images(item);
+  carouselImages.keys().forEach((item, index) => {
+    carousel[item.replace("./", "")] = carouselImages(item);
+  });
+
+  const fullImages = require.context(
+    "../assets/books/full",
+    false,
+    /\.(png|jpe?g|svg)$/
+  );
+  let full = {};
+  fullImages.keys().forEach((item, index) => {
+    full[item.replace("./", "")] = fullImages(item);
   });
 
   return (
     <Main title="Books">
-      <Content carousel={carousel} />
+      <Content carousel={carousel} full={full} />
     </Main>
   );
 }
