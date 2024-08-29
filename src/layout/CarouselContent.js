@@ -10,33 +10,56 @@ function CarouselContent({
   handleSelect,
 }) {
   const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
 
   const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
+  const handleShow = (id) => {
+    setShowModal(true);
+    const fullKey = id.substring(0, id.lastIndexOf("_")) + ".png" || id;
+    setModalContent(full[fullKey]);
+  };
 
-  let carouselItems = [];
+  let items = [];
+  let indicators = [];
 
   for (const [key, value] of Object.entries(carousel)) {
     const alt =
       key.substring(0, key.lastIndexOf(".")).replace(/_/g, " ") || key;
     const id = key.substring(0, key.lastIndexOf(".")) || key;
-    const fullKey = key.substring(0, key.lastIndexOf("_")) + ".png" || key;
 
-    carouselItems.push(
-      <Carousel.Item>
+    items.push(
+      <div class="carousel-item" key={id}>
         <img
           id={id}
           className="d-block w-100"
           src={value}
           alt={alt}
-          onClick={handleShow}
+          onClick={() => handleShow(id)}
         />
-        <ModalImage
-          image={full[fullKey]}
-          showModal={showModal}
-          handleClose={handleClose}
-        />
-      </Carousel.Item>
+      </div>
+
+      // <Carousel.Item key={id}>
+      //   <img
+      //     id={id}
+      //     className="d-block w-100"
+      //     src={value}
+      //     alt={alt}
+      //     onClick={() => handleShow(id)}
+      //   />
+      //   <ModalImage
+      //     content={modalContent}
+      //     showModal={showModal}
+      //     handleClose={handleClose}
+      //   />
+      // </Carousel.Item>
+    );
+
+    indicators.push(
+      <li
+        data-target="#carouselExampleIndicators"
+        data-slide-to="0"
+        class="active"
+      ></li>
     );
   }
 
@@ -47,7 +70,7 @@ function CarouselContent({
       onChange={handleChange}
       pause={showModal}
     >
-      {carouselItems}
+      {items}
     </Carousel>
   );
 }

@@ -1,12 +1,13 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 
-export default function ModalImage({ image, showModal, handleClose }) {
+export default function ModalImage({ content, showModal, handleClose }) {
+  console.log(content);
   return (
     <Modal show={showModal} onHide={handleClose} fullscreen="true">
       <Modal.Header closeButton />
       <Modal.Body>
-        <img src={image} alt="" />
+        <img src={content} alt="" />
       </Modal.Body>
     </Modal>
   );
