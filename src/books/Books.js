@@ -8,9 +8,9 @@ export default function Books() {
     false,
     /\.(png|jpe?g|svg)$/
   );
-  let carousel = {};
+  let thumbs = {};
   carouselImages.keys().forEach((item, index) => {
-    carousel[item.replace("./", "")] = carouselImages(item);
+    thumbs[item.replace("./", "")] = carouselImages(item);
   });
 
   const fullImages = require.context(
@@ -25,7 +25,7 @@ export default function Books() {
 
   return (
     <Main title="Books">
-      <Content carousel={carousel} full={full} />
+      <Content thumbs={thumbs} full={full} />
     </Main>
   );
 }

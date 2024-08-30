@@ -7,7 +7,7 @@ import Sidebar from "./Sidebar";
 //   Launch demo modal
 // </button>
 
-function Content({ carousel, full }) {
+function Content({ thumbs, full }) {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -20,7 +20,7 @@ function Content({ carousel, full }) {
     <>
       {/*<Sidebar />*/}
       <CarouselContent
-        carousel={carousel}
+        thumbs={thumbs}
         full={full}
         index={index}
         handleChange={handleChange}
