@@ -8,12 +8,20 @@ import {
   faBook,
   faGamepad,
   faFilm,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Nav() {
+function Nav({ isPhone = true }) {
   return (
-    <nav name="navbar" id="navbar">
-      <ul name="nav_icons" id="nav_icons">
+    <nav name="navbar">
+      <ul name="nav_icons">
+        {isPhone && (
+          <li id="nav_bars">
+            <Link to="/">
+              <FontAwesomeIcon icon={faBars} title="Offcanvas" size="2x" />
+            </Link>
+          </li>
+        )}
         <li id="nav_home">
           <Link to="/">
             <FontAwesomeIcon icon={faHouse} title="Home" size="2x" />

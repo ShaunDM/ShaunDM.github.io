@@ -4,19 +4,18 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Footer from "./Footer";
 import Header from "./Header";
-import Nav from "./Nav";
+import { getAssets } from "../util/api";
 
 function Layout() {
+  const assets = getAssets(window.location.pathname);
+
   return (
     <Container>
       <Row>
         <Header />
       </Row>
       <Row>
-        <Nav />
-      </Row>
-      <Row>
-        <Outlet />
+        <Outlet context={assets} />
       </Row>
       <Row>
         <Footer />
