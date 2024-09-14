@@ -4,11 +4,19 @@ import Content from "../layout/Content";
 import { useOutletContext } from "react-router-dom";
 
 export default function Books() {
-  const images = useOutletContext();
-  console.log(images);
+  const isPhone = useOutletContext()[0];
+  const assets = useOutletContext()[1];
+  const carouselIndex = useOutletContext()[2];
+  const handleSelectCarouselIndex = useOutletContext()[3];
+
   return (
     <Main title="Books">
-      <Content thumbs={images[0]} full={images[1]} />
+      <Content
+        isPhone={isPhone}
+        assets={assets}
+        carouselIndex={carouselIndex}
+        handleSelectCarouselIndex={handleSelectCarouselIndex}
+      />
     </Main>
   );
 }

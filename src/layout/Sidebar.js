@@ -1,21 +1,21 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import SidebarCarousel from "./SidebarCarousel";
+import SidebarReg from "./SidebarReg";
 
-export default function Sidebar({ carousel }) {
-  let sidebarContent = [];
-  for (const [key] of Object.entries(carousel)) {
-    const img_title = key
-      .substring(0, key.lastIndexOf("_"))
-      .replace(/_/g, " ")
-      .replace(
-        /\w\S*/g,
-        (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
-      )
-      .trim();
+export default function Sidebar({
+  assets,
+  carouselIndex,
+  handleSelectCarouselIndex,
+}) {
+  const hasCarousel = ["/books", "/games", "/movies_tv", "/music"];
 
-    const id = key.substring(0, key.lastIndexOf(".")) || key;
-
-    <li id={id}>{/* fix <Link to="">{img_title}</Link>*/}</li>;
-  }
-
-  return <aside></aside>;
+  return hasCarousel.includes(window.location.pathname) ? (
+    <SidebarCarousel
+      assets={assets[0]}
+      carouselIndex
+      handleSelectCarouselIndex={handleSelectCarouselIndex}
+    />
+  ) : (
+    <SidebarReg assets={assets} />
+  );
 }

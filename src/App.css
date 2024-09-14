@@ -55,6 +55,19 @@ li {
   justify-content: center;
 }
 
+aside,
+.toc,
+.list-group {
+  max-height: 100vh;
+  display: flex;
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .carouselItem {
   background-color: black;
 }

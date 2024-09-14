@@ -1,9 +1,12 @@
 import React from "react";
 import Nav from "./Nav";
-import { useMediaQuery } from "react-responsive";
 
-function Header({ header_content = "Shaun McRae - Software Engineer" }) {
-  const isPhone = useMediaQuery({ query: "( maxwidth: 767 )" });
+function Header({
+  isPhone,
+  carouselIndex,
+  handleSelectCarouselIndex,
+  header_content = "Shaun McRae - Software Engineer",
+}) {
   const header = isPhone ? (
     <>
       <Nav />
