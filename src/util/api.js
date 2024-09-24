@@ -54,7 +54,7 @@ export function getAssets(path) {
       break;
     }
     default: {
-      return console.log("Something went wrong!");
+      return console.log(`Something went wrong! Path: ${path}`);
     }
   }
   return images;

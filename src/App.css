@@ -55,11 +55,10 @@ li {
   justify-content: center;
 }
 
-aside,
-.toc,
-.list-group {
+.toc {
   max-height: 100vh;
   display: flex;
+  overflow: auto;
 }
 
 .list-group-item {
