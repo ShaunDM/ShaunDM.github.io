@@ -1,6 +1,6 @@
 const fs = require("node:fs");
 
-//Creates/Resets to an empty database for the Calendar component
+//Creates/Resets the database for the Calendar component
 let data = {};
 const months = [
   "January",

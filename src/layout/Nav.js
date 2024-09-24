@@ -9,6 +9,7 @@ import {
   faGamepad,
   faFilm,
   faBars,
+  faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Nav({ isPhone = true }) {
@@ -50,6 +51,11 @@ function Nav({ isPhone = true }) {
         <li id="nav_movies_tv">
           <Link to="/movies_tv">
             <FontAwesomeIcon icon={faFilm} title="Movies and TV" size="2x" />
+          </Link>
+        </li>
+        <li id="nav_calendar">
+          <Link to="/calendar">
+            <FontAwesomeIcon icon={faCalendar} title="Calendar" size="2x" />
           </Link>
         </li>
       </ul>

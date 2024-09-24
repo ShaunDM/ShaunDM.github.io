@@ -7,6 +7,7 @@ import Books from "./books/Books";
 import Music from "./music/Music";
 import MoviesTV from "./movies_tv/MoviesTV";
 import Games from "./games/Games";
+import Calendar from "./calendar/Calendar";
 import Contact from "./contact/Contact";
 import ErrorPage from "./error/ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,6 +23,7 @@ function App() {
         <Route path="music" element={<Music />} />
         <Route path="movies_tv" element={<MoviesTV />} />
         <Route path="games" element={<Games />} />
+        <Route path="calendar" element={<Calendar />} />
         <Route path="contact" element={<Contact />} />
         <Route element={<ErrorPage />} />
       </Route>
