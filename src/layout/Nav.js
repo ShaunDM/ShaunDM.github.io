@@ -11,8 +11,11 @@ import {
   faBars,
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
+import { getCurrentDate } from "../util/api";
 
 function Nav({ isPhone = true }) {
+  const today = getCurrentDate();
+
   return (
     <nav name="navbar">
       <ul name="nav_icons">
@@ -54,7 +57,7 @@ function Nav({ isPhone = true }) {
           </Link>
         </li>
         <li id="nav_calendar">
-          <Link to="/calendar">
+          <Link to={`/calendar/${today.year}/${today.month}`}>
             <FontAwesomeIcon icon={faCalendar} title="Calendar" size="2x" />
           </Link>
         </li>

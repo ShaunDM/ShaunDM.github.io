@@ -1,35 +1,54 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import Main from "../layout/Main";
 import Content from "../layout/Content";
 import { Table } from "react-bootstrap";
 import { useOutletContext } from "react-router-dom";
+import { getCurrentDate } from "../util/api";
 
 export default function Calendar() {
   const isPhone = useOutletContext()[0];
   const assets = useOutletContext()[1];
 
-  const [year, setYear] = useState(new Date(Date.now()).getFullYear());
-  const [month, setMonth] = useState(new Date(Date.now()).getMonth());
-  const [day, setDay] = useState(new Date(Date.now()).getDate());
-  const [calendarDb, setCalendarDb] = useState({});
+  const navigate = useNavigate();
+
+  const { year, month } = useParams();
+  const today = getCurrentDate();
+
+  console.log(today);
+
+  if (!year) {
+    navigate(`/calendar/${today.year}/${today.month}`);
+  }
+
+  let date = null;
+  if (year == today.year && month == today.month) {
+    date = today.day;
+  }
+
+  const [yr, setYr] = useState(year);
+  const [mth, setMth] = useState(month);
+  const [day, setDay] = useState(date);
+  const [calendarDb, setCalendarDb] = useState(null);
 
   useEffect(() => {
-    setCalendarDb({});
+    setCalendarDb(null);
     const abortController = new AbortController();
 
     async function loadCalendarDb() {
       try {
-        const response = await fetch("../assets/calendar/calendarDb.json", {
+        const response = await fetch(`http://localhost:8000/${year}`, {
           headers: { "Content-Type": "application/json" },
           signal: abortController.signal,
         });
 
         const payload = await response.json();
+
         if (payload.error) {
           return Promise.reject({ message: payload.error });
         }
-        setCalendarDb(payload.data[year][month]);
+        setCalendarDb(payload);
       } catch (error) {
         if (error.name !== "AbortError") {
           console.error(error.stack);
@@ -43,7 +62,11 @@ export default function Calendar() {
     return () => abortController.abort();
   }, [year, month]);
 
-  console.log(calendarDb["1"]);
+  console.log(calendarDb);
+
+  if (!calendarDb) {
+    return "...Loading";
+  }
 
   const table = (
     <Table>

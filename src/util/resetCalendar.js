@@ -1,21 +1,12 @@
 const fs = require("node:fs");
+import { formatMonth } from "./api";
 
-//Creates/Resets the database for the Calendar component
-let data = {};
-const months = [
-  "January",
-  "Febuary",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+/*Creates/Resets the database (JSON) for the Calendar component.
+creates data structure of:
+{"year": {[year]: "month": {[month]: "day": {[day]: {[taskname]: [isCompleted, pointsAwarded], }}}}};
+Might revert back to {[year] :{[month]: {[day]: {taskname: [isCompleted, pointsAwarded]}}}};
+*/
+let data = { 1970: null };
 
 //i increases by a year in milliseconds
 for (
@@ -24,10 +15,14 @@ for (
   i += 31536000000
 ) {
   const year = new Date(i).getFullYear().toString();
+  if (!data[year]) {
+    data[year] = { January: null };
+  }
+
   for (let j = 1; j <= 12; j++) {
-    const month = months[j - 1];
+    const month = formatMonth(j);
     let days = 31;
-    switch (month) {
+    switch (j) {
       case 4: {
       }
       case 6: {
@@ -46,27 +41,21 @@ for (
         break;
       }
     }
+
+    if (!data[year][month]) {
+      data[year][month] = { 1: null };
+    }
+
     for (let k = 1; k <= days; k++) {
-      const day = k.toString();
-      if (!data[year]) {
-        data[year] = { [month]: null };
-      }
-      data = {
-        ...data,
-        [year]: {
-          ...data[year],
-          [month]: { ...data[year][month], [day]: null },
-        },
+      data[year][month] = {
+        ...data[year][month],
+        [k]: null,
       };
     }
   }
 }
 
-fs.writeFile(
-  "./src/assets/calendar/calendardb.json",
-  JSON.stringify(data),
-  (err) => {
-    if (err) throw err;
-    console.log("Calendar has been reset");
-  }
-);
+fs.writeFile("./db/calendar_db.json", JSON.stringify(data), (err) => {
+  if (err) throw err;
+  console.log("Calendar has been reset");
+});

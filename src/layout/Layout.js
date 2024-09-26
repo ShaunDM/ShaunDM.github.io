@@ -14,8 +14,6 @@ function Layout() {
     setCarouselIndex(selectedIndex);
   };
 
-  console.log(carouselIndex);
-
   const isPhone = useMediaQuery({ query: "( maxwidth: 767 )" });
   const assets = getAssets(window.location.pathname);
 

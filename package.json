@@ -28,7 +28,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
-    "reset:cal": "node ./src/util/resetCalendar.js"
+    "reset:cal": "node ./src/util/resetCalendar.js",
+    "start:server": "npx json-server --watch ./db/calendar_db.json --port 8000"
   },
   "eslintConfig": {
     "extends": [

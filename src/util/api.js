@@ -78,3 +78,28 @@ export function referenceAsset(file_name) {
     alt: getAssetAlt(file_name),
   };
 }
+
+export function formatMonth(month) {
+  const months = [
+    "January",
+    "Febuary",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return months[month - 1];
+}
+
+export function getCurrentDate() {
+  const year = new Date(Date.now()).getFullYear();
+  const month = formatMonth(new Date(Date.now()).getMonth());
+  const day = new Date(Date.now()).getDate();
+  return { year: year, month: month, day: day };
+}
