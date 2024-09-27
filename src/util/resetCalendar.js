@@ -49,7 +49,7 @@ for (
     for (let k = 1; k <= days; k++) {
       data[year][month] = {
         ...data[year][month],
-        [k]: null,
+        [k]: [],
       };
     }
   }

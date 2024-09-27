@@ -1,17 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  useOutletContext,
+  useLocation,
+} from "react-router-dom";
 import Main from "../layout/Main";
 import Content from "../layout/Content";
 import { Table } from "react-bootstrap";
-import { useOutletContext } from "react-router-dom";
 import { getCurrentDate } from "../util/api";
+import calendar_db from "../../db/calendar_db.json";
 
 export default function Calendar() {
   const isPhone = useOutletContext()[0];
   const assets = useOutletContext()[1];
 
   const navigate = useNavigate();
+
+  const host = useLocation().host;
 
   const { year, month } = useParams();
   const today = getCurrentDate();
@@ -33,33 +40,36 @@ export default function Calendar() {
   const [calendarDb, setCalendarDb] = useState(null);
 
   useEffect(() => {
-    setCalendarDb(null);
-    const abortController = new AbortController();
+    if (host == "github") {
+      setCalendarDb(calendar_db);
+    } else {
+      setCalendarDb(null);
+      const abortController = new AbortController();
+      async function loadCalendarDb() {
+        try {
+          const response = await fetch(`http://localhost:8000/${year}`, {
+            headers: { "Content-Type": "application/json" },
+            signal: abortController.signal,
+          });
 
-    async function loadCalendarDb() {
-      try {
-        const response = await fetch(`http://localhost:8000/${year}`, {
-          headers: { "Content-Type": "application/json" },
-          signal: abortController.signal,
-        });
+          const payload = await response.json();
 
-        const payload = await response.json();
-
-        if (payload.error) {
-          return Promise.reject({ message: payload.error });
-        }
-        setCalendarDb(payload);
-      } catch (error) {
-        if (error.name !== "AbortError") {
-          console.error(error.stack);
-          throw error;
+          if (payload.error) {
+            return Promise.reject({ message: payload.error });
+          }
+          setCalendarDb(payload);
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            console.error(error.stack);
+            throw error;
+          }
         }
       }
+
+      loadCalendarDb();
+
+      return () => abortController.abort();
     }
-
-    loadCalendarDb();
-
-    return () => abortController.abort();
   }, [year, month]);
 
   console.log(calendarDb);
