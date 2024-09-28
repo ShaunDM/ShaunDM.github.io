@@ -8,9 +8,11 @@ import {
 } from "react-router-dom";
 import Main from "../layout/Main";
 import Content from "../layout/Content";
-import { Table } from "react-bootstrap";
+import { Table, Card, CardGroup } from "react-bootstrap";
 import { getCurrentDate } from "../util/api";
-import calendar_db from "../../db/calendar_db.json";
+import calendar_db from "../assets/calendar/calendar_db.json";
+import CalendarHead from "./CalendarHead";
+import CalendarBody from "./CalendarBody";
 
 export default function Calendar() {
   const isPhone = useOutletContext()[0];
@@ -41,7 +43,7 @@ export default function Calendar() {
 
   useEffect(() => {
     if (host == "github") {
-      setCalendarDb(calendar_db);
+      setCalendarDb(calendar_db[yr][mth]);
     } else {
       setCalendarDb(null);
       const abortController = new AbortController();
@@ -57,7 +59,7 @@ export default function Calendar() {
           if (payload.error) {
             return Promise.reject({ message: payload.error });
           }
-          setCalendarDb(payload);
+          setCalendarDb(payload[month]);
         } catch (error) {
           if (error.name !== "AbortError") {
             console.error(error.stack);
@@ -72,41 +74,38 @@ export default function Calendar() {
     }
   }, [year, month]);
 
-  console.log(calendarDb);
-
   if (!calendarDb) {
     return "...Loading";
   }
 
+  const calendarStart = new Date(`${mth} 01, ${year}`).getDay();
+
+  const columns = [
+    { label: "S", accessor: "0" },
+    { label: "M", accessor: "1" },
+    { label: "T", accessor: "2" },
+    { label: "W", accessor: "3" },
+    { label: "T", accessor: "4" },
+    { label: "F", accessor: "5" },
+    { label: "S", accessor: "6" },
+  ];
+
   const table = (
     <Table>
       <caption></caption>
-      <thead>
-        <tr>
-          <button>Year</button>
-          <button>Back</button>
-          Month
-          <button>Forward</button>
-        </tr>
-        <tr>
-          <th scope="col">S</th>
-          <th scope="col">M</th>
-          <th scope="col">T</th>
-          <th scope="col">W</th>
-          <th scope="col">T</th>
-          <th scope="col">F</th>
-          <th scope="col">S</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Date</td>
-        </tr>
-      </tbody>
+      <CalendarHead
+        mth={mth[0].toUpperCase() + mth.substring(1)}
+        columns={columns}
+      />
+      <CalendarBody
+        columns={columns}
+        days={calendarDb}
+        calendarStart={calendarStart}
+      />
     </Table>
   );
 
-  return;
+  return table;
 
   return (
     <Main title="Calendar">

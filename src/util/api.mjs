@@ -81,20 +81,20 @@ export function referenceAsset(file_name) {
 
 export function formatMonth(month) {
   const months = [
-    "January",
-    "Febuary",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "january",
+    "febuary",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
   ];
-  return months[month - 1];
+  return months[month];
 }
 
 export function getCurrentDate() {

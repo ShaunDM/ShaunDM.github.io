@@ -23,12 +23,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "type": "module",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
-    "reset:cal": "node ./frontend/src/util/resetCalendar.js",
+    "reset:cal": "node ./src/util/resetCalendar.mjs",
     "start:server": "npx json-server --watch ./db/calendar_db.json --port 8000"
   },
   "eslintConfig": {
