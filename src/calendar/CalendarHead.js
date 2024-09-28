@@ -1,14 +1,8 @@
 import React from "react";
 
-export default function CalendarHead({ month, columns }) {
+export default function CalendarHead({ columns }) {
   return (
     <thead>
-      <tr>
-        <button>Year</button>
-        <button>Back</button>
-        {month}
-        <button>Forward</button>
-      </tr>
       <tr>
         {columns.map(({ label, accessor }) => {
           return (

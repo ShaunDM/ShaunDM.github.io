@@ -8,11 +8,10 @@ import {
 } from "react-router-dom";
 import Main from "../layout/Main";
 import Content from "../layout/Content";
-import { Table, Card, CardGroup } from "react-bootstrap";
 import { getCurrentDate } from "../util/api";
 import calendar_db from "../assets/calendar/calendar_db.json";
-import CalendarHead from "./CalendarHead";
-import CalendarBody from "./CalendarBody";
+import CalendarContent from "./CalendarContent";
+import CalendarTitle from "./CalendarTitle";
 
 export default function Calendar() {
   const isPhone = useOutletContext()[0];
@@ -36,14 +35,12 @@ export default function Calendar() {
     date = today.day;
   }
 
-  const [yr, setYr] = useState(year);
-  const [mth, setMth] = useState(month);
   const [day, setDay] = useState(date);
   const [calendarDb, setCalendarDb] = useState(null);
 
   useEffect(() => {
     if (host == "github") {
-      setCalendarDb(calendar_db[yr][mth]);
+      setCalendarDb(calendar_db[year][month]);
     } else {
       setCalendarDb(null);
       const abortController = new AbortController();
@@ -78,7 +75,7 @@ export default function Calendar() {
     return "...Loading";
   }
 
-  const calendarStart = new Date(`${mth} 01, ${year}`).getDay();
+  const calendarStart = new Date(`${month} 01, ${year}`).getDay();
 
   const columns = [
     { label: "S", accessor: "0" },
@@ -90,22 +87,19 @@ export default function Calendar() {
     { label: "S", accessor: "6" },
   ];
 
-  const table = (
-    <Table>
-      <caption></caption>
-      <CalendarHead
-        mth={mth[0].toUpperCase() + mth.substring(1)}
-        columns={columns}
-      />
-      <CalendarBody
-        columns={columns}
-        days={calendarDb}
-        calendarStart={calendarStart}
-      />
-    </Table>
+  return (
+    <Main title="Calendar">
+      <div className="calendar">
+        <CalendarTitle year={year} month={month} />
+        <CalendarContent
+          month={month}
+          columns={columns}
+          calendarDb={calendarDb}
+          calendarStart={calendarStart}
+        />
+      </div>
+    </Main>
   );
-
-  return table;
 
   return (
     <Main title="Calendar">

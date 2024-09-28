@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, CardGroup } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-export default function CalendarBody({ columns, days, calendarStart }) {
+export default function CalendarBody({ days, calendarStart }) {
   let rows = [];
   let row = [];
-  const blank = <td className="emptyCalendarSlot"></td>;
+  const blank = <td className="emptyCalendarSlot calendarDay"></td>;
   for (const [key, value] of Object.entries(days)) {
     if (key == 1) {
       while (row.length !== calendarStart) {
@@ -12,7 +12,7 @@ export default function CalendarBody({ columns, days, calendarStart }) {
       }
     }
     row.push(
-      <td id={key} day={row.length} className="">
+      <td id={key} day={row.length} className="calendarDay">
         <Card>
           <Card.Title>{key}</Card.Title>
           <Card.Body>Tasks</Card.Body>
@@ -25,27 +25,22 @@ export default function CalendarBody({ columns, days, calendarStart }) {
       row = [];
     }
   }
-  if (row.length && row.length !== 7) {
+  if (row.length) {
     while (row.length <= 7) {
       row.push(blank);
     }
     rows.push(row);
   }
 
-  console.log(row);
-
-  const tbody = (
+  return (
     <tbody>
       {rows.map((row, index) => {
         return (
           <tr key={`wk: ${index + 1}`} className="calendarWeek">
-            <CardGroup>{row}</CardGroup>
+            {row}
           </tr>
         );
       })}
     </tbody>
   );
-
-  console.log(tbody);
-  return tbody;
 }

@@ -78,3 +78,17 @@ li {
   width: 100%;
   object-fit: contain;
 }
+
+.calendarMonth {
+  display: inline;
+}
+
+.fixed {
+  position: fixed;
+  width: fit-content;
+}
+
+.justifyCenter {
+  display: flex;
+  justify-content: center;
+}

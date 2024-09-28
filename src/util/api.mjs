@@ -79,21 +79,22 @@ export function referenceAsset(file_name) {
   };
 }
 
+export const months = [
+  "january",
+  "febuary",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
+];
+
 export function formatMonth(month) {
-  const months = [
-    "january",
-    "febuary",
-    "march",
-    "april",
-    "may",
-    "june",
-    "july",
-    "august",
-    "september",
-    "october",
-    "november",
-    "december",
-  ];
   return months[month];
 }
 
