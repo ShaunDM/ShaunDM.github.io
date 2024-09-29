@@ -9,7 +9,7 @@ function Content({
   handleSelectCarouselIndex,
 }) {
   const handleChange = () => {};
-  return (
+  return assets ? (
     <Row>
       {!isPhone && (
         <Col xs={3}>
@@ -30,6 +30,8 @@ function Content({
         />
       </Col>
     </Row>
+  ) : (
+    "...Loading"
   );
 }
 

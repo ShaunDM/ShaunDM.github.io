@@ -83,9 +83,13 @@ li {
   display: inline;
 }
 
-.fixed {
-  position: fixed;
+.position-relative {
+  position: relative;
   width: fit-content;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .justifyCenter {

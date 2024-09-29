@@ -1,31 +1,10 @@
 export function getAssets(path) {
-  let images = [];
-  switch (path) {
+  let assets = null;
+  const truncatedPath = path.substring(1).includes("/")
+    ? path.substring(0, path.substring(1).indexOf("/") + 1)
+    : path;
+  switch (truncatedPath) {
     case "/books": {
-      const carouselImages = require.context(
-        "../assets/books/carousel",
-        false,
-        /\.(png|jpe?g|svg)$/
-      );
-      let thumbs = {};
-      carouselImages.keys().forEach((item, index) => {
-        thumbs[getAssetId(item.replace("./", ""))] = carouselImages(item);
-      });
-
-      images.push(thumbs);
-
-      const fullImages = require.context(
-        "../assets/books/full",
-        false,
-        /\.(png|jpe?g|svg)$/
-      );
-      let full = {};
-      fullImages.keys().forEach((item, index) => {
-        full[getAssetId(item.replace("./", ""))] = fullImages(item);
-      });
-
-      images.push(full);
-
       break;
     }
     case "/games": {
@@ -43,13 +22,14 @@ export function getAssets(path) {
     }
 
     case "/calendar": {
+      assets = import("../assets/calendar/calendar_db.json");
       break;
     }
     default: {
-      return console.log(`Something went wrong! Path: ${path}`);
+      return console.error(`Something went wrong! Path: ${path}`);
     }
   }
-  return images;
+  return assets;
 }
 
 export function getAssetId(file_name) {
@@ -103,4 +83,9 @@ export function getCurrentDate() {
   const month = formatMonth(new Date(Date.now()).getMonth());
   const day = new Date(Date.now()).getDate();
   return { year: year, month: month, day: day };
+}
+
+export function convertMonthToTitleCase(month) {
+  month = month.toLowerCase();
+  return month[0].toUpperCase() + month.substring(1);
 }

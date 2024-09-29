@@ -19,12 +19,8 @@ export default function Calendar() {
 
   const navigate = useNavigate();
 
-  const host = useLocation().host;
-
   const { year, month } = useParams();
   const today = getCurrentDate();
-
-  console.log(today);
 
   if (!year) {
     navigate(`/calendar/${today.year}/${today.month}`);
@@ -39,7 +35,7 @@ export default function Calendar() {
   const [calendarDb, setCalendarDb] = useState(null);
 
   useEffect(() => {
-    if (host == "github") {
+    if (window.location.host.includes("github")) {
       setCalendarDb(calendar_db[year][month]);
     } else {
       setCalendarDb(null);
@@ -90,7 +86,7 @@ export default function Calendar() {
   return (
     <Main title="Calendar">
       <div className="calendar">
-        <CalendarTitle year={year} month={month} />
+        <CalendarTitle year={year} month={month} calendarDb={calendarDb} />
         <CalendarContent
           month={month}
           columns={columns}

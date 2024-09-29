@@ -4,7 +4,11 @@ import { Card } from "react-bootstrap";
 export default function CalendarBody({ days, calendarStart }) {
   let rows = [];
   let row = [];
-  const blank = <td className="emptyCalendarSlot calendarDay"></td>;
+  const blank = (
+    <td className="emptyCalendarSlot calendarDay">
+      <Card />
+    </td>
+  );
   for (const [key, value] of Object.entries(days)) {
     if (key == 1) {
       while (row.length !== calendarStart) {
@@ -26,7 +30,7 @@ export default function CalendarBody({ days, calendarStart }) {
     }
   }
   if (row.length) {
-    while (row.length <= 7) {
+    while (row.length < 7) {
       row.push(blank);
     }
     rows.push(row);
