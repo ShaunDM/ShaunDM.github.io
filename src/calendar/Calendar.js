@@ -1,17 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-  useParams,
-  useNavigate,
-  useOutletContext,
-  useLocation,
-} from "react-router-dom";
+import { useParams, useNavigate, useOutletContext } from "react-router-dom";
+import { Row, Col } from "react-bootstrap";
 import Main from "../layout/Main";
-import Content from "../layout/Content";
 import { getCurrentDate } from "../util/api";
 import calendar_db from "../assets/calendar/calendar_db.json";
 import CalendarContent from "./CalendarContent";
 import CalendarTitle from "./CalendarTitle";
+import DaySchedule from "./DaySchedule";
 
 export default function Calendar() {
   const isPhone = useOutletContext()[0];
@@ -19,20 +15,30 @@ export default function Calendar() {
 
   const navigate = useNavigate();
 
-  const { year, month } = useParams();
+  const { year, month, date } = useParams();
   const today = getCurrentDate();
 
   if (!year) {
     navigate(`/calendar/${today.year}/${today.month}`);
   }
 
-  let date = null;
-  if (year == today.year && month == today.month) {
-    date = today.day;
-  }
-
-  const [day, setDay] = useState(date);
   const [calendarDb, setCalendarDb] = useState(null);
+  const [day, setDay] = useState(date);
+
+  const baseUrl = `/calendar/${year}/${month}`;
+
+  const handleClickDay = (event) => {
+    window.history.replaceState(
+      event.target.id,
+      "",
+      `${baseUrl}/${event.target.id}`
+    );
+    setDay(event.target.id);
+  };
+
+  if (!date && year === today.year && month === today.month) {
+    handleClickDay(today.day);
+  }
 
   useEffect(() => {
     if (window.location.host.includes("github")) {
@@ -85,21 +91,24 @@ export default function Calendar() {
 
   return (
     <Main title="Calendar">
-      <div className="calendar">
-        <CalendarTitle year={year} month={month} calendarDb={calendarDb} />
-        <CalendarContent
-          month={month}
-          columns={columns}
-          calendarDb={calendarDb}
-          calendarStart={calendarStart}
-        />
-      </div>
-    </Main>
-  );
-
-  return (
-    <Main title="Calendar">
-      <Content isPhone={isPhone} assets={assets} />
+      <Row>
+        {day && calendarDb[day] ? (
+          <Col xs={3}>
+            <DaySchedule month={month} day={day} schedule={calendarDb[day]} />{" "}
+          </Col>
+        ) : null}
+        <Col className="calendar">
+          <CalendarTitle year={year} month={month} calendarDb={calendarDb} />
+          <CalendarContent
+            month={month}
+            columns={columns}
+            calendarDb={calendarDb}
+            calendarStart={calendarStart}
+            day={day}
+            handleClickDay={handleClickDay}
+          />
+        </Col>
+      </Row>
     </Main>
   );
 }

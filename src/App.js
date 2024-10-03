@@ -24,7 +24,7 @@ function App() {
         <Route path="movies_tv" element={<MoviesTV />} />
         <Route path="games" element={<Games />} />
         <Route path="calendar" element={<Calendar />}>
-          <Route path=":year/:month/:day" element={<Calendar />} />
+          <Route path=":year/:month/:date" element={<Calendar />} />
           <Route path=":year/:month" element={<Calendar />} />
         </Route>
         <Route path="contact" element={<Contact />} />

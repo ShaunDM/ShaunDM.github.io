@@ -19,9 +19,11 @@ export default function NavPopover({
     }
     const url = `${baseUrl}/${links[i].toLowerCase()}${urlSuffix}`;
     row.push(
-      <Link id={`linkTo${url}`} key={links[i]} to={url}>
-        <Button>{links[i]}</Button>
-      </Link>
+      <td key={links[i]}>
+        <Link id={`linkTo${url}`} to={url}>
+          <Button>{links[i]}</Button>
+        </Link>
+      </td>
     );
   }
   if (row.length) {
@@ -31,15 +33,11 @@ export default function NavPopover({
     <Popover id={id}>
       <Popover.Body>
         <Table className="overflow-hidden">
-          {rows.map((set) => {
-            return (
-              <tr>
-                {set.map((link) => (
-                  <td>{link}</td>
-                ))}
-              </tr>
-            );
-          })}
+          <tbody>
+            {rows.map((set, index) => {
+              return <tr key={`row-${index}`}>{set.map((link) => link)}</tr>;
+            })}
+          </tbody>
         </Table>
       </Popover.Body>
     </Popover>

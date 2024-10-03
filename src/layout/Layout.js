@@ -1,29 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import Footer from "./Footer";
 import Header from "./Header";
 import loadMultipleFiles from "../util/loadMultipleFiles";
-import { getAssets } from "../util/api";
 
 function Layout() {
   //carouselIndex is causing rerender need to fix.
-  const [assets, setAssets] = useState(null);
+  const { pathname } = window.location;
+  const [assets, setAssets] = useState(loadMultipleFiles(pathname));
   const [carouselIndex, setCarouselIndex] = useState(0);
   const handleSelectCarouselIndex = (selectedIndex) => {
     setCarouselIndex(selectedIndex);
   };
 
   const isPhone = useMediaQuery({ query: "( maxwidth: 767 )" });
-
-  const { pathname } = window.location;
-
-  useEffect(() => {
-    if (!pathname.includes("calendar")) {
-      setAssets(loadMultipleFiles(pathname));
-    }
-  }, []);
 
   return (
     <Container>

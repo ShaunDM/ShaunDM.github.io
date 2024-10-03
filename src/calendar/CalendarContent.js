@@ -8,13 +8,20 @@ export default function CalendarContent({
   columns,
   calendarDb,
   calendarStart,
+  day,
+  handleClickDay,
 }) {
   const displayMonth = month[0].toUpperCase() + month.substring(1);
   return (
     <Table>
       <caption></caption>
       <CalendarHead month={displayMonth} columns={columns} />
-      <CalendarBody days={calendarDb} calendarStart={calendarStart} />
+      <CalendarBody
+        days={calendarDb}
+        calendarStart={calendarStart}
+        day={day}
+        handleClickDay={handleClickDay}
+      />
     </Table>
   );
 }

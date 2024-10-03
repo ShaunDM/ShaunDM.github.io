@@ -11,7 +11,8 @@ import calendar_db from "../assets/calendar/calendar_db.json";
 import { months } from "../util/api.mjs";
 import { convertMonthToTitleCase } from "../util/api.mjs";
 
-export default function CalendarTitle({ year, month, calendarDb }) {
+export default function CalendarTitle({ year, month }) {
+  //Add useState active so that only one popover can be open at a time.
   const baseUrl = "/calendar";
   const displayMonth = convertMonthToTitleCase(month);
   const displayMonths = months.map((mth) => convertMonthToTitleCase(mth));
