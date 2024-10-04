@@ -100,3 +100,7 @@ li {
 .padding-0 {
   padding: 0px;
 }
+
+.text-wrap-nowrap {
+  text-wrap: nowrap;
+}

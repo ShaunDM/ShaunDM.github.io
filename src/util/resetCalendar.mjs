@@ -50,15 +50,34 @@ for (
     for (let k = 1; k <= days; k++) {
       data[year][month] = {
         ...data[year][month],
-        [k]: [],
+        [k]: [
+          {
+            task_name: "Finish website",
+            completed: false,
+            points: 1000,
+            important: true,
+          },
+          {
+            task_name: "Go to the gym",
+            completed: true,
+            points: 50,
+            important: false,
+          },
+          {
+            task_name: "Get a new job",
+            completed: false,
+            points: 5000,
+            important: true,
+          },
+        ],
       };
     }
   }
 }
 
 fs.writeFile(
-  "./assets/calendar/calendar_db.json",
-  JSON.stringify(data),
+  "./src/assets/calendar/calendar_db.json",
+  JSON.stringify({ data: data }),
   (err) => {
     if (err) throw err;
     console.log("Calendar has been reset");

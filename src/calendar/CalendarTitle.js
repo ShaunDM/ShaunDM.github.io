@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,18 +7,19 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import NavPopover from "./NavPopover";
-import calendar_db from "../assets/calendar/calendar_db.json";
 import { months } from "../util/api.mjs";
 import { convertMonthToTitleCase } from "../util/api.mjs";
 
-export default function CalendarTitle({ year, month }) {
+export default function CalendarTitle({ year, month, calendarDb }) {
   //Add useState active so that only one popover can be open at a time.
+  //Tried above, wasn't sure how to implement with bootstrap API
+
   const baseUrl = "/calendar";
   const displayMonth = convertMonthToTitleCase(month);
   const displayMonths = months.map((mth) => convertMonthToTitleCase(mth));
 
   //Need to pass this from higher
-  const years = Object.keys(calendar_db);
+  const years = Object.keys(calendarDb);
 
   //need to add what to do if it goes beyond the year of the database.
 

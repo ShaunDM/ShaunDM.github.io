@@ -10,6 +10,7 @@ import CalendarTitle from "./CalendarTitle";
 import DaySchedule from "./DaySchedule";
 
 export default function Calendar() {
+  //Need controllers for bad urls not on the calendar.
   const isPhone = useOutletContext()[0];
   const assets = useOutletContext()[1];
 
@@ -18,12 +19,48 @@ export default function Calendar() {
   const { year, month, date } = useParams();
   const today = getCurrentDate();
 
-  if (!year) {
-    navigate(`/calendar/${today.year}/${today.month}`);
-  }
-
   const [calendarDb, setCalendarDb] = useState(null);
   const [day, setDay] = useState(date);
+
+  console.log(day);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    if (!year) {
+      navigate(`/calendar/${today.year}/${today.month}/${today.day}`);
+      setDay(today.day);
+      abortController.abort();
+    }
+    if (window.location.hostname.includes("github")) {
+      setCalendarDb(calendar_db[year][month]);
+    } else {
+      setCalendarDb(null);
+      async function loadCalendarDb() {
+        try {
+          const response = await fetch(`http://localhost:8000/data`, {
+            headers: { "Content-Type": "application/json" },
+            signal: abortController.signal,
+          });
+
+          const payload = await response.json();
+
+          if (payload.error) {
+            return Promise.reject({ message: payload.error });
+          }
+          setCalendarDb(payload);
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            console.error(error.stack);
+            throw error;
+          }
+        }
+      }
+
+      loadCalendarDb();
+
+      return () => abortController.abort();
+    }
+  }, [year, month]);
 
   const baseUrl = `/calendar/${year}/${month}`;
 
@@ -39,39 +76,6 @@ export default function Calendar() {
   if (!date && year === today.year && month === today.month) {
     handleClickDay(today.day);
   }
-
-  useEffect(() => {
-    if (window.location.host.includes("github")) {
-      setCalendarDb(calendar_db[year][month]);
-    } else {
-      setCalendarDb(null);
-      const abortController = new AbortController();
-      async function loadCalendarDb() {
-        try {
-          const response = await fetch(`http://localhost:8000/${year}`, {
-            headers: { "Content-Type": "application/json" },
-            signal: abortController.signal,
-          });
-
-          const payload = await response.json();
-
-          if (payload.error) {
-            return Promise.reject({ message: payload.error });
-          }
-          setCalendarDb(payload[month]);
-        } catch (error) {
-          if (error.name !== "AbortError") {
-            console.error(error.stack);
-            throw error;
-          }
-        }
-      }
-
-      loadCalendarDb();
-
-      return () => abortController.abort();
-    }
-  }, [year, month]);
 
   if (!calendarDb) {
     return "...Loading";
@@ -92,9 +96,13 @@ export default function Calendar() {
   return (
     <Main title="Calendar">
       <Row>
-        {day && calendarDb[day] ? (
+        {day && calendarDb[year][month][day] ? (
           <Col xs={3}>
-            <DaySchedule month={month} day={day} schedule={calendarDb[day]} />{" "}
+            <DaySchedule
+              month={month}
+              day={day}
+              schedule={calendarDb[year][month][day]}
+            />
           </Col>
         ) : null}
         <Col className="calendar">
@@ -102,7 +110,7 @@ export default function Calendar() {
           <CalendarContent
             month={month}
             columns={columns}
-            calendarDb={calendarDb}
+            calendarDb={calendarDb[year][month]}
             calendarStart={calendarStart}
             day={day}
             handleClickDay={handleClickDay}

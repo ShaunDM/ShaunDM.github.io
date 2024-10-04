@@ -1,8 +1,9 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import CalendarDay from "./CalendarDay";
 
 export default function CalendarBody({
-  days,
+  calendarDb,
   calendarStart,
   day,
   handleClickDay,
@@ -24,35 +25,21 @@ export default function CalendarBody({
       <Card />
     </td>
   );
-  for (const [key, value] of Object.entries(days)) {
+  for (const [key, value] of Object.entries(calendarDb)) {
+    const renderDay = key;
     if (key == 1) {
       while (row.length !== calendarStart) {
         row.push(blank);
       }
     }
     row.push(
-      <td id={key} day={row.length} className="calendarDay">
-        <Button
-          id={key}
-          variant="outline-secondary"
-          className="padding-0"
-          onClick={handleClickDay}
-        >
-          {key == day ? (
-            <Card id={key} bg="secondary" text="light">
-              <Card.Title id={key}>{key}</Card.Title>
-              <Card.Body id={key}>Tasks</Card.Body>
-              <Card.Footer id={key}>Points</Card.Footer>
-            </Card>
-          ) : (
-            <Card id={key} bg="light" border="secondary">
-              <Card.Title id={key}>{key}</Card.Title>
-              <Card.Body id={key}>Tasks</Card.Body>
-              <Card.Footer id={key}>Points</Card.Footer>
-            </Card>
-          )}
-        </Button>
-      </td>
+      <CalendarDay
+        renderDay={renderDay}
+        value={value}
+        day={day}
+        row={row}
+        handleClickDay={handleClickDay}
+      />
     );
     if (row.length === 7) {
       rows.push(row);
@@ -70,7 +57,7 @@ export default function CalendarBody({
     <tbody>
       {rows.map((row, index) => {
         return (
-          <tr key={`wk: ${index + 1}`} className="calendarWeek">
+          <tr key={`wk-${index + 1}`} className="calendarWeek">
             {row}
           </tr>
         );

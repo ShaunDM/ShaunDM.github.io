@@ -17,7 +17,7 @@ export default function CalendarContent({
       <caption></caption>
       <CalendarHead month={displayMonth} columns={columns} />
       <CalendarBody
-        days={calendarDb}
+        calendarDb={calendarDb}
         calendarStart={calendarStart}
         day={day}
         handleClickDay={handleClickDay}

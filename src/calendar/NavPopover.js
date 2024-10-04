@@ -30,7 +30,7 @@ export default function NavPopover({
     rows.push(row);
   }
   const popover = (
-    <Popover id={id}>
+    <Popover id={`popover-${id}`}>
       <Popover.Body>
         <Table className="overflow-hidden">
           <tbody>
@@ -43,7 +43,13 @@ export default function NavPopover({
     </Popover>
   );
   return (
-    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+    <OverlayTrigger
+      trigger="click"
+      placement="bottom"
+      overlay={popover}
+      id={id}
+      rootClose={true}
+    >
       <Button variant="success" className="position-relative">
         {buttonName}
       </Button>
