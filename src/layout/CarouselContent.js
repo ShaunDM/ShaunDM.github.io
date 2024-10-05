@@ -3,7 +3,7 @@ import Carousel from "react-bootstrap/Carousel";
 import ModalImage from "./ModalImage";
 import { referenceAsset } from "../util/api";
 
-function CarouselContent({
+export default function CarouselContent({
   thumbs,
   full,
   carouselIndex,
@@ -70,5 +70,3 @@ function CarouselContent({
     </>
   );
 }
-
-export default CarouselContent;

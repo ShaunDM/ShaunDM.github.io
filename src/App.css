@@ -55,13 +55,22 @@ li {
   justify-content: center;
 }
 
+.calendarTitle,
+.calendarContent,
+.daySchedule {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
 .toc {
   max-height: 100vh;
   display: flex;
   overflow: auto;
 }
 
-.list-group-item {
+.tocItem {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -72,15 +81,22 @@ li {
 }
 
 .carouselImage,
-.modalImage {
+.modalImage,
+.calendar {
   max-width: 100vw;
   max-height: 100vh;
   width: 100%;
   object-fit: contain;
 }
 
-.calendarMonth {
-  display: inline;
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-item-center {
+  display: flex;
+  justify-items: center;
 }
 
 .position-relative {
@@ -92,15 +108,14 @@ li {
   overflow: hidden;
 }
 
-.justifyCenter {
-  display: flex;
-  justify-content: center;
-}
-
 .padding-0 {
   padding: 0px;
 }
 
 .text-wrap-nowrap {
   text-wrap: nowrap;
+}
+
+.overflow-clip {
+  overflow: clip;
 }

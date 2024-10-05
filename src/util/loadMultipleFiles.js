@@ -9,6 +9,9 @@ export default function loadMultipleFiles(path) {
     ? path.substring(0, path.substring(1).indexOf("/") + 1)
     : path;
   switch (truncatedPath) {
+    case "/": {
+      break;
+    }
     case "/books": {
       assets = [];
       const carouselImages = require.context(

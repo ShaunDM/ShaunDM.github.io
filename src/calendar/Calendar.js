@@ -22,8 +22,6 @@ export default function Calendar() {
   const [calendarDb, setCalendarDb] = useState(null);
   const [day, setDay] = useState(date);
 
-  console.log(day);
-
   useEffect(() => {
     const abortController = new AbortController();
     if (!year) {
@@ -96,26 +94,38 @@ export default function Calendar() {
   return (
     <Main title="Calendar">
       <Row>
-        {day && calendarDb[year][month][day] ? (
-          <Col xs={3}>
-            <DaySchedule
-              month={month}
-              day={day}
-              schedule={calendarDb[year][month][day]}
-            />
+        <div className="calendar">
+          {day && calendarDb[year][month][day] ? (
+            <Col xs={3}>
+              <div className="daySchedule">
+                <DaySchedule
+                  month={month}
+                  day={day}
+                  schedule={calendarDb[year][month][day]}
+                />
+              </div>
+            </Col>
+          ) : null}
+          <Col>
+            <div className="calendarTitle">
+              <CalendarTitle
+                year={year}
+                month={month}
+                calendarDb={calendarDb}
+              />
+            </div>
+            <div className="calendarContent">
+              <CalendarContent
+                month={month}
+                columns={columns}
+                calendarDb={calendarDb[year][month]}
+                calendarStart={calendarStart}
+                day={day}
+                handleClickDay={handleClickDay}
+              />
+            </div>
           </Col>
-        ) : null}
-        <Col className="calendar">
-          <CalendarTitle year={year} month={month} calendarDb={calendarDb} />
-          <CalendarContent
-            month={month}
-            columns={columns}
-            calendarDb={calendarDb[year][month]}
-            calendarStart={calendarStart}
-            day={day}
-            handleClickDay={handleClickDay}
-          />
-        </Col>
+        </div>
       </Row>
     </Main>
   );

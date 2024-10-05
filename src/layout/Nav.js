@@ -10,11 +10,20 @@ import {
   faFilm,
   faBars,
   faCalendar,
+  faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
-import { getCurrentDate } from "../util/api";
 
 function Nav({ isPhone = true }) {
-  const today = getCurrentDate();
+  const links = [
+    { title: "Home", icon: faHouse },
+    { title: "Portfolio", icon: faFolder },
+    { title: "Books", icon: faBook },
+    { title: "Music", icon: faMusic },
+    { title: "Games", icon: faGamepad },
+    { title: "Movies Tv", icon: faFilm },
+    { title: "Calendar", icon: faCalendar },
+    { title: "Contact Me", icon: faAddressCard },
+  ];
 
   return (
     <nav name="navbar">
@@ -26,41 +35,30 @@ function Nav({ isPhone = true }) {
             </Link>
           </li>
         )}
-        <li id="nav_home">
-          <Link to="/">
-            <FontAwesomeIcon icon={faHouse} title="Home" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_portfolio">
-          <Link to="/portfolio">
-            <FontAwesomeIcon icon={faFolder} title="Portfolio" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_books">
-          <Link to="/books">
-            <FontAwesomeIcon icon={faBook} title="Books" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_music">
-          <Link to="/music">
-            <FontAwesomeIcon icon={faMusic} title="Music" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_games">
-          <Link to="/games">
-            <FontAwesomeIcon icon={faGamepad} title="Games" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_movies_tv">
-          <Link to="/movies_tv">
-            <FontAwesomeIcon icon={faFilm} title="Movies and TV" size="2x" />
-          </Link>
-        </li>
-        <li id="nav_calendar">
-          <Link to={`/calendar/${today.year}/${today.month}`}>
-            <FontAwesomeIcon icon={faCalendar} title="Calendar" size="2x" />
-          </Link>
-        </li>
+        {links.map((link) => {
+          const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
+          return (
+            <li id={`nav_${path}`} key={`nav_${path}`}>
+              {link.title === "Home" ? (
+                <Link to="/" state={{ pathname: "/" }}>
+                  <FontAwesomeIcon
+                    icon={link.icon}
+                    title={`${link.title}`}
+                    size="2x"
+                  />
+                </Link>
+              ) : (
+                <Link to={`/${path}`} reloadDocument={true}>
+                  <FontAwesomeIcon
+                    icon={link.icon}
+                    title={`${link.title}`}
+                    size="2x"
+                  />
+                </Link>
+              )}
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

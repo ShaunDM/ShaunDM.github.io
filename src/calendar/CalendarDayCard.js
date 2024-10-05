@@ -12,12 +12,16 @@ export default function CalendarDayCard({ renderDay, value }) {
           {value.map((task) => {
             if (task.completed) sum += task.points;
             if (task.important) {
+              //need to add overflow-clip
               return (
                 <ListGroup.Item id={renderDay} className="text-wrap-nowrap">
-                  <Row id={renderDay}>{task.task_name}</Row>
+                  <Row id={renderDay} className="overflow-clip">
+                    {task.task_name}
+                  </Row>
                 </ListGroup.Item>
               );
             }
+            return null;
           })}
         </ListGroup>
       </Card.Body>

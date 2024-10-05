@@ -55,25 +55,28 @@ export default function CalendarTitle({ year, month, calendarDb }) {
         buttonName={year}
         urlSuffix={`/${month}`}
       />
-      <Col className="d-flex justify-content-center">
-        <button className="scrollMonth">
-          <Link id={"linkToPrevMonth"} to={`${baseUrl}/${prevMonth()}`}>
-            <FontAwesomeIcon icon={faChevronLeft} size="2x" />
-          </Link>
-        </button>
-        <h2 className="calendarMonth">
-          <NavPopover
-            id="selectMonth"
-            baseUrl={`${baseUrl}/${year}`}
-            links={displayMonths}
-            buttonName={displayMonth}
-          />
-        </h2>
-        <button className="scrollMonth">
-          <Link id={"linkToNextMonth"} to={`${baseUrl}/${nextMonth()}`}>
-            <FontAwesomeIcon icon={faChevronRight} size="2x" />
-          </Link>
-        </button>
+      {/*for some reason won't center*/}
+      <Col className="d-flex">
+        <div className="justify-item-center">
+          <button className="scrollMonth">
+            <Link id={"linkToPrevMonth"} to={`${baseUrl}/${prevMonth()}`}>
+              <FontAwesomeIcon icon={faChevronLeft} size="2x" />
+            </Link>
+          </button>
+          <h2 className="calendarMonth">
+            <NavPopover
+              id="selectMonth"
+              baseUrl={`${baseUrl}/${year}`}
+              links={displayMonths}
+              buttonName={displayMonth}
+            />
+          </h2>
+          <button className="scrollMonth">
+            <Link id={"linkToNextMonth"} to={`${baseUrl}/${nextMonth()}`}>
+              <FontAwesomeIcon icon={faChevronRight} size="2x" />
+            </Link>
+          </button>
+        </div>
       </Col>
     </Row>
   );

@@ -10,7 +10,7 @@ export default function SidebarReg({ assets }) {
     const { id, title } = assetReference;
 
     links.push(
-      <li key={`${id}_toc`} id={`${id}_toc`} className="toc_item">
+      <li key={`${id}_toc`} id={`${id}_toc`} className="tocItem">
         <ListGroup.Item action href={`#${id}`} className="toc_link">
           {title}
         </ListGroup.Item>
