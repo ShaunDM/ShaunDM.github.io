@@ -93,11 +93,11 @@ export default function Calendar() {
 
   return (
     <Main title="Calendar">
-      <Row>
-        <div className="calendar">
+      <div className="calendar">
+        <Row className="flex-wrap-nowrap align-items-stretch">
           {day && calendarDb[year][month][day] ? (
-            <Col xs={3}>
-              <div className="daySchedule">
+            <Col xs="auto" className="padding-0 max-width-33 ">
+              <div className="daySchedule padding-0">
                 <DaySchedule
                   month={month}
                   day={day}
@@ -106,27 +106,29 @@ export default function Calendar() {
               </div>
             </Col>
           ) : null}
-          <Col>
-            <div className="calendarTitle">
-              <CalendarTitle
-                year={year}
-                month={month}
-                calendarDb={calendarDb}
-              />
-            </div>
+          <Col className="padding-0">
             <div className="calendarContent">
-              <CalendarContent
-                month={month}
-                columns={columns}
-                calendarDb={calendarDb[year][month]}
-                calendarStart={calendarStart}
-                day={day}
-                handleClickDay={handleClickDay}
-              />
+              <div className="calendarTitle">
+                <CalendarTitle
+                  year={year}
+                  month={month}
+                  calendarDb={calendarDb}
+                />
+              </div>
+              <div className="calendarBody">
+                <CalendarContent
+                  month={month}
+                  columns={columns}
+                  calendarDb={calendarDb[year][month]}
+                  calendarStart={calendarStart}
+                  day={day}
+                  handleClickDay={handleClickDay}
+                />
+              </div>
             </div>
           </Col>
-        </div>
-      </Row>
+        </Row>
+      </div>
     </Main>
   );
 }

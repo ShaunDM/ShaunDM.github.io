@@ -18,15 +18,29 @@ export default function CalendarDay({
       <Button
         id={renderDay}
         variant="outline-secondary"
-        className="padding-0"
+        className="padding-0 width-fit rounded-0"
         onClick={handleClickDay}
       >
         {renderDay == day ? (
-          <Card id={renderDay} bg="secondary" text="light">
-            <CalendarDayCard renderDay={renderDay} value={value} />
+          <Card
+            id={renderDay}
+            bg="secondary"
+            text="light"
+            className="width-fit"
+          >
+            <CalendarDayCard
+              renderDay={renderDay}
+              value={value}
+              active={true}
+            />
           </Card>
         ) : (
-          <Card id={renderDay} bg="light" border="secondary">
+          <Card
+            id={renderDay}
+            bg="light"
+            border="secondary"
+            className="width-fit"
+          >
             <CalendarDayCard renderDay={renderDay} value={value} />
           </Card>
         )}

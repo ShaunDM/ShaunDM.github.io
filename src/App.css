@@ -46,34 +46,10 @@ li {
   margin-right: 10px; /* add spacing between items */
 }
 
-.carouselItem,
-.modalBody {
-  max-width: 100vw;
-  max-height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.calendarTitle,
-.calendarContent,
-.daySchedule {
-  max-width: 100vw;
-  max-height: 100vh;
-  width: 100%;
-  display: flex;
-}
-
 .toc {
   max-height: 100vh;
   display: flex;
   overflow: auto;
-}
-
-.tocItem {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
 }
 
 .carouselItem {
@@ -81,12 +57,58 @@ li {
 }
 
 .carouselImage,
-.modalImage,
-.calendar {
+.modalImage {
   max-width: 100vw;
   max-height: 100vh;
   width: 100%;
   object-fit: contain;
+}
+
+.calendar {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100%;
+  display: inline-block;
+}
+
+.schedule {
+  width: auto;
+}
+
+.daySchedule,
+.calendarContent,
+.calendarBody,
+.calendarTitle {
+  width: fit-content;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+.calendarTable {
+  table-layout: fixed;
+  border-collapse: collapse;
+  max-height: fit-content;
+}
+
+.calendarDay {
+  padding: 0 !important;
+  background-color: transparent;
+  border-color: transparent;
+  overflow: clip;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card {
+  --bs-card-border-radius: 0;
+}
+
+.backgound-color-transparent {
+  background-color: transparent;
+}
+
+.border-color-transparent {
+  border-color: transparent;
 }
 
 .justify-content-center {
@@ -118,4 +140,50 @@ li {
 
 .overflow-clip {
   overflow: clip;
+}
+
+.width-fit {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.flex-wrap-nowrap {
+  flex-wrap: nowrap;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+#schedule {
+  height: fit-content;
+  max-height: 100vh;
+  overflow-y: scroll;
+  width: fit-content;
+  max-width: 100%;
+  margin-right: 8px;
+}
+
+.max-width-33 {
+  max-width: 33vw;
+}
+
+#scheduleListItem {
+  padding: 0px 4px 0 4px;
+  width: fit-content;
+  max-width: 100%;
+  max-height: 100vh;
+  height: fit-content;
+  flex-wrap: nowrap;
+  margin: 0 !important;
+}
+
+.padding-r-0 {
+  padding-right: 0;
+}
+
+.pointsForTask {
+  width: 100% !important;
+  text-align: end;
+  justify-self: stretch;
 }

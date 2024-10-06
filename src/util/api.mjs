@@ -28,6 +28,9 @@ export function getAssets(path) {
       assets = import("../assets/calendar/calendar_db.json");
       break;
     }
+    case "/contact_me": {
+      break;
+    }
     default: {
       return console.error(`Something went wrong! Path: ${path}`);
     }

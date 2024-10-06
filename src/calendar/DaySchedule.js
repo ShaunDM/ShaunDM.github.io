@@ -11,7 +11,7 @@ export default function DaySchedule({ month, day, schedule }) {
     setTab(eventKey);
   };
   return (
-    <Card>
+    <Card id="schedule" className="width-fit">
       <Card.Header>
         <Nav variant="tabs" defaultActiveKey="schedule" onSelect={handleSelect}>
           <Nav.Item>

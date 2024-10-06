@@ -27,7 +27,7 @@ function App() {
           <Route path=":year/:month/:date" element={<Calendar />} />
           <Route path=":year/:month" element={<Calendar />} />
         </Route>
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact_me" element={<Contact />} />
         <Route element={<ErrorPage />} />
       </Route>
     </Routes>

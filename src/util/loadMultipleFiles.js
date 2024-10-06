@@ -56,6 +56,9 @@ export default function loadMultipleFiles(path) {
     case "/calendar": {
       break;
     }
+    case "/contact_me": {
+      break;
+    }
     default: {
       return console.error(`Something went wrong! Path: ${path}`);
     }

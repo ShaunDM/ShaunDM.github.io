@@ -12,8 +12,9 @@ export default function CalendarContent({
   handleClickDay,
 }) {
   const displayMonth = month[0].toUpperCase() + month.substring(1);
+  //When calendar has more room than it needs, it expands the row width instead of stopping at the minimum size.
   return (
-    <Table>
+    <Table className="calendarTable">
       <caption></caption>
       <CalendarHead month={displayMonth} columns={columns} />
       <CalendarBody
