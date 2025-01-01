@@ -95,3 +95,7 @@ export function convertMonthToTitleCase(month) {
   month = month.toLowerCase();
   return month[0].toUpperCase() + month.substring(1);
 }
+
+export function convertSentenceToId(sentence) {
+  return sentence.replaceAll(" ", "_").toLowerCase();
+}
