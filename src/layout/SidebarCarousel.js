@@ -2,7 +2,7 @@ import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
-export default function SidebarCarousel({ assets, handleSelectCarouselIndex }) {
+export default function SidebarCarousel({ assets, handleSelectIndex }) {
   let links = [];
   const name = `toc_${window.location.pathname.substring(1)}`;
 
@@ -18,7 +18,7 @@ export default function SidebarCarousel({ assets, handleSelectCarouselIndex }) {
         className="tocItem"
         aria-label={id}
         action
-        onClick={() => handleSelectCarouselIndex(slideTo)}
+        onClick={() => handleSelectIndex(slideTo)}
       >
         {title}
       </ListGroup.Item>

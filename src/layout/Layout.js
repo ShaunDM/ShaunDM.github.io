@@ -7,30 +7,22 @@ import Header from "./Header";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
-  //carouselIndex is causing rerender need to fix.
+  //index is causing rerender need to fix.
   const { pathname } = window.location;
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const handleSelectCarouselIndex = (selectedIndex) => {
-    setCarouselIndex(selectedIndex);
+  const [index, setIndex] = useState(0);
+  const handleSelectIndex = (selectedIndex) => {
+    setIndex(selectedIndex);
   };
 
   const assets = loadMultipleFiles(pathname);
 
-  const isPhone = useMediaQuery({ query: "( maxwidth: 767 )" });
-
   return (
-    <Container>
+    <Container fluid>
       <Row>
-        <Header
-          isPhone={isPhone}
-          carouselIndex={carouselIndex}
-          handleSelectCarouselIndex={handleSelectCarouselIndex}
-        />
+        <Header index={index} handleSelectIndex={handleSelectIndex} />
       </Row>
       <Row>
-        <Outlet
-          context={[isPhone, assets, carouselIndex, handleSelectCarouselIndex]}
-        />
+        <Outlet context={[assets, index, handleSelectIndex]} />
       </Row>
       <Row>
         <Footer />

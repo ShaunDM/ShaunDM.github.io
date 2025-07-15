@@ -13,7 +13,7 @@ import {
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Nav({ isPhone = true }) {
+function Nav() {
   const links = [
     { title: "Home", icon: faHouse },
     { title: "Portfolio", icon: faFolder },
@@ -28,13 +28,13 @@ function Nav({ isPhone = true }) {
   return (
     <nav name="navbar">
       <ul name="nav_icons">
-        {isPhone && (
-          <li id="nav_bars">
-            <Link to="/">
-              <FontAwesomeIcon icon={faBars} title="Offcanvas" size="2x" />
-            </Link>
-          </li>
-        )}
+        (
+        <li id="nav_bars">
+          <Link to="/">
+            <FontAwesomeIcon icon={faBars} title="Offcanvas" size="2x" />
+          </Link>
+        </li>
+        )
         {links.map((link) => {
           const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
           return (

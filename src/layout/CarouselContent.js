@@ -1,14 +1,13 @@
 import { useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
+import { Carousel } from "react-bootstrap";
 import ModalImage from "./ModalImage";
 import { referenceAsset } from "../util/api";
 
 export default function CarouselContent({
   thumbs,
   full,
-  carouselIndex,
-  handleSelectCarouselIndex,
-  handleChange,
+  index,
+  handleSelectIndex,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
@@ -51,9 +50,8 @@ export default function CarouselContent({
   return (
     <>
       <Carousel
-        activeIndex={carouselIndex}
-        onSelect={handleSelectCarouselIndex}
-        onChange={handleChange}
+        activeIndex={index}
+        onSelect={handleSelectIndex}
         name={urlPath}
         id={urlPath}
         interval={showModal ? null : "3000"}
