@@ -2,24 +2,16 @@ import React from "react";
 import Nav from "./Nav";
 
 function Header({
-  isPhone,
-  carouselIndex,
-  handleSelectCarouselIndex,
+  index,
+  handleSelectIndex,
   header_content = "Shaun McRae - Software Engineer",
 }) {
-  const header = isPhone ? (
-    <>
+  return (
+    <header>
       <Nav />
       <h1>{header_content}</h1>
-    </>
-  ) : (
-    <>
-      <h1>{header_content}</h1>
-      <Nav isPhone={isPhone} />
-    </>
+    </header>
   );
-
-  return <header>{header}</header>;
 }
 
 export default Header;

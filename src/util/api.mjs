@@ -44,12 +44,12 @@ export function getAssetId(file_name) {
 
 export function getAssetTitle(file_name) {
   return file_name
-    .substring(0, file_name.lastIndexOf("_"))
     .replace(/_/g, " ")
     .replace(
       /\w\S*/g,
       (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     )
+    .replace(" Slash ", "/")
     .trim();
 }
 

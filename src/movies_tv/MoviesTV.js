@@ -1,9 +1,6 @@
 import React from "react";
+import Main from "../layout/Main";
 
 export default function MoviesTV() {
-  return (
-    <>
-      <h1>Movies & TV</h1>
-    </>
-  );
+  return <Main title={"Movies & TV"}></Main>;
 }

@@ -11,8 +11,7 @@ import DaySchedule from "./DaySchedule";
 
 export default function Calendar() {
   //Need controllers for bad urls not on the calendar.
-  const isPhone = useOutletContext()[0];
-  const assets = useOutletContext()[1];
+  const assets = useOutletContext()[0];
 
   const navigate = useNavigate();
 
