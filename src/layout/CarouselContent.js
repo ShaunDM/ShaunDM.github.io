@@ -18,10 +18,11 @@ export default function CarouselContent({
     setShowModal(false);
     setModalContent(null);
   };
+
   const handleShow = (id) => {
-    setShowModal(true);
-    const fullKey = id.substring(0, id.lastIndexOf("_")) || id;
-    setModalContent(full[fullKey]);
+    setShowModal(id);
+    //removes "_poster" from file_name
+    setModalContent(full[id.substring(0, id.lastIndexOf("_"))]);
   };
 
   let items = [];
@@ -61,6 +62,7 @@ export default function CarouselContent({
         {items}
       </Carousel>
       <ModalImage
+        id={showModal}
         content={modalContent}
         showModal={showModal}
         handleClose={handleClose}

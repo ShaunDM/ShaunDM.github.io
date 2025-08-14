@@ -6,12 +6,12 @@ import {
   ButtonGroup,
   Col,
   ListGroup,
+  Image,
 } from "react-bootstrap";
 import SpotifyPlayer from "./SpotifyPlayer";
 import PlaylistDescription from "./PlaylistDescription";
 
 export default function Playlists({ assets, index, handleSelectIndex }) {
-  console.log(assets);
   const stations = Object.keys(assets.playlistSrcs).map((station, index) => {
     const title = station.replaceAll("_slash_", "/").replaceAll("_", " ");
     return (
@@ -23,8 +23,17 @@ export default function Playlists({ assets, index, handleSelectIndex }) {
         <Col>
           <SpotifyPlayer src={assets.playlistSrcs[station]} />
         </Col>
-        <Col>
-          <div className="flex-shrink">
+        <Col
+          style={{
+            backgroundImage: "url(" + assets.icons[station] + ")",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundBlendMode: "lighten",
+            backgroundColor: "rgba(255,255,255,0.6)",
+          }}
+        >
+          <div>
             <PlaylistDescription src={assets.playlistDescs[station]} />
           </div>
         </Col>

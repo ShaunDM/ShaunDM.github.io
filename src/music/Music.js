@@ -10,7 +10,7 @@ export default function Music() {
   const handleSelectIndex = useOutletContext()[2];
 
   return (
-    <Main title="Music">
+    <>
       <Row>
         <p>
           Below is a list of playlists for various genres of music, along with a
@@ -27,11 +27,6 @@ export default function Music() {
         </p>
       </Row>
       <Row>
-        <Col xs={3}>
-          <div className="sticky">
-            <Sidebar assets={assets.playlistSrcs} />
-          </div>
-        </Col>
         <Col>
           <Playlists
             assets={assets}
@@ -40,6 +35,6 @@ export default function Music() {
           />
         </Col>
       </Row>
-    </Main>
+    </>
   );
 }

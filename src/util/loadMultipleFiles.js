@@ -29,42 +29,50 @@ export default function loadMultipleFiles(path) {
     case "/": {
       const fetch = require.context("../assets/home", true);
       getAssets(fetch);
+      assets.sidebar = { type: null, src: null };
       break;
     }
     case "/books": {
       const fetch = require.context("../assets/books", true);
       getAssets(fetch);
+      assets.sidebar = { type: "carousel", src: "full" };
       break;
     }
     case "/games": {
       const fetch = require.context("../assets/games", true);
       getAssets(fetch);
+      assets.sidebar = { type: "list", src: "thumbs" };
       break;
     }
 
     case "/movies_tv": {
       const fetch = require.context("../assets/movies_tv", true);
       getAssets(fetch);
+      assets.sidebar = { type: "list", src: "thumbs" };
       break;
     }
     case "/music": {
       const fetch = require.context("../assets/music", true);
       getAssets(fetch);
+      assets.sidebar = { type: "list", src: "playlistSrcs" };
       break;
     }
     case "/portfolio": {
       const fetch = require.context("../assets/portfolio", true);
       getAssets(fetch);
+      assets.sidebar = { type: "list", src: "thumbs" };
       break;
     }
     case "/calendar": {
       const fetch = require.context("../assets/calendar", true);
       getAssets(fetch);
+      assets.sidebar = { type: "calendar", src: null };
       break;
     }
     case "/contact_me": {
       const fetch = require.context("../assets/contact_me", true);
       getAssets(fetch);
+      assets.sidebar = { type: null, src: null };
       break;
     }
     default: {

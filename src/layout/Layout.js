@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
-import { useMediaQuery } from "react-responsive";
+import { Container, Row, Col } from "react-bootstrap";
+import MediaQuery from "react-responsive";
 import Footer from "./Footer";
+import Main from "./Main";
 import Header from "./Header";
 import loadMultipleFiles from "../util/loadMultipleFiles";
+import { convertPathToTitle } from "../util/api.mjs";
 
 function Layout() {
   //index is causing rerender need to fix.
@@ -22,7 +24,13 @@ function Layout() {
         <Header index={index} handleSelectIndex={handleSelectIndex} />
       </Row>
       <Row>
-        <Outlet context={[assets, index, handleSelectIndex]} />
+        <Main
+          title={convertPathToTitle(pathname)}
+          assets={assets}
+          handleSelectIndex={handleSelectIndex}
+        >
+          <Outlet context={[assets, index, handleSelectIndex]} />
+        </Main>
       </Row>
       <Row>
         <Footer />

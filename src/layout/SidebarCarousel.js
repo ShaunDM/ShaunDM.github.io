@@ -2,11 +2,11 @@ import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
-export default function SidebarCarousel({ assets, handleSelectIndex }) {
+export default function SidebarCarousel({ carouselItems, handleSelectIndex }) {
   let links = [];
   const name = `toc_${window.location.pathname.substring(1)}`;
 
-  for (const [key] of Object.entries(assets)) {
+  for (const [key] of Object.entries(carouselItems)) {
     const assetReference = referenceAsset(key);
     const { id, title } = assetReference;
     const slideTo = links.length;

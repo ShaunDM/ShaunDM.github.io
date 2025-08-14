@@ -99,3 +99,15 @@ export function convertMonthToTitleCase(month) {
 export function convertSentenceToId(sentence) {
   return sentence.replaceAll(" ", "_").toLowerCase();
 }
+
+export function convertPathToTitle(path) {
+  let title = path.substring(1);
+  return title
+    .replace(/_/g, " ")
+    .replace(
+      /\w\S*/g,
+      (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+    )
+    .replace(" Slash ", "/")
+    .trim();
+}

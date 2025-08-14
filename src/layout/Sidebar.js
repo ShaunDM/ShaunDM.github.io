@@ -1,31 +1,28 @@
-import React from "react";
-import { ListGroup } from "react-bootstrap";
-import { referenceAsset } from "../util/api";
+import SidebarCarousel from "./SidebarCarousel";
+import SidebarList from "./SidebarList";
 
-export default function Sidebar({ assets }) {
-  let links = [];
-
-  for (const [key] of Object.entries(assets)) {
-    const assetReference = referenceAsset(key);
-    const { id, title } = assetReference;
-
-    links.push(
-      <ListGroup.Item
-        href={`#${id}`}
-        key={`${id}_toc`}
-        id={`${id}_toc`}
-        className="tocItem"
-        aria-label={title}
-        action
-      >
-        {title}
-      </ListGroup.Item>
-    );
+export default function Sidebar({ assets, handleSelectIndex }) {
+  const { sidebar } = assets;
+  switch (sidebar.type) {
+    case "none": {
+      return;
+    }
+    case "list": {
+      return <SidebarList list={assets[sidebar.src]} />;
+    }
+    case "carousel": {
+      return (
+        <SidebarCarousel
+          carouselItems={assets[sidebar.src]}
+          handleSelectIndex={handleSelectIndex}
+        />
+      );
+    }
+    case "calendar": {
+      return "Needs doing.";
+    }
+    default: {
+      new Error("Something went wrong with the sidebar!");
+    }
   }
-
-  return (
-    <aside>
-      <ListGroup className="toc">{links}</ListGroup>
-    </aside>
-  );
 }

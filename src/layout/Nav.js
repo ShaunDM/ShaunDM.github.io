@@ -8,7 +8,6 @@ import {
   faBook,
   faGamepad,
   faFilm,
-  faBars,
   faCalendar,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
@@ -28,13 +27,6 @@ function Nav() {
   return (
     <nav name="navbar">
       <ul name="nav_icons">
-        (
-        <li id="nav_bars">
-          <Link to="/">
-            <FontAwesomeIcon icon={faBars} title="Offcanvas" size="2x" />
-          </Link>
-        </li>
-        )
         {links.map((link) => {
           const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
           return (
