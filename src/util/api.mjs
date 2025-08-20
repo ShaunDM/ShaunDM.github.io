@@ -38,30 +38,38 @@ export function getAssets(path) {
   return assets;
 }
 
-export function getAssetId(file_name) {
-  return file_name.substring(0, file_name.lastIndexOf(".")) || file_name;
+export function getAssetId(assetName) {
+  return assetName.substring(0, assetName.lastIndexOf(".")) || assetName;
 }
 
-export function getAssetTitle(file_name) {
-  return file_name
+export function getAssetTitle(assetName) {
+  if (assetName === "rpg") return "RPG";
+  return assetName
     .replace(/_/g, " ")
     .replace(
       /\w\S*/g,
       (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     )
     .replace(" Slash ", "/")
+    .replace(
+      /\W+/g,
+      (text) =>
+        text.charAt(0) +
+        text.charAt(1).toUpperCase() +
+        text.substring(2).toLowerCase()
+    )
     .trim();
 }
 
-export function getAssetAlt(file_name) {
-  return file_name.replace(/_/g, " ");
+export function getAssetAlt(assetName) {
+  return assetName.replace(/_/g, " ");
 }
 
-export function referenceAsset(file_name) {
+export function referenceAsset(assetName) {
   return {
-    id: getAssetId(file_name),
-    title: getAssetTitle(file_name),
-    alt: getAssetAlt(file_name),
+    id: getAssetId(assetName),
+    title: getAssetTitle(assetName),
+    alt: getAssetAlt(assetName),
   };
 }
 

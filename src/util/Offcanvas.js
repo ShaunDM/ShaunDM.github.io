@@ -6,11 +6,11 @@ function SidebarOffCanvas() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShowModal = () => setShow(true);
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" onClick={handleShowModal}>
         Launch
       </Button>
 

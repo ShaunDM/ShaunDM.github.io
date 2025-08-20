@@ -1,11 +1,11 @@
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
+import { useOutletContext } from "react-router-dom";
 
-export default function SidebarList({ list }) {
+export default function SidebarList({ assets }) {
   let links = [];
-  console.log(list);
 
-  for (const [key] of Object.entries(list)) {
+  for (const [key] of Object.entries(assets[assets.sidebar.src])) {
     const assetReference = referenceAsset(key);
     const { id, title } = assetReference;
 

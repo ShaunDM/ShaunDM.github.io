@@ -1,23 +1,17 @@
+import React from "react";
 import { Col } from "react-bootstrap";
 import { useOutletContext } from "react-router-dom";
-import ContentLoading from "../layout/ContentLoading";
-import CarouselContent from "../layout/CarouselContent";
+import ViewCarousel from "../format/ViewCarousel";
 
 export default function Books() {
-  const assets = useOutletContext()[0];
-  const index = useOutletContext()[1];
-  const handleSelectIndex = useOutletContext()[2];
-
-  if (!Object.keys(assets).length) return <ContentLoading title="Books" />;
+  const { assets } = useOutletContext();
 
   return (
-    <Col>
-      <CarouselContent
-        thumbs={assets.thumbs}
-        full={assets.full}
-        index={index}
-        handleSelectIndex={handleSelectIndex}
-      />
-    </Col>
+    <ViewCarousel
+      itemType="image"
+      modalType="image"
+      items={assets.items}
+      modals={assets.modals}
+    />
   );
 }

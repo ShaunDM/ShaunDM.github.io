@@ -1,13 +1,9 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
-import Playlists from "./Playlists";
-import Main from "../layout/Main";
-import Sidebar from "../layout/Sidebar";
+import List from "../format/List";
 import { Row, Col } from "react-bootstrap";
 export default function Music() {
-  const assets = useOutletContext()[0];
-  const index = useOutletContext()[1];
-  const handleSelectIndex = useOutletContext()[2];
+  const { assets } = useOutletContext();
 
   return (
     <>
@@ -28,11 +24,7 @@ export default function Music() {
       </Row>
       <Row>
         <Col>
-          <Playlists
-            assets={assets}
-            index={index}
-            handleSelectIndex={handleSelectIndex}
-          />
+          <List itemType={"spotify"} assets={assets} />
         </Col>
       </Row>
     </>

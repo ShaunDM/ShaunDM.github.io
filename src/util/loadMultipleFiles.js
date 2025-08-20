@@ -35,16 +35,27 @@ export default function loadMultipleFiles(path) {
     case "/books": {
       const fetch = require.context("../assets/books", true);
       getAssets(fetch);
-      assets.sidebar = { type: "carousel", src: "full" };
+      assets.sidebar = { type: "carousel", src: "items" };
+      break;
+    }
+    case "/calendar": {
+      const fetch = require.context("../assets/calendar", true);
+      getAssets(fetch);
+      assets.sidebar = { type: "calendar", src: null };
+      break;
+    }
+    case "/contact_me": {
+      const fetch = require.context("../assets/contact_me", true);
+      getAssets(fetch);
+      assets.sidebar = { type: null, src: null };
       break;
     }
     case "/games": {
       const fetch = require.context("../assets/games", true);
       getAssets(fetch);
-      assets.sidebar = { type: "list", src: "thumbs" };
+      assets.sidebar = { type: "list", src: "images" };
       break;
     }
-
     case "/movies_tv": {
       const fetch = require.context("../assets/movies_tv", true);
       getAssets(fetch);
@@ -60,21 +71,10 @@ export default function loadMultipleFiles(path) {
     case "/portfolio": {
       const fetch = require.context("../assets/portfolio", true);
       getAssets(fetch);
-      assets.sidebar = { type: "list", src: "thumbs" };
+      assets.sidebar = { type: "carousel", src: "pics" };
       break;
     }
-    case "/calendar": {
-      const fetch = require.context("../assets/calendar", true);
-      getAssets(fetch);
-      assets.sidebar = { type: "calendar", src: null };
-      break;
-    }
-    case "/contact_me": {
-      const fetch = require.context("../assets/contact_me", true);
-      getAssets(fetch);
-      assets.sidebar = { type: null, src: null };
-      break;
-    }
+
     default: {
       return console.error(`Something went wrong! Path: ${path}`);
     }

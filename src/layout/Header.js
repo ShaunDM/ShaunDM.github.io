@@ -4,11 +4,7 @@ import Nav from "./Nav";
 import MobileToolbar from "./MobileToolbar";
 import MediaQuery from "react-responsive";
 
-function Header({
-  index,
-  handleSelectIndex,
-  header_content = "Shaun McRae - Software Engineer",
-}) {
+function Header({ header_content = "Shaun McRae - Software Engineer" }) {
   return (
     <header id="header">
       <Row>

@@ -1,6 +1,6 @@
 import Main from "./Main";
-function ContentLoading({ title }) {
-  return <Main title={title}>"...Loading"</Main>;
+function ContentLoading({}) {
+  return "...Loading";
 }
 
 export default ContentLoading;

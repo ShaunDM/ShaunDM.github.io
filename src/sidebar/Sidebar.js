@@ -1,19 +1,18 @@
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";
+import { useOutletContext } from "react-router-dom";
 
 export default function Sidebar({ assets, handleSelectIndex }) {
-  const { sidebar } = assets;
-  switch (sidebar.type) {
-    case "none": {
-      return;
-    }
+  switch (assets.sidebar.type) {
+    case null:
+      return null;
     case "list": {
-      return <SidebarList list={assets[sidebar.src]} />;
+      return <SidebarList assets={assets} />;
     }
     case "carousel": {
       return (
         <SidebarCarousel
-          carouselItems={assets[sidebar.src]}
+          assets={assets}
           handleSelectIndex={handleSelectIndex}
         />
       );
@@ -22,7 +21,7 @@ export default function Sidebar({ assets, handleSelectIndex }) {
       return "Needs doing.";
     }
     default: {
-      new Error("Something went wrong with the sidebar!");
+      new Error("Invalid sidebar type in Sidebar!");
     }
   }
 }
