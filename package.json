@@ -13,6 +13,9 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.7",
+    "dotenv": "^17.2.1",
+    "install": "^0.13.0",
+    "npm": "^11.5.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.10",
     "react-dom": "^18.2.0",
@@ -31,7 +34,8 @@
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
     "reset:cal": "node ./src/util/resetCalendar.mjs",
-    "start:server": "npx json-server --watch ./src/assets/calendar/calendar_db.json --port 8000"
+    "start:server": "npx json-server --watch ./src/assets/calendar/calendar_db.json --port 8000",
+    "get:movie_assets": "node ./src/util/loadMovies.mjs"
   },
   "eslintConfig": {
     "extends": [
