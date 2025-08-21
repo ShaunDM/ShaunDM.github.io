@@ -4,11 +4,10 @@ import os from "node:os";
 import path from "node:path";
 import links from "../assets/movies_tv/links.json" with { type: "json" };
 
-const ENV_PATH =
-  "C:/Users/Shaun/Documents/Github/personal_projects/personal_website/personal_website_frontend/.env";
+const ENV_PATH = (import.meta.url + '../../../../.env').substring(8);
 
 dotenv.config({
-  path: ENV_PATH,
+  path: ENV_PATH
 });
 
 const baseURL = process.env.MOVIE_BASE_URL;
