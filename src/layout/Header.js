@@ -8,6 +8,9 @@ function Header({ header_content = "Shaun McRae - Software Engineer" }) {
   return (
     <header id="header">
       <Row>
+        <h1>{header_content}</h1>
+      </Row>
+      <Row>
         <MediaQuery maxWidth={991}>
           <Col>
             <MobileToolbar />
@@ -16,9 +19,6 @@ function Header({ header_content = "Shaun McRae - Software Engineer" }) {
         <Col>
           <Nav />
         </Col>
-      </Row>
-      <Row>
-        <h1>{header_content}</h1>
       </Row>
     </header>
   );

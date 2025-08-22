@@ -15,7 +15,7 @@ function Layout() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid style={{ gap: "20px 10px" }}>
       <Row>
         <Header />
       </Row>

@@ -39,9 +39,18 @@ export default function Item({
             target="_blank"
             variant="dark"
           >
-            <Card bg="dark" text="light" style={{ margin: "0px 0px 25px 0px" }}>
+            <Card
+              bg="dark"
+              text="light"
+              style={{ maxWidth: "460px", margin: "0px 0px 25px 0px" }}
+            >
               <Card.Header>
                 <Card.Title>{title}</Card.Title>
+                {value.genres ? (
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {value.genres.join(" / ")}
+                  </Card.Subtitle>
+                ) : null}
               </Card.Header>
               <Card.Body>
                 <Image
@@ -50,9 +59,15 @@ export default function Item({
                   fluid
                   href={value.link ? value.link : ""}
                 />
-                <Card.Text style={{ width: "460px" }}>
-                  {value.description}
-                </Card.Text>
+                <Card.Text>{value.description}</Card.Text>
+                {value.comment ? (
+                  <Card.Text
+                    className="blockquote-footer"
+                    style={{ margin: "1em 0 0 0" }}
+                  >
+                    {value.comment}
+                  </Card.Text>
+                ) : null}
               </Card.Body>
             </Card>
           </Button>

@@ -106,12 +106,21 @@ for (const link of linkValues) {
   }
 }
 
-//TMDB API genres have two separate categories and id sets depending on whether the media type is a tv show or a movie for some reason.
+//TMDB API genres have two separate categories and id sets depending on whether the media type is a tv show or a movie.
 const genreListMovies = await fetchJson("https://api.themoviedb.org/3/genre/movie/list").then((response) => response.genres);
 const genreListTV = await fetchJson("https://api.themoviedb.org/3/genre/tv/list").then((response) => response.genres);
 
-//converts given genres ids into genre names.
-for (const value of Object.values(assets)) {
+//for loop to format object keys and values recieved from TMDB API
+for (const [key, value] of Object.entries(assets)) {
+  value["description"] = value.overview;
+  delete value.overview;
+  
+  value["link"] = `https://www.themoviedb.org/${value.media_type}/${value.id}`;
+
+  value["image"] = imageBaseURL + "w500" +value.poster_path;
+  delete value.poster_path;
+  
+  //converts given genres ids into genre names.
   if (value.media_type === "tv") {
     value["genres"] = value.genre_ids.map((id) => {
       const object = genreListTV.find((obj) => obj.id === id);
@@ -120,27 +129,52 @@ for (const value of Object.values(assets)) {
   }
   else {
     value["genres"] = value.genre_ids.map((id) => {
-      const object = genreListTV.find((obj) => obj.id === id);
+      const object = genreListMovies.find((obj) => obj.id === id);
       return object.name;
     })
   }
   delete value.genre_ids;
 
   //tv shows have a "name" key instead of "title" key that movies have. Replaces "name" portion of key to "title" for consistency purposes when pulling data to render.
-  if (value.title) {
-    continue;
-  }
-  for (const [key, prop] of Object.entries(value)) {
-    if (key.includes("name")) {
-      value[key.replace("name", "title")] = value[key];
-      delete value[key];
+
+  if (!value.title) {
+    for (const k of Object.keys(value)) {
+      if (k.includes("name")) {
+        value[k.replace("name", "title")] = value[k];
+        delete value[k];
+      }
     }
+  }
+  if (key.includes(".")) {
+    assets[key.replace(".", "")] = assets[key];
+    delete assets[key]
   }
 }
 
+function sortAssets(a, b) {
+  const nameA = a.substring(0, 4).includes("the") ? a.substring(4) : a;
+  const nameB = b.substring(0, 4).includes("the") ? b.substring(4) : b;
+  console.log(nameA, nameB);
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+}
+
+const sortedAssets = Object.keys(assets).sort((a, b) => sortAssets(a, b)).reduce(
+  (obj, key) => { 
+    obj[key] = assets[key]; 
+    return obj;
+  }, 
+  {}
+);
+
 fs.writeFile(
   "C:/Users/Shaun/Documents/Github/personal_projects/personal_website/personal_website_frontend/src/assets/movies_tv/items.json",
- JSON.stringify(assets),
+ JSON.stringify(sortedAssets),
   (err) => {
     if (err) throw err;
     console.log("src/assets/movies_tv/items.json has been updated");
