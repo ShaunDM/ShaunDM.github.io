@@ -7,7 +7,6 @@ import { getAssetTitle } from "../util/api.mjs";
 export default function ViewListGroup({ itemType, items, handleShowModal }) {
   const { assets } = useOutletContext();
   return Object.entries(items).map(([key, value], index) => {
-    console.log(value);
     const title = getAssetTitle(key);
     return assets.descriptions ? (
       <ListGroup.Item

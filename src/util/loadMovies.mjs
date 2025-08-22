@@ -47,7 +47,7 @@ async function fetchJson(
   }
 }
 
-//this is for the base url of getting images. See https://developer.themoviedb.org/reference/configuration-details
+//this is checks the base url of getting images and replaces if necessary. See https://developer.themoviedb.org/reference/configuration-details
 async function checkBaseURL() {
   const requestBaseURL = await fetchJson(baseURL + "configuration").then(
     (response) => response.images.secure_base_url
@@ -95,12 +95,46 @@ for (const link of linkValues) {
   //fetch asset
   const asset = await getMovieTv(path.basename(link));
   //returns asset as array, finds data and formats it correctly for later use.
-  for (const [key, value] of Object.entries(asset)) {
+  for (const value of Object.values(asset)) {
     if (value.length && value[0].title) {
       assets[value[0].title.toLowerCase().replaceAll(" ", "_")] = value[0];
       continue;
     }
-    if (value.length) assets[value[0].name.toLowerCase().replaceAll(" ", "_")] = value[0];
+    if (value.length) {
+      assets[value[0].name.toLowerCase().replaceAll(" ", "_")] = value[0];
+    }
+  }
+}
+
+//TMDB API genres have two separate categories and id sets depending on whether the media type is a tv show or a movie for some reason.
+const genreListMovies = await fetchJson("https://api.themoviedb.org/3/genre/movie/list").then((response) => response.genres);
+const genreListTV = await fetchJson("https://api.themoviedb.org/3/genre/tv/list").then((response) => response.genres);
+
+//converts given genres ids into genre names.
+for (const value of Object.values(assets)) {
+  if (value.media_type === "tv") {
+    value["genres"] = value.genre_ids.map((id) => {
+      const object = genreListTV.find((obj) => obj.id === id);
+      return object.name;
+    })
+  }
+  else {
+    value["genres"] = value.genre_ids.map((id) => {
+      const object = genreListTV.find((obj) => obj.id === id);
+      return object.name;
+    })
+  }
+  delete value.genre_ids;
+
+  //tv shows have a "name" key instead of "title" key that movies have. Replaces "name" portion of key to "title" for consistency purposes when pulling data to render.
+  if (value.title) {
+    continue;
+  }
+  for (const [key, prop] of Object.entries(value)) {
+    if (key.includes("name")) {
+      value[key.replace("name", "title")] = value[key];
+      delete value[key];
+    }
   }
 }
 

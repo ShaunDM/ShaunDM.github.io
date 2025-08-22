@@ -59,7 +59,7 @@ export default function loadMultipleFiles(path) {
     case "/movies_tv": {
       const fetch = require.context("../assets/movies_tv", true);
       getAssets(fetch);
-      assets.sidebar = { type: "list", src: "thumbs" };
+      assets.sidebar = { type: "list", src: "links" };
       break;
     }
     case "/music": {
