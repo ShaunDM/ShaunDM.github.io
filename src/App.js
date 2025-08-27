@@ -8,7 +8,7 @@ import Music from "./music/Music";
 import MoviesTV from "./movies_tv/MoviesTV";
 import Games from "./games/Games";
 import Calendar from "./calendar/Calendar";
-import Contact from "./contact/Contact";
+import ContactMe from "./contact_me/ContactMe";
 import ErrorPage from "./error/ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -27,7 +27,7 @@ function App() {
           <Route path=":year/:month/:date" element={<Calendar />} />
           <Route path=":year/:month" element={<Calendar />} />
         </Route>
-        <Route path="contact_me" element={<Contact />} />
+        <Route path="contact_me" element={<ContactMe />} />
         <Route element={<ErrorPage />} />
       </Route>
     </Routes>

@@ -154,7 +154,6 @@ for (const [key, value] of Object.entries(assets)) {
 function sortAssets(a, b) {
   const nameA = a.substring(0, 4).includes("the") ? a.substring(4) : a;
   const nameB = b.substring(0, 4).includes("the") ? b.substring(4) : b;
-  console.log(nameA, nameB);
   if (nameA < nameB) {
     return -1;
   }
