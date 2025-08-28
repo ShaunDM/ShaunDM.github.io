@@ -1,7 +1,5 @@
-import React from "react";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
-import { useOutletContext } from "react-router-dom";
 
 export default function SidebarCarousel({ assets, handleSelectIndex }) {
   let links = [];

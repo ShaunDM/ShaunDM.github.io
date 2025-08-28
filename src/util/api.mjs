@@ -71,7 +71,7 @@ function fixLowercase(str) {
 
 export function getAssetTitle(assetName) {
   if (assetName === "rpg") return assetName.toUpperCase();
-  if (assetName == "movies_tv") return "Movies/TV";
+  if (assetName === "movies_tv") return "Movies/TV";
   let string = assetName
     .replace(/_/g, " ")
     .replace(

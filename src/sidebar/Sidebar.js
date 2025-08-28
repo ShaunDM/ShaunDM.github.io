@@ -1,7 +1,6 @@
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";
 import SidebarDropdown from "./SidebarDropdown";
-import { useOutletContext } from "react-router-dom";
 
 export default function Sidebar({ assets, handleSelectIndex }) {
   switch (assets.sidebar.type) {

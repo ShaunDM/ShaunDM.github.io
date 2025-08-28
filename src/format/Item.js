@@ -1,6 +1,4 @@
-import React from "react";
 import { Image, Card, Button } from "react-bootstrap";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Item({
   itemType,
@@ -64,6 +62,7 @@ export default function Item({
           height="352"
           allow="fullscreen"
           loading="lazy"
+          title={title}
         />
       );
     }
@@ -100,9 +99,10 @@ export default function Item({
           width="100%"
           height="352"
           frameBorder="0"
-          allowfullscreen=""
+          allowFullScreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"
+          title={title}
         />
       );
     }

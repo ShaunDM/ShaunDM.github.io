@@ -1,5 +1,3 @@
-import React from "react";
-import { Col } from "react-bootstrap";
 import { useOutletContext } from "react-router-dom";
 import ViewCarousel from "../format/ViewCarousel";
 

@@ -4,7 +4,7 @@ import { Row } from "react-bootstrap";
 import List from "../format/List";
 
 export default function Portfolio() {
-  const { assets, index, handleSelectIndex } = useOutletContext();
+  const { assets } = useOutletContext();
   console.log(assets);
   return Object.entries(assets).map(([key, value]) => {
     if (key === "sidebar") return null;

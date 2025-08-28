@@ -29,7 +29,6 @@ function Nav() {
       <ul name="nav_icons">
         {links.map((link) => {
           const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
-          console.log(path);
           return (
             <li id={`nav_${path}`} key={`nav_${path}`}>
               {link.title === "Home" ? (
