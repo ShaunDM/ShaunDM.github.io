@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, Card, Button } from "react-bootstrap";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Item({
   itemType,
@@ -9,28 +10,11 @@ export default function Item({
   alt,
   handleShowModal,
 }) {
+  const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {
-    case "image": {
-      return (
-        <div style={{ justifySelf: "center" }}>
-          <img src={value} alt={alt} onClick={() => handleShowModal(id)} />
-        </div>
-      );
-    }
-    case "spotify": {
-      return (
-        <iframe
-          src={`https://open.spotify.com/embed/playlist/${value}?utm_source=generator`}
-          width="100%"
-          height="352"
-          frameBorder="0"
-          allowfullscreen=""
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-        />
-      );
-    }
     case "card": {
+      console.log(value);
+
       //look into including multiple cards on smaller pages
       return (
         <div style={{ justifySelf: "center" }}>
@@ -53,12 +37,9 @@ export default function Item({
                 ) : null}
               </Card.Header>
               <Card.Body>
-                <Image
-                  src={value.image}
-                  alt={alt}
-                  fluid
-                  href={value.link ? value.link : ""}
-                />
+                {value.image ? (
+                  <Image src={value.image} alt={alt} fluid />
+                ) : null}
                 <Card.Text>{value.description}</Card.Text>
                 {value.comment ? (
                   <Card.Text
@@ -74,6 +55,58 @@ export default function Item({
         </div>
       );
     }
+
+    case "iframe": {
+      return (
+        <iframe
+          src={value}
+          width="100%"
+          height="352"
+          allow="fullscreen"
+          loading="lazy"
+        />
+      );
+    }
+    case "image": {
+      return value.includes("pdf") ? (
+        <embed
+          src={value}
+          alt={alt}
+          onClick={onclick}
+          style={{ height: "100%" }}
+        />
+      ) : (
+        <img
+          src={value}
+          alt={alt}
+          onClick={onclick ? onclick : () => window.open(value, "_blank")}
+          style={{ height: "100%" }}
+        />
+      );
+    }
+
+    case "image_carousel": {
+      return (
+        <div style={{ justifySelf: "center" }}>
+          <img src={value} alt={alt} onClick={onclick} />
+        </div>
+      );
+    }
+
+    case "spotify": {
+      return (
+        <iframe
+          src={`https://open.spotify.com/embed/playlist/${value}?utm_source=generator`}
+          width="100%"
+          height="352"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        />
+      );
+    }
+
     default: {
       new Error("Invalid element type for CarouselItems");
     }

@@ -24,7 +24,7 @@ export default function Music() {
       </Row>
       <Row>
         <Col>
-          <List itemType={"spotify"} assets={assets} />
+          <List listType="alternating" itemType="spotify" assets={assets} />
         </Col>
       </Row>
     </>

@@ -17,6 +17,7 @@ export default function SidebarList({ assets }) {
         className="tocItem"
         aria-label={title}
         action
+        active={false}
       >
         {title}
       </ListGroup.Item>

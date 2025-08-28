@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { referenceAsset } from "../util/api.mjs";
 import { Carousel } from "react-bootstrap";
-import ViewCarouselItem from "./Item";
+import Item from "./Item";
 import ViewModal from "./ViewModal";
 import ContentLoading from "../layout/ContentLoading";
 
@@ -32,7 +32,7 @@ export default function ViewCarousel({ itemType, modalType, items, modals }) {
     const { id, alt, title } = assetReference;
     carouselItems.push(
       <Carousel.Item key={id} id={id}>
-        <ViewCarouselItem
+        <Item
           itemType={itemType}
           id={key}
           value={value}

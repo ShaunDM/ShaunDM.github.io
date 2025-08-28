@@ -1,5 +1,6 @@
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";
+import SidebarDropdown from "./SidebarDropdown";
 import { useOutletContext } from "react-router-dom";
 
 export default function Sidebar({ assets, handleSelectIndex }) {
@@ -16,6 +17,9 @@ export default function Sidebar({ assets, handleSelectIndex }) {
           handleSelectIndex={handleSelectIndex}
         />
       );
+    }
+    case "dropdown": {
+      return <SidebarDropdown assets={assets} />;
     }
     case "calendar": {
       return "Needs doing.";

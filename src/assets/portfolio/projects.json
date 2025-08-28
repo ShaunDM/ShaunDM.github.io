@@ -1,0 +1,14 @@
+{
+  "restaraunt_reservation_app": {
+    "link": "https://github.com/ShaunDM/starter-restaurant-reservation",
+    "description": "An internal table and reservation management system for restaurants."
+  },
+  "recipe_book_app": {
+    "link": "https://github.com/ShaunDM/RecipeBookApp",
+    "description": "A recipe book app built with React"
+  },
+  "flash_card_app": {
+    "link": "https://github.com/ShaunDM/Project-_Flashcards-_Qualified-Shaun_McRae-Solution",
+    "description": "A CRUD program used to create/edit multiple flashcard decks filled with their individual flashcards."
+  }
+}

@@ -70,7 +70,7 @@ function fixLowercase(str) {
 }
 
 export function getAssetTitle(assetName) {
-  if (assetName === "rpg") return "RPG";
+  if (assetName === "rpg") return assetName.toUpperCase();
   if (assetName == "movies_tv") return "Movies/TV";
   let string = assetName
     .replace(/_/g, " ")
@@ -79,13 +79,16 @@ export function getAssetTitle(assetName) {
       (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     )
     .replaceAll(" Slash ", "/")
-    .replace(
-      /\W+/g,
+    .replaceAll(
+      /[^a-zA-Z0-9_']\S*/g,
       (text) =>
         text.charAt(0) +
         text.charAt(1).toUpperCase() +
         text.substring(2).toLowerCase()
-    );
+    )
+    .replace(/Odk/, "ODK")
+    .replace(/Cpe/, "CPE")
+    .replace(/Oif/, "OIF");
   string = fixLowercase(string).replaceAll(": the ", ": The ").trim();
   return string;
 }

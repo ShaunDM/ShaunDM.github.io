@@ -8,7 +8,7 @@ export default function Books() {
 
   return (
     <ViewCarousel
-      itemType="image"
+      itemType="image_carousel"
       modalType="image"
       items={assets.items}
       modals={assets.modals}
