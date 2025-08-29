@@ -23,11 +23,5 @@ export default function SidebarCarousel({ assets, handleSelectIndex }) {
     );
   }
 
-  return (
-    <aside>
-      <ListGroup className="toc" id={name}>
-        {links}
-      </ListGroup>
-    </aside>
-  );
+  return links;
 }

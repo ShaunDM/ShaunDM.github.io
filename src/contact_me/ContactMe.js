@@ -1,9 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { Image, Col, Row, Button } from "react-bootstrap";
+import { useOutletContext } from "react-router-dom";
+import { Image, Col, Row } from "react-bootstrap";
+import Links from "./Links";
+import { getAssetTitle } from "../util/api.mjs";
 
 export default function ContactMe() {
+  const { assets } = useOutletContext();
+  const functionEmail = () => {
+    window.location = "mailto:smcra49@gmail.com";
+    return false;
+  };
+
   return (
     <>
       <Row>
@@ -21,94 +27,15 @@ export default function ContactMe() {
             flexWrap: "nowrap",
           }}
         >
-          <Button
-            id="linkedIn"
-            title="Click to go to linked in profile"
-            href="https://www.linkedin.com/in/shaun-mcrae-software-engineer/"
-            target="_blank"
-            style={{
-              width: "fit-content",
-              borderColor: "rgba(255, 255, 0, 0)",
-            }}
-            variant="outline-dark"
-          >
-            <Row
-              style={{ flexWrap: "nowrap", alignItems: "center", padding: 5 }}
-            >
-              <Col>
-                <FontAwesomeIcon icon={faLinkedin} className="fa-10x" />
-              </Col>
-              <Col>
-                <h2
-                  style={{
-                    height: "fit-content",
-                    width: "fit-content",
-                  }}
-                >
-                  LinkedIn
-                </h2>
-              </Col>
-            </Row>
-          </Button>
-          <Button
-            id="github"
-            title="Click to go to github profile"
-            href="https://github.com/ShaunDM"
-            style={{
-              width: "fit-content",
-              borderColor: "rgba(255, 255, 0, 0)",
-            }}
-            variant="outline-dark"
-          >
-            <Row
-              style={{ alignItems: "center", padding: 5, flexWrap: "nowrap" }}
-            >
-              <Col>
-                <FontAwesomeIcon icon={faGithub} className="fa-10x" />
-              </Col>
-              <Col>
-                <h2
-                  style={{
-                    height: "fit-content",
-                    width: "fit-content",
-                  }}
-                >
-                  Github
-                </h2>
-              </Col>
-            </Row>
-          </Button>
-
-          <Button
-            id="email"
-            title="Click to Email"
-            href="#"
-            style={{
-              width: "fit-content",
-              borderColor: "rgba(255, 255, 0, 0)",
-            }}
-            variant="outline-dark"
-            onClick={() => {
-              window.location = "mailto:smcra49@gmail.com";
-              return false;
-            }}
-          >
-            <Row style={{ alignItems: "center", padding: 5 }}>
-              <Col>
-                <FontAwesomeIcon icon={faEnvelope} className="fa-10x" />
-              </Col>
-              <Col>
-                <h2
-                  style={{
-                    height: "fit-content",
-                    width: "fit-content",
-                  }}
-                >
-                  Email
-                </h2>
-              </Col>
-            </Row>
-          </Button>
+          {Object.entries(assets.links).map(([key, value]) => (
+            <Links
+              id={key}
+              value={
+                value.onClick ? { ...value, onClick: functionEmail } : value
+              }
+              title={getAssetTitle(key)}
+            />
+          ))}
         </Col>
         <Col
           xs={8}

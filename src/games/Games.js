@@ -17,8 +17,8 @@ export default function Games() {
     <>
       <Row>
         <p>
-          A list of video games I enjoy. Click the game to open a new tab to
-          it's steam store page.
+          A list of video games I enjoy. Clicking the game will open a new tab
+          to its steam store page.
         </p>
       </Row>
       <Row>

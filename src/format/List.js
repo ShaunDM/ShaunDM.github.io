@@ -40,7 +40,7 @@ export default function List({
           data-bs-theme="dark"
           horizontal
           className="flex-wrap"
-          style={{ justifyContent: "center", padding: "0 2rem 0 2rem" }}
+          style={{ justifyContent: "center", padding: "0 2rem" }}
         >
           <ViewListGroup
             itemType={itemType}
@@ -69,12 +69,12 @@ export default function List({
           data-bs-theme="dark"
           horizontal
           style={{
-            padding: "0 2rem 0 2rem",
+            padding: "0 2rem",
             flexWrap: "nowrap",
             overflowX: "scroll",
             overflowY: "clip",
             maxWidth: "70vw",
-            maxHeight: `${90 / lists}vh`,
+            maxHeight: `${(76 + lists * 4) / lists}vh`,
           }}
         >
           <ViewListGroup

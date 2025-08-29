@@ -19,7 +19,8 @@ export default function MoviesTV() {
             wayside as well. When I do watch things they tend to be more
             fantastical, which is why a large portion, especially TV shows, are
             animated; I've got enough real life in my real life. Anyway here are
-            a few TV shows and movies I enjoy.
+            a few TV shows and movies I enjoy. Clicking the movie/show will open
+            a new tab to its TMDB page.
           </p>
         </Row>
         <Row>

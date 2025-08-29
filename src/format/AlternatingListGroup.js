@@ -14,9 +14,18 @@ export default function AlternatingListGroup({
     const title = getAssetTitle(key);
     return (
       <ListGroup.Item
-        className={index % 2 ? "flex" : "flex-direction-row-reverse"}
+        className={
+          index % 2
+            ? "alternatingListGroup"
+            : "alternatingListGroup alternatingListGroupReverse"
+        }
         key={key}
         id={key}
+        style={{
+          backgroundColor: "#282c34",
+          color: "white",
+          borderColor: "#1c1e20",
+        }}
       >
         <Col>
           <Item
@@ -36,7 +45,6 @@ export default function AlternatingListGroup({
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
             backgroundBlendMode: "lighten",
-            backgroundColor: "rgba(255,255,255,0.6)",
           }}
         >
           <div>

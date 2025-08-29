@@ -9,13 +9,27 @@ import loadMultipleFiles from "../util/loadMultipleFiles";
 function Layout() {
   const { pathname } = window.location;
   const [index, setIndex] = useState(0);
-  const assets = loadMultipleFiles(pathname);
+  const [format, setFormat] = useState(true);
+  const [assets, setAssets] = useState(loadMultipleFiles(pathname));
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
+  const handleSelectFormat = (selectedFormat) => {
+    if (selectedFormat)
+      setAssets({ ...assets, sidebar: { ...assets.sidebar, type: "list" } });
+    else
+      setAssets({
+        ...assets,
+        sidebar: { ...assets.sidebar, type: "carousel" },
+      });
+    setFormat(selectedFormat);
+  };
 
   return (
-    <Container fluid style={{ gap: "20px 10px" }}>
+    <Container
+      fluid
+      style={{ gap: "20px 10px", backgroundColor: "black", color: "white" }}
+    >
       <Row>
         <Header />
       </Row>
@@ -26,6 +40,8 @@ function Layout() {
               assets: assets,
               index: index,
               handleSelectIndex: handleSelectIndex,
+              format: format,
+              handleSelectFormat: handleSelectFormat,
             }}
           />
         </Main>

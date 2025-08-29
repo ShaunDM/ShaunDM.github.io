@@ -11,8 +11,6 @@ export default function Item({
   const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {
     case "card": {
-      console.log(value);
-
       //look into including multiple cards on smaller pages
       return (
         <div style={{ justifySelf: "center" }}>

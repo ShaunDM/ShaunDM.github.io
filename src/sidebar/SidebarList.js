@@ -23,9 +23,5 @@ export default function SidebarList({ assets }) {
     );
   }
 
-  return (
-    <aside>
-      <ListGroup className="toc">{links}</ListGroup>
-    </aside>
-  );
+  return links;
 }

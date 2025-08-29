@@ -1,7 +1,15 @@
 {
   "linkedin": {
-    "url": "https://www.linkedin.com/in/shaun-mcrae-software-engineer/"
+    "url": "https://www.linkedin.com/in/shaun-mcrae-software-engineer/",
+    "icon_name": "fa-brands fa-linkedin"
   },
-  "github": { "url": "https://github.com/ShaunDM" },
-  "email": { "onclick": "mailto:smcra49@gmail.com", "url": "#" }
+  "github": {
+    "url": "https://github.com/ShaunDM",
+    "icon_name": "fa-brands fa-github"
+  },
+  "email": {
+    "onClick": true,
+    "url": "#",
+    "icon_name": "fa-solid fa-envelope"
+  }
 }

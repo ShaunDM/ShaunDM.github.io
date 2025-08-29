@@ -10,7 +10,9 @@ export default function Main({ children, assets, handleSelectIndex }) {
     <main>
       {pathname === "/" ? null : (
         <Row>
-          <h2>{convertPathToTitle(pathname)}</h2>
+          <h2 style={{ margin: "0 0 1rem 1rem" }}>
+            {convertPathToTitle(pathname)}
+          </h2>
         </Row>
       )}
       <Row style={{ flexWrap: "nowrap" }}>

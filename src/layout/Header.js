@@ -10,7 +10,12 @@ function Header({ header_content = "Shaun McRae - Software Engineer" }) {
       <Row>
         <h1>{header_content}</h1>
       </Row>
-      <Row>
+      <Row
+        style={{
+          borderBottom: "2px solid #303030ff",
+          borderTop: "2px solid #303030ff",
+        }}
+      >
         <MediaQuery maxWidth={991}>
           <Col>
             <MobileToolbar />

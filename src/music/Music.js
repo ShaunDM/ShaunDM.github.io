@@ -1,4 +1,3 @@
-import React from "react";
 import { useOutletContext } from "react-router-dom";
 import List from "../format/List";
 import { Row, Col } from "react-bootstrap";
@@ -19,7 +18,7 @@ export default function Music() {
           introducing a genre to someone who may not have much experience with
           it. As such I tried to include artists with strong portfolios and
           multiple albums to pull from, but mostly I just included bands/songs I
-          enjoy and I hope you enjoy them too.
+          enjoy.
         </p>
       </Row>
       <Row>

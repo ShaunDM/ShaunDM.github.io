@@ -88,7 +88,8 @@ export function getAssetTitle(assetName) {
     )
     .replace(/Odk/, "ODK")
     .replace(/Cpe/, "CPE")
-    .replace(/Oif/, "OIF");
+    .replace(/Oif/, "OIF")
+    .replace(/Linkedin/, "LinkedIn");
   string = fixLowercase(string).replaceAll(": the ", ": The ").trim();
   return string;
 }

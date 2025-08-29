@@ -35,7 +35,7 @@ export default function loadMultipleFiles(path) {
     case "/books": {
       const fetch = require.context("../assets/books", true);
       getAssets(fetch);
-      assets.sidebar = { type: "carousel", src: "items" };
+      assets.sidebar = { type: "list", src: "items" };
       break;
     }
     case "/calendar": {
