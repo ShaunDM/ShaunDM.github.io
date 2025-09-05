@@ -12,7 +12,9 @@ export default function Home() {
           development, while sharing some of the things I enjoy.
         </p>
         <p>I hope you find something to appreciate, have a good one :)</p>
-        <p>PS: Last update of content was 2025</p>
+        <p className="blockquote-footer" style={{ padding: "1rem" }}>
+          Last update of content was Aug 2025
+        </p>
       </main>
     </>
   );

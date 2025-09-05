@@ -51,11 +51,12 @@ function Nav() {
               overlay={
                 <Tooltip id={`${path}_tooltip`}>{getAssetTitle(path)}</Tooltip>
               }
+              key={`nav_${path}`}
             >
               <li
                 id={`nav_${path}`}
                 key={`nav_${path}`}
-                style={{ padding: "0 .5rem" }}
+                style={{ padding: "0 .5rem", margin: 0 }}
               >
                 {link.title === "Home" ? (
                   <Link to="/" state={{ pathname: "/" }} reloadDocument={true}>

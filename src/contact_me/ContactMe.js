@@ -21,9 +21,12 @@ export default function ContactMe() {
       <Row style={{ flexWrap: "nowrap" }}>
         <Col
           style={{
-            height: "100vh",
+            display: "flex",
+            flexDirection: "column",
+            height: "80vh",
             marginLeft: "5rem",
-            alignContent: "space-around !important",
+            justifyContent: "space-evenly",
+            alignItems: "center",
             flexWrap: "nowrap",
           }}
         >
@@ -38,17 +41,16 @@ export default function ContactMe() {
           ))}
         </Col>
         <Col
-          xs={8}
+          xs={6}
           style={{
-            justifyItems: "center",
+            display: "flex",
+            justifyContent: "center",
             alignItems: "center",
           }}
         >
           <Image
             src="https://cdn.pixabay.com/photo/2021/07/24/22/59/document-6490538_1280.jpg"
             style={{
-              justifySelf: "center",
-              alignSelf: "center",
               padding: 5,
               maxHeight: "80vh",
               maxWidth: "80%",
