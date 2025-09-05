@@ -75,6 +75,12 @@ export default function loadMultipleFiles(path) {
       break;
     }
 
+    case "header": {
+      const fetch = require.context("../assets/header", true);
+      getAssets(fetch);
+      break;
+    }
+
     default: {
       return console.error(`Something went wrong! Path: ${path}`);
     }

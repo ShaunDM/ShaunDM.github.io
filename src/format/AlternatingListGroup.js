@@ -1,6 +1,5 @@
 import { ListGroup, Col } from "react-bootstrap";
 import Item from "./Item";
-import Description from "./Description";
 import { useOutletContext } from "react-router-dom";
 import { getAssetTitle } from "../util/api.mjs";
 
@@ -47,9 +46,7 @@ export default function AlternatingListGroup({
             backgroundBlendMode: "lighten",
           }}
         >
-          <div>
-            <Description src={assets.descriptions[key]} />
-          </div>
+          <div>{assets.descriptions[key]}</div>
         </Col>
       </ListGroup.Item>
     );

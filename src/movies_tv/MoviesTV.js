@@ -28,21 +28,25 @@ export default function MoviesTV() {
         </Row>
       </div>
       <div style={{ margin: "20px 0 0 0" }}>
-        <Row
-          style={{
-            justifyContent: "center",
-            flexWrap: "nowrap",
-          }}
-        >
-          <Col>
+        <Row>
+          <Col
+            style={{
+              width: "fit-content",
+              flexWrap: "nowrap",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <p>
               "This website uses TMDB and the TMDB APIs but is not endorsed,
               certified, or otherwise approved by TMDB."
             </p>
-          </Col>
-          <Col>
             <a href="https://www.themoviedb.org/" target="_blank">
-              <Image src={assets.tmdb_logo} fluid style={{ maxHeight: 80 }} />
+              <Image
+                src={assets.tmdb_logo}
+                fluid
+                style={{ minHeight: "2rem", margin: "0 1rem" }}
+              />
             </a>
           </Col>
         </Row>

@@ -1,4 +1,5 @@
 import { Image, Card, Button } from "react-bootstrap";
+import Description from "./Description";
 
 export default function Item({
   itemType,
@@ -36,7 +37,9 @@ export default function Item({
                 {value.image ? (
                   <Image src={value.image} alt={alt} fluid />
                 ) : null}
-                <Card.Text>{value.description}</Card.Text>
+                <Card.Text>
+                  <Description src={value.description} />
+                </Card.Text>
                 {value.comment ? (
                   <Card.Text
                     className="blockquote-footer"

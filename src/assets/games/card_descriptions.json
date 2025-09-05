@@ -4,7 +4,16 @@
   "fantasy": "One of the GOAT games. It has probably the best modding community of any game to date and is a game I have beat multiple times on multiple platforms. Just a really great game that I've played from when I was a kid to an adult.",
   "horror": "Probably my favorite game series. Excellent story and game mechanics, although not being able to block always bugged me a bit. Beaten the entire series multiple times on multiple platforms.",
   "mech": "Still remember when Titanfall came out with the newly released XBox One. A game that was ahead of it's time. Many hours wasted away or well spent on both iterations, with Titanfall 2 having a relatively short, but amazing campaign, worth playing just to hang about with BT.",
-  "multiplayer": "Toxic as all get out, facing balancing issues (like all MOBAs), and like a lot of free-to-play games has skin driven madness. Yet, I probably have more hours on this game than any other. The nostalgia of the original Overwatch, that I can't find an official page for anywhere, and the fun I had honestly makes me want to keep playing it. It was a first for me for this style, as I still only had an XBox and didn't have access to the TF franchise. By the time I switched to PC, TF2 was kinda dead and maybe I should move on to Marvel Rivals, but honestly I still love the game even if the players and producers leave something (a lot) to be desired. Also, the shorts are pretty great.",
+  "multiplayer": {
+    "description": "Toxic as all get out, facing balancing issues (like all Hero based multiplayer games), and like a lot of free-to-play games has skin driven madness. Yet, I probably have more hours on this game than any other. The nostalgia of the original Overwatch, that I can't find an official page for anywhere, and the fun I had honestly makes me want to keep playing it. It was a first for me for this style, as I still only had an XBox and didn't have access to the TF franchise. By the time I switched to PC, TF2 was kinda dead and maybe I should move on to Marvel Rivals, but honestly I still love the game even if the players and producers leave something (a lot) to be desired. Also, the shorts and lore are pretty great, here are some good ones: ",
+    "links": {
+      "honor_and_glory": "https://overwatch.blizzard.com/en-us/videos/video/reinhardt-animated-short",
+      "dragons": "https://overwatch.blizzard.com/en-us/videos/video/dragons-animated-short/",
+      "sigma_origin_story": "https://overwatch.blizzard.com/en-us/videos/video/sigma-origins-video/",
+      "rebuilding_ruins": "https://overwatch.blizzard.com/en-us/media/short-story/rebuilding-ruins/",
+      "kiriko": "https://overwatch.blizzard.com/en-us/videos/video/kiriko-animated-short/"
+    }
+  },
   "post-apocalyptic": "A great series even though I've only ever played Fallout 3 and 4. I tried getting into New Vegas, but it's like going back to CRT TVs from modern flat screens and I probably didn't give it the chance it deserves. Anyway, multiple ways to play and experience the game with excellent story and mechanics.",
   "puzzle": "A classic. A game pretty much any video game enthusiast should play. It'd be like an avid reader never reading Dickens, ridiculous.",
   "rogue-like": "Really fun with every run feeling different than the last even though the levels are relatively consistent. I can't tell you how many runs I've had, but pretty much every one was unique.",

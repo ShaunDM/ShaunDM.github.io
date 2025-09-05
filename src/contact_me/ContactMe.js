@@ -9,6 +9,7 @@ export default function ContactMe() {
     window.location = "mailto:smcra49@gmail.com";
     return false;
   };
+  console.log(assets);
 
   return (
     <>
@@ -41,7 +42,8 @@ export default function ContactMe() {
           ))}
         </Col>
         <Col
-          xs={6}
+          xs={8}
+          className="contact_me_image_container"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -49,7 +51,7 @@ export default function ContactMe() {
           }}
         >
           <Image
-            src="https://cdn.pixabay.com/photo/2021/07/24/22/59/document-6490538_1280.jpg"
+            src={assets.image}
             style={{
               padding: 5,
               maxHeight: "80vh",
