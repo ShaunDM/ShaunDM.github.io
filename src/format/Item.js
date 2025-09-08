@@ -14,7 +14,7 @@ export default function Item({
     case "card": {
       //look into including multiple cards on smaller pages
       return (
-        <div style={{ justifySelf: "center" }}>
+        <div id={id} style={{ justifySelf: "center" }}>
           <Button
             href={value.link ? value.link : ""}
             target="_blank"
@@ -58,6 +58,7 @@ export default function Item({
     case "iframe": {
       return (
         <iframe
+          id={id}
           src={value}
           width="100%"
           height="352"
@@ -70,6 +71,7 @@ export default function Item({
     case "image": {
       return value.includes("pdf") ? (
         <embed
+          id={id}
           src={value}
           alt={alt}
           onClick={onclick}
@@ -77,6 +79,7 @@ export default function Item({
         />
       ) : (
         <img
+          id={id}
           src={value}
           alt={alt}
           onClick={onclick ? onclick : () => window.open(value, "_blank")}
@@ -87,7 +90,7 @@ export default function Item({
 
     case "image_carousel": {
       return (
-        <div style={{ justifySelf: "center" }}>
+        <div style={{ justifySelf: "center" }} id={id}>
           <img src={value} alt={alt} onClick={onclick} />
         </div>
       );
@@ -96,6 +99,7 @@ export default function Item({
     case "spotify": {
       return (
         <iframe
+          id={id}
           src={`https://open.spotify.com/embed/playlist/${value}?utm_source=generator`}
           width="100%"
           height="352"

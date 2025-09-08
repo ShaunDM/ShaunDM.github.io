@@ -4,6 +4,7 @@ import { Container, Row } from "react-bootstrap";
 import Footer from "./Footer";
 import Main from "./Main";
 import Header from "./Header";
+import ScrollToTop from "./ScrollToTop";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
@@ -49,6 +50,7 @@ function Layout() {
       <Row>
         <Footer />
       </Row>
+      <ScrollToTop />
     </Container>
   );
 }
