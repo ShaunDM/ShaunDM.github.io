@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ListGroup } from "react-bootstrap";
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import ViewListGroup from "./ViewListGroup";
 import ViewModal from "./ViewModal";
 import AlternatingListGroup from "./AlternatingListGroup";
@@ -15,7 +16,7 @@ export default function List({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
 
   const handleClose = () => {
     setShowModal(false);
@@ -72,7 +73,7 @@ export default function List({
             padding: "0 2rem",
             flexWrap: "nowrap",
             overflowX: "scroll",
-            overflowY: "clip",
+            overflowY: "visible",
             maxWidth: "70vw",
             maxHeight: `${(76 + lists * 4) / lists}vh`,
           }}

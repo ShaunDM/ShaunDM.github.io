@@ -1,10 +1,11 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { getAssetTitle } from "../util/api.mjs";
 import { Row } from "react-bootstrap";
 import List from "../format/List";
 
 export default function Portfolio() {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
   return Object.entries(assets).map(([key, value]) => {
     if (key === "sidebar") return null;
     const itemType = (dir) => (dir.includes("projects") ? "card" : "image");

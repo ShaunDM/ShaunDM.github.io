@@ -1,4 +1,6 @@
+import MediaQuery, { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,9 +14,10 @@ import {
   faCalendar,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
+import MobileToolbar from "./MobileToolbar";
 import { getAssetTitle } from "../util/api.mjs";
 
-function Nav() {
+export default function Nav() {
   const links = [
     { title: "Home", icon: faHouse },
     { title: "Portfolio", icon: faFolder },
@@ -26,23 +29,16 @@ function Nav() {
     { title: "Contact Me", icon: faAddressCard },
   ];
 
+  const isSticky = useMediaQuery({ query: "(max-width: 991px)" })
+    ? "sticky"
+    : null;
+
   return (
-    <nav
-      name="navbar"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-      }}
-    >
-      <ul
-        name="nav_icons"
-        style={{
-          padding: "1rem",
-          width: "fit-content",
-          margin: 0,
-        }}
-      >
+    <div className={`isSticky`}>
+      <ListGroup name="navbar" className="navbar" horizontal>
+        <MediaQuery maxWidth={991}>
+          <MobileToolbar />
+        </MediaQuery>
         {links.map((link) => {
           const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
 
@@ -53,35 +49,42 @@ function Nav() {
               }
               key={`nav_${path}`}
             >
-              <li
-                id={`nav_${path}`}
-                key={`nav_${path}`}
-                style={{ padding: "0 .5rem", margin: 0 }}
-              >
-                {link.title === "Home" ? (
-                  <Link to="/" state={{ pathname: "/" }} reloadDocument={true}>
+              {link.title === "Home" ? (
+                <Link
+                  to="/"
+                  state={{ pathname: "/" }}
+                  reloadDocument={true}
+                  id={`nav_${path}`}
+                  key={`nav_${path}`}
+                >
+                  <ListGroup.Item className="nav-icon" action>
                     <FontAwesomeIcon
                       icon={link.icon}
                       title={`${link.title}`}
                       size="2x"
                     />
-                  </Link>
-                ) : (
-                  <Link to={`/${path}`} reloadDocument={true}>
+                  </ListGroup.Item>
+                </Link>
+              ) : (
+                <Link
+                  to={`/${path}`}
+                  reloadDocument={true}
+                  id={`nav_${path}`}
+                  key={`nav_${path}`}
+                >
+                  <ListGroup.Item className="nav-icon" action>
                     <FontAwesomeIcon
                       icon={link.icon}
                       title={`${link.title}`}
                       size="2x"
                     />
-                  </Link>
-                )}
-              </li>
+                  </ListGroup.Item>
+                </Link>
+              )}
             </OverlayTrigger>
           );
         })}
-      </ul>
-    </nav>
+      </ListGroup>
+    </div>
   );
 }
-
-export default Nav;

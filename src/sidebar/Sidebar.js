@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";
 import SidebarDropdown from "./SidebarDropdown";
 
-export default function Sidebar({ assets, handleSelectIndex }) {
+export default function Sidebar() {
+  const { assets } = useContext(PropContext);
   let sidebar = null;
   const name = `toc_${window.location.pathname.substring(1)}`;
 
@@ -11,20 +14,15 @@ export default function Sidebar({ assets, handleSelectIndex }) {
     case null:
       return null;
     case "list": {
-      sidebar = <SidebarList assets={assets} />;
+      sidebar = <SidebarList />;
       break;
     }
     case "carousel": {
-      sidebar = (
-        <SidebarCarousel
-          assets={assets}
-          handleSelectIndex={handleSelectIndex}
-        />
-      );
+      sidebar = <SidebarCarousel />;
       break;
     }
     case "dropdown": {
-      sidebar = <SidebarDropdown assets={assets} />;
+      sidebar = <SidebarDropdown />;
       break;
     }
     case "calendar": {

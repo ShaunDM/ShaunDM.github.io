@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
 import Footer from "./Footer";
@@ -27,31 +28,33 @@ function Layout() {
   };
 
   return (
-    <Container
-      fluid
-      style={{ gap: "20px 10px", backgroundColor: "black", color: "white" }}
+    <PropContext.Provider
+      value={{
+        assets: assets,
+        index: index,
+        handleSelectIndex: handleSelectIndex,
+        format: format,
+        handleSelectFormat: handleSelectFormat,
+      }}
     >
-      <Row>
-        <Header />
-      </Row>
-      <Row>
-        <Main assets={assets} handleSelectIndex={handleSelectIndex}>
-          <Outlet
-            context={{
-              assets: assets,
-              index: index,
-              handleSelectIndex: handleSelectIndex,
-              format: format,
-              handleSelectFormat: handleSelectFormat,
-            }}
-          />
-        </Main>
-      </Row>
-      <Row>
-        <Footer />
-      </Row>
-      <ScrollToTop />
-    </Container>
+      <Container
+        fluid
+        style={{ gap: "20px 10px", backgroundColor: "black", color: "white" }}
+      >
+        <Row>
+          <Header />
+        </Row>
+        <Row>
+          <Main>
+            <Outlet />
+          </Main>
+        </Row>
+        <Row>
+          <Footer />
+        </Row>
+        <ScrollToTop />
+      </Container>
+    </PropContext.Provider>
   );
 }
 

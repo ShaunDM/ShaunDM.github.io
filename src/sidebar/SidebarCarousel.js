@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
-export default function SidebarCarousel({ assets, handleSelectIndex }) {
+export default function SidebarCarousel() {
+  const { assets, handleSelectIndex } = useContext(PropContext);
   let links = [];
   const name = `toc_${window.location.pathname.substring(1)}`;
   for (const [key] of Object.entries(assets[assets.sidebar.src])) {

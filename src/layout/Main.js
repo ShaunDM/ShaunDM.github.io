@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import Sidebar from "../sidebar/Sidebar";
 import { convertPathToTitle } from "../util/api.mjs";
 
-export default function Main({ children, assets, handleSelectIndex }) {
+export default function Main({ children }) {
   //index is causing rerender need to fix.
   const { pathname } = window.location;
   return (
@@ -20,10 +20,7 @@ export default function Main({ children, assets, handleSelectIndex }) {
           <MediaQuery minWidth={992}>
             <Col xs={3}>
               <div className="sticky">
-                <Sidebar
-                  assets={assets}
-                  handleSelectIndex={handleSelectIndex}
-                />
+                <Sidebar />
               </div>
             </Col>
           </MediaQuery>

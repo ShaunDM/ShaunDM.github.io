@@ -14,17 +14,13 @@ export default function Item({
     case "card": {
       //look into including multiple cards on smaller pages
       return (
-        <div id={id} style={{ justifySelf: "center" }}>
+        <div id={id}>
           <Button
             href={value.link ? value.link : ""}
             target="_blank"
             variant="dark"
           >
-            <Card
-              bg="dark"
-              text="light"
-              style={{ maxWidth: "460px", margin: "0px 0px 25px 0px" }}
-            >
+            <Card bg="dark" text="light" className="cardStyle">
               <Card.Header>
                 <Card.Title>{title}</Card.Title>
                 {value.genres ? (
@@ -84,13 +80,18 @@ export default function Item({
           alt={alt}
           onClick={onclick ? onclick : () => window.open(value, "_blank")}
           style={{ height: "100%" }}
+          className="pointer-on-hover"
         />
       );
     }
 
     case "image_carousel": {
       return (
-        <div style={{ justifySelf: "center" }} id={id}>
+        <div
+          style={{ justifySelf: "center" }}
+          id={id}
+          className="pointer-on-hover"
+        >
           <img src={value} alt={alt} onClick={onclick} />
         </div>
       );

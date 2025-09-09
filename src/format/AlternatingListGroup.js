@@ -1,6 +1,7 @@
 import { ListGroup, Col } from "react-bootstrap";
 import Item from "./Item";
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function AlternatingListGroup({
@@ -8,7 +9,7 @@ export default function AlternatingListGroup({
   items,
   handleShowModal,
 }) {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
   return Object.entries(items).map(([key, value], index) => {
     const title = getAssetTitle(key);
     return (

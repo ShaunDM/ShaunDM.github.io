@@ -1,24 +1,21 @@
-import React from "react";
 import { Row, Col } from "react-bootstrap";
 import Nav from "./Nav";
-import MobileToolbar from "./MobileToolbar";
-import MediaQuery from "react-responsive";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
-function Header({ header_content = "Shaun McRae - Software Engineer" }) {
-  const assets = loadMultipleFiles("header");
+function Header() {
+  const headerAssets = loadMultipleFiles("header");
   return (
     <header id="header">
-      <Row className="header_image_container">
+      <Row className="header-image-container">
         <h1
           style={{
-            backgroundImage: "url(" + assets.banner + ")",
+            backgroundImage: "url(" + headerAssets.banner + ")",
             backgroundSize: "contain",
             backgroundRepeat: "no-repeat",
             backgroundPositionX: "right",
           }}
         >
-          {header_content}
+          {headerAssets.text.title}
         </h1>
       </Row>
       <Row
@@ -27,14 +24,7 @@ function Header({ header_content = "Shaun McRae - Software Engineer" }) {
           borderTop: "2px solid #303030ff",
         }}
       >
-        <MediaQuery maxWidth={991}>
-          <Col>
-            <MobileToolbar />
-          </Col>
-        </MediaQuery>
-        <Col>
-          <Nav />
-        </Col>
+        <Nav />
       </Row>
     </header>
   );

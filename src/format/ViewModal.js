@@ -20,7 +20,7 @@ export default function ViewModal({
       break;
     }
     case "iframe": {
-      modalBody = <iframe src={content} width="646" height="190" />;
+      modalBody = <iframe title={id} src={content} width="646" height="190" />;
       break;
     }
     default: {

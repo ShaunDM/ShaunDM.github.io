@@ -1,6 +1,7 @@
-import React from "react";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, useOutletContext } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import Main from "../layout/Main";
 import { getCurrentDate } from "../util/api";
@@ -11,7 +12,7 @@ import DaySchedule from "./DaySchedule";
 
 export default function Calendar() {
   //Need controllers for bad urls not on the calendar.
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
 
   const navigate = useNavigate();
 

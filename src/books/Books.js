@@ -1,10 +1,11 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { Button, Row } from "react-bootstrap";
 import ViewCarousel from "../format/ViewCarousel";
 import List from "../format/List";
 
 export default function Books() {
-  const { assets, format, handleSelectFormat } = useOutletContext();
+  const { assets, format, handleSelectFormat } = useContext(PropContext);
 
   return (
     <>

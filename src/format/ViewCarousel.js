@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { referenceAsset } from "../util/api.mjs";
 import { Carousel } from "react-bootstrap";
 import Item from "./Item";
@@ -9,7 +10,7 @@ import ContentLoading from "../layout/ContentLoading";
 export default function ViewCarousel({ itemType, modalType, items, modals }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const { index, handleSelectIndex } = useOutletContext();
+  const { index, handleSelectIndex } = useContext(PropContext);
 
   if (!items) return <ContentLoading />;
 
@@ -31,7 +32,7 @@ export default function ViewCarousel({ itemType, modalType, items, modals }) {
     const assetReference = referenceAsset(key);
     const { id, alt, title } = assetReference;
     carouselItems.push(
-      <Carousel.Item key={id} id={id}>
+      <Carousel.Item key={id} id={id} className="pointer-on-hover">
         <Item
           itemType={itemType}
           id={key}

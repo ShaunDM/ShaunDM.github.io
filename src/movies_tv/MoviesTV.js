@@ -1,12 +1,13 @@
-import React from "react";
-import { Col, Row, Image, Button } from "react-bootstrap";
-import { useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Col, Row, Image } from "react-bootstrap";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import List from "../format/List";
 
 export default function MoviesTV() {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
   for (const key of Object.keys(assets.items)) {
-    if (!Object.keys(assets.comments).some((comment) => comment == key))
+    if (!Object.keys(assets.comments).some((comment) => comment === key))
       console.error(`Improperly matched key, assets/movies_tv, ${key}`);
     assets.items[key] = { ...assets.items[key], comment: assets.comments[key] };
   }
@@ -41,13 +42,13 @@ export default function MoviesTV() {
               "This website uses TMDB and the TMDB APIs but is not endorsed,
               certified, or otherwise approved by TMDB."
             </p>
-            <a href="https://www.themoviedb.org/" target="_blank">
+            <Link to="https://www.themoviedb.org/" target="_blank">
               <Image
                 src={assets.tmdb_logo}
                 fluid
                 style={{ minHeight: "2rem", margin: "0 1rem" }}
               />
-            </a>
+            </Link>
           </Col>
         </Row>
       </div>

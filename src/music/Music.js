@@ -1,8 +1,9 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import List from "../format/List";
 import { Row, Col } from "react-bootstrap";
 export default function Music() {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
 
   return (
     <>

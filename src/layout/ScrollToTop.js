@@ -14,6 +14,7 @@ export default function ScrollToTop() {
         variant="outline-light"
         href="#header"
         style={{
+          display: "block",
           position: "fixed",
           bottom: "5vh",
           right: "5vw",

@@ -1,9 +1,10 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { Row } from "react-bootstrap";
 import List from "../format/List";
 
 export default function Games() {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
   let items = {};
   for (const [key, value] of Object.entries(assets.images)) {
     items[key] = {

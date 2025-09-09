@@ -1,6 +1,3 @@
-import Main from "./Main";
-function ContentLoading({}) {
+export default function ContentLoading() {
   return "...Loading";
 }
-
-export default ContentLoading;

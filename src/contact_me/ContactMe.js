@@ -1,15 +1,15 @@
-import { useOutletContext } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
 import Links from "./Links";
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function ContactMe() {
-  const { assets } = useOutletContext();
+  const { assets } = useContext(PropContext);
   const functionEmail = () => {
     window.location = "mailto:smcra49@gmail.com";
     return false;
   };
-  console.log(assets);
 
   return (
     <>
