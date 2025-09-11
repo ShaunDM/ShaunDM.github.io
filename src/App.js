@@ -7,7 +7,6 @@ import Books from "./books/Books";
 import Music from "./music/Music";
 import MoviesTV from "./movies_tv/MoviesTV";
 import Games from "./games/Games";
-import Calendar from "./calendar/Calendar";
 import ContactMe from "./contact_me/ContactMe";
 import ErrorPage from "./error/ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -23,10 +22,6 @@ function App() {
         <Route path="music" element={<Music />} />
         <Route path="movies_tv" element={<MoviesTV />} />
         <Route path="games" element={<Games />} />
-        <Route path="calendar" element={<Calendar />}>
-          <Route path=":year/:month/:date" element={<Calendar />} />
-          <Route path=":year/:month" element={<Calendar />} />
-        </Route>
         <Route path="contact_me" element={<ContactMe />} />
         <Route element={<ErrorPage />} />
       </Route>
