@@ -6,7 +6,6 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "../sidebar/Sidebar";
-import Navbar from "./Navbar";
 
 export default function MobileToolbar() {
   const { type } = useContext(PropContext).assets.sidebar;
