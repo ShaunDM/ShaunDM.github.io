@@ -1,5 +1,6 @@
 {
   "name": "personal_website",
+  "homepage": "https://shaundm.github.io/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +16,7 @@
     "bootstrap": "^5.3.7",
     "dompurify": "^3.2.6",
     "dotenv": "^17.2.1",
+    "gh-pages": "^6.3.0",
     "install": "^0.13.0",
     "jsdom": "^26.1.0",
     "npm": "^11.5.2",
@@ -30,6 +32,8 @@
   },
   "scripts": {
     "type": "module",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b main -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
