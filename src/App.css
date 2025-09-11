@@ -180,7 +180,8 @@ li {
 
 .sticky {
   position: sticky;
-  top: 0px;
+  position: -webkit-sticky;
+  top: -1px;
 }
 
 #schedule {

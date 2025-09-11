@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Button, Row } from "react-bootstrap";
@@ -6,7 +7,9 @@ import List from "../format/List";
 
 export default function Books() {
   const { assets, format, handleSelectFormat } = useContext(PropContext);
-
+  const isMobile = useMediaQuery({ query: "(max-width: 991px)" })
+    ? "standard"
+    : "horizontal";
   return (
     <>
       <Row>
@@ -29,7 +32,7 @@ export default function Books() {
       <Row>
         {format ? (
           <List
-            listType="horizontal"
+            listType={`${isMobile}`}
             itemType="image"
             items={assets.items}
             modalType="image"

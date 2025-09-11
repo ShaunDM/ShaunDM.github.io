@@ -7,7 +7,7 @@ export default function ViewListGroup({ itemType, items, handleShowModal }) {
     const assetReference = referenceAsset(key);
     const { id, alt, title } = assetReference;
     const style = (itemType) =>
-      itemType === "image" ? { height: "100%" } : null;
+      itemType === "image" ? { height: "90vh", maxHeight: "100%" } : null;
     return (
       <ListGroup.Item key={id} id={id} style={style(itemType)}>
         <Item

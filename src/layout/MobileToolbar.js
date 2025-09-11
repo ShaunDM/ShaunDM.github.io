@@ -6,11 +6,11 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Sidebar from "../sidebar/Sidebar";
+import Navbar from "./Navbar";
 
 export default function MobileToolbar() {
   const { type } = useContext(PropContext).assets.sidebar;
   const [show, setShow] = useState(false);
-  const [target, setTarget] = useState(null);
   if (!type) {
     return null;
   }
@@ -25,19 +25,15 @@ export default function MobileToolbar() {
         <ListGroup.Item
           id="nav_index"
           className="nav-icon-item"
-          onClick={(e) => handleShow(e)}
+          onClick={handleShow}
           onFocus={(e) => handleFocus(e)}
           action
         >
           <FontAwesomeIcon icon={faBars} title="Index" size="2x" />
         </ListGroup.Item>
       </OverlayTrigger>
-      <Offcanvas
-        show={show}
-        onClick={(e) => handleClose(e)}
-        backdropClassName="dark"
-      >
-        <Offcanvas.Header closeButton />
+      <Offcanvas show={show} onClick={handleClose} className="btn-close-light">
+        <Offcanvas.Header closeButton className="btn-close-white" />
         <Offcanvas.Body>
           <Sidebar />
         </Offcanvas.Body>
