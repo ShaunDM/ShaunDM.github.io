@@ -34,8 +34,8 @@ export default function Sidebar() {
     }
   }
   return (
-    <aside>
-      <ListGroup className="toc" id={name}>
+    <aside className="sidebar-container">
+      <ListGroup className="sidebar" id={name}>
         {sidebar}
       </ListGroup>
     </aside>

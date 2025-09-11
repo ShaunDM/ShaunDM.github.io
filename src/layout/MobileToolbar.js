@@ -34,9 +34,7 @@ export default function MobileToolbar() {
       </OverlayTrigger>
       <Offcanvas show={show} onClick={handleClose} className="btn-close-light">
         <Offcanvas.Header closeButton className="btn-close-white" />
-        <Offcanvas.Body>
-          <Sidebar />
-        </Offcanvas.Body>
+        <Sidebar />
       </Offcanvas>
     </>
   );

@@ -16,7 +16,7 @@ export default function SidebarCarousel() {
       <ListGroup.Item
         key={`${id}_toc`}
         id={`${name}_${id}`}
-        className="tocItem"
+        className="sidebar-item"
         aria-label={id}
         action
         onClick={() => handleSelectIndex(slideTo)}

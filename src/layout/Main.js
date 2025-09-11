@@ -7,7 +7,7 @@ export default function Main({ children }) {
   //index is causing rerender need to fix.
   const { pathname } = window.location;
   return (
-    <main>
+    <main className="add-row-border">
       {pathname === "/" ? null : (
         <Row>
           <h2 style={{ margin: "0 0 1rem 1rem" }}>

@@ -144,3 +144,8 @@ export function convertSentenceToId(sentence) {
 export function convertPathToTitle(path) {
   return getAssetTitle(path.substring(1));
 }
+
+export const emailFunction = () => {
+  window.location = "mailto:smcra49@gmail.com";
+  return false;
+};

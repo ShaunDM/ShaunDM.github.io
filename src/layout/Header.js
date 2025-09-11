@@ -6,24 +6,18 @@ function Header() {
   const headerAssets = loadMultipleFiles("header");
   return (
     <header id="header">
-      <Row className="header-image-container">
-        <h1
-          style={{
-            backgroundImage: "url(" + headerAssets.banner + ")",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPositionX: "right",
-          }}
-        >
-          {headerAssets.text.title}
-        </h1>
+      <Row>
+        <div className="header-image-container">
+          <div
+            className="header-image"
+            style={{
+              backgroundImage: "url(" + headerAssets.banner + ")",
+            }}
+          />
+        </div>
+        <h1>{headerAssets.text.title}</h1>
       </Row>
-      <Row
-        style={{
-          borderBottom: "2px solid #303030ff",
-          borderTop: "2px solid #303030ff",
-        }}
-      >
+      <Row className="add-row-border">
         <Nav />
       </Row>
     </header>

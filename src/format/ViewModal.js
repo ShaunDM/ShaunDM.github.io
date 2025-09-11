@@ -15,7 +15,7 @@ export default function ViewModal({
   switch (type) {
     case "image": {
       modalBody = (
-        <img src={content} alt={getAssetAlt(id)} className="modalImage" />
+        <img src={content} alt={getAssetAlt(id)} className="modal-image" />
       );
       break;
     }

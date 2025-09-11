@@ -19,7 +19,7 @@ export default function SidebarList({ list = undefined }) {
         href={`#${id}`}
         key={`${id}_toc`}
         id={`${id}_toc`}
-        className="tocItem"
+        className="sidebar-item"
         aria-label={title}
         action
         active={false}

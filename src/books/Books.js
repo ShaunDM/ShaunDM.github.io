@@ -17,9 +17,9 @@ export default function Books() {
           A list of books I enjoy. Click the book to open a modal with a
           personal description. Originally, this was formatted as a carousel and
           I spent longer than I care to admit to get it somewhat functional,
-          only to realize it'll probably look better as a horizontal list. To
-          make myself feel better, I put in a button that will let you switch
-          between the formats.
+          only to realize it'll probably look better as a list. To make myself
+          feel better, I put in a button that will let you switch between the
+          formats.
         </p>
         <Button
           variant="dark"

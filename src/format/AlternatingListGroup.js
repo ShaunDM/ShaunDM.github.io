@@ -16,16 +16,11 @@ export default function AlternatingListGroup({
       <ListGroup.Item
         className={
           index % 2
-            ? "alternatingListGroup"
-            : "alternatingListGroup alternatingListGroupReverse"
+            ? "alternating-list-group"
+            : "alternating-list-group alternating-list-group-reverse"
         }
         key={key}
         id={key}
-        style={{
-          backgroundColor: "#282c34",
-          color: "white",
-          borderColor: "#1c1e20",
-        }}
       >
         <Col>
           <Item

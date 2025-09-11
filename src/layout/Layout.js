@@ -27,6 +27,8 @@ function Layout() {
     setFormat(selectedFormat);
   };
 
+  const footerStyle = pathname === "/" ? "position-bottom" : null;
+
   return (
     <PropContext.Provider
       value={{
@@ -37,10 +39,7 @@ function Layout() {
         handleSelectFormat: handleSelectFormat,
       }}
     >
-      <Container
-        fluid
-        style={{ gap: "20px 10px", backgroundColor: "black", color: "white" }}
-      >
+      <Container className="contr" fluid>
         <Row>
           <Header />
         </Row>
@@ -49,7 +48,7 @@ function Layout() {
             <Outlet />
           </Main>
         </Row>
-        <Row>
+        <Row className={footerStyle}>
           <Footer />
         </Row>
         <ScrollToTop />
