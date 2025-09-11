@@ -38,12 +38,6 @@ export default function loadMultipleFiles(path) {
       assets.sidebar = { type: "list", src: "items" };
       break;
     }
-    case "/calendar": {
-      const fetch = require.context("../assets/calendar", true);
-      getAssets(fetch);
-      assets.sidebar = { type: "calendar", src: null };
-      break;
-    }
     case "/contact_me": {
       const fetch = require.context("../assets/contact_me", true);
       getAssets(fetch);

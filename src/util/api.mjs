@@ -23,11 +23,6 @@ export function getAssets(path) {
     case "/portfolio": {
       break;
     }
-
-    case "/calendar": {
-      assets = import("../assets/calendar/calendar_db.json");
-      break;
-    }
     case "/contact_me": {
       break;
     }
