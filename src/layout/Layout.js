@@ -29,6 +29,8 @@ function Layout() {
 
   const footerStyle = pathname === "/" ? "position-bottom" : null;
 
+  console.log(pathname);
+
   return (
     <PropContext.Provider
       value={{
