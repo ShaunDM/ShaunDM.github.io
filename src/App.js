@@ -10,12 +10,14 @@ import ContactMe from "./contact_me/ContactMe";
 import ErrorPage from "./error/ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Test from "./test/Test";
 
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="test" element={<Test />} />
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="/books" element={<Books />} />
         <Route path="#/music" element={<Music />} />
