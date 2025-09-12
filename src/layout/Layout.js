@@ -7,7 +7,6 @@ import Main from "./Main";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
 import loadMultipleFiles from "../util/loadMultipleFiles";
-import Test from "../test/Test";
 
 function Layout() {
   const { pathname } = window.location;
@@ -46,7 +45,7 @@ function Layout() {
         </Row>
         <Row>
           <Main>
-            <Test />
+            <Outlet />
           </Main>
         </Row>
         <Row className={footerStyle}>
