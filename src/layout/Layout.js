@@ -29,7 +29,7 @@ function Layout() {
 
   const footerStyle = pathname === "/" ? "position-bottom" : null;
 
-  console.log(pathname);
+  console.log(window.location);
 
   return (
     <PropContext.Provider
