@@ -10,11 +10,11 @@ import ContentLoading from "../layout/ContentLoading";
 export default function ViewCarousel({ itemType, modalType, items, modals }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const { index, handleSelectIndex } = useContext(PropContext);
+  const { index, handleSelectIndex, path } = useContext(PropContext);
 
   if (!items) return <ContentLoading />;
 
-  const urlPath = window.location.pathname.substring(1);
+  const urlPath = path.substring(1);
 
   const handleClose = () => {
     setShowModal(false);

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { PropContext } from "./PropContext";
 import { ListGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +16,7 @@ import {
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function Navbar() {
+  const { path, handleSelectPath } = useContext(PropContext);
   const links = [
     { title: "Home", icon: faHouse },
     { title: "Portfolio", icon: faFolder },
@@ -25,22 +28,22 @@ export default function Navbar() {
     { title: "Contact Me", icon: faAddressCard },
   ];
   return links.map((link) => {
-    const path = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
+    const pathName = `${link.title.replaceAll(" ", "_").toLowerCase()}`;
 
     return (
       <OverlayTrigger
         overlay={
-          <Tooltip id={`${path}_tooltip`}>{getAssetTitle(path)}</Tooltip>
+          <Tooltip id={`${pathName}_tooltip`}>{getAssetTitle(path)}</Tooltip>
         }
-        key={`nav_${path}`}
+        key={`nav_${pathName}`}
       >
         {link.title === "Home" ? (
           <Link
             to=""
-            state={{ pathname: "" }}
             reloadDocument={true}
-            id={`nav_${path}`}
-            key={`nav_${path}`}
+            id={`nav_${pathName}`}
+            key={`nav_${pathName}`}
+            onClick={handleSelectPath(`/${pathName}`)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon
@@ -52,10 +55,11 @@ export default function Navbar() {
           </Link>
         ) : (
           <Link
-            to={`/${path}`}
+            to={`/${pathName}`}
             reloadDocument={true}
-            id={`nav_${path}`}
-            key={`nav_${path}`}
+            id={`nav_${pathName}`}
+            key={`nav_${pathName}`}
+            onClick={handleSelectPath(`/${pathName}`)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon

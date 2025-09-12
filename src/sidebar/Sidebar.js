@@ -6,9 +6,9 @@ import SidebarList from "./SidebarList";
 import SidebarDropdown from "./SidebarDropdown";
 
 export default function Sidebar() {
-  const { assets } = useContext(PropContext);
+  const { assets, path } = useContext(PropContext);
   let sidebar = null;
-  const name = `toc_${window.location.pathname.substring(1)}`;
+  const name = `toc_${path.substring(1)}`;
 
   switch (assets.sidebar.type) {
     case null:

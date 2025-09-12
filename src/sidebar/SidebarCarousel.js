@@ -4,9 +4,9 @@ import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
 export default function SidebarCarousel() {
-  const { assets, handleSelectIndex } = useContext(PropContext);
+  const { assets, handleSelectIndex, path } = useContext(PropContext);
   let links = [];
-  const name = `toc_${window.location.pathname.substring(1)}`;
+  const name = `toc_${path.substring(1)}`;
   for (const [key] of Object.entries(assets[assets.sidebar.src])) {
     const assetReference = referenceAsset(key);
     const { id, title } = assetReference;

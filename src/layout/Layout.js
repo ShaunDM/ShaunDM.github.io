@@ -9,10 +9,10 @@ import ScrollToTop from "./ScrollToTop";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
-  const { pathname } = window.location;
+  const [path, setPath] = useState(window.location.hash.substring(1));
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
-  const [assets, setAssets] = useState(loadMultipleFiles(pathname));
+  const [assets, setAssets] = useState(loadMultipleFiles(path));
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -27,7 +27,12 @@ function Layout() {
     setFormat(selectedFormat);
   };
 
-  const footerStyle = pathname === "/" ? "position-bottom" : null;
+  const handleSelectPath = (selectedPath) => {
+    setPath(selectedPath);
+    setAssets(loadMultipleFiles(path));
+  };
+
+  const footerStyle = path === "/" ? "position-bottom" : null;
 
   console.log(window.location);
 
@@ -39,6 +44,8 @@ function Layout() {
         handleSelectIndex: handleSelectIndex,
         format: format,
         handleSelectFormat: handleSelectFormat,
+        path: path,
+        handleSelectPath: handleSelectPath,
       }}
     >
       <Container className="contr" fluid>
