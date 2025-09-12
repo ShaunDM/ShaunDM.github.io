@@ -9,6 +9,7 @@ export default function Item({
   alt,
   handleShowModal,
 }) {
+  console.log(value);
   const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {
     case "card": {

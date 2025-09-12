@@ -10,6 +10,7 @@ import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
+  console.log(path);
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));

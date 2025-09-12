@@ -7,6 +7,7 @@ import SidebarDropdown from "./SidebarDropdown";
 
 export default function Sidebar() {
   const { assets, path } = useContext(PropContext);
+  console.log(assets, path);
   let sidebar = null;
   const name = `toc_${path.substring(1)}`;
 
