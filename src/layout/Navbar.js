@@ -42,7 +42,7 @@ export default function Navbar() {
             to=""
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
-            onClick={handleSelectPath(`/${pathName}`)}
+            onClick={(e) => handleSelectPath(`/${pathName}`)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon
@@ -57,7 +57,7 @@ export default function Navbar() {
             to={`/${pathName}`}
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
-            onClick={handleSelectPath(`/${pathName}`)}
+            onClick={(e) => handleSelectPath(`/${pathName}`)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon
