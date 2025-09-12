@@ -40,7 +40,6 @@ export default function Navbar() {
         {link.title === "Home" ? (
           <Link
             to=""
-            reloadDocument={true}
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
             onClick={handleSelectPath(`/${pathName}`)}
@@ -56,7 +55,6 @@ export default function Navbar() {
         ) : (
           <Link
             to={`/${pathName}`}
-            reloadDocument={true}
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
             onClick={handleSelectPath(`/${pathName}`)}

@@ -28,6 +28,7 @@ function Layout() {
   };
 
   const handleSelectPath = (selectedPath) => {
+    console.log(selectedPath);
     setPath(selectedPath);
     setAssets(loadMultipleFiles(path));
   };
