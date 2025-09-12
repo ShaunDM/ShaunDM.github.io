@@ -7,7 +7,7 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Router basename="/#">
+    <Router basename="/">
       <App />
     </Router>
   </React.StrictMode>
