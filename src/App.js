@@ -15,7 +15,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route exact path="" element={<Home />} />
         <Route path="portfolio" element={<Portfolio />} />
         <Route path="books" element={<Books />} />
         <Route path="music" element={<Music />} />
