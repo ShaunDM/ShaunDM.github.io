@@ -36,8 +36,8 @@ export default function Navbar() {
       >
         {link.title === "Home" ? (
           <Link
-            to="/"
-            state={{ pathname: "/" }}
+            to=""
+            state={{ pathname: "" }}
             reloadDocument={true}
             id={`nav_${path}`}
             key={`nav_${path}`}
