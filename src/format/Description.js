@@ -5,7 +5,6 @@ export default function Description({ src }) {
   if (!src.description) {
     return src;
   }
-  console.log(src);
 
   const links = Object.entries(src.links).map(([key, value], index) => (
     <>

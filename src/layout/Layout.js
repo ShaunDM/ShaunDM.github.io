@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
@@ -10,7 +10,6 @@ import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
-  console.log(path);
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
@@ -29,14 +28,16 @@ function Layout() {
   };
 
   const handleSelectPath = (selectedPath) => {
-    console.log(selectedPath);
     setPath(selectedPath);
-    setAssets(loadMultipleFiles(path));
   };
 
-  const footerStyle = path === "/" ? "position-bottom" : null;
+  useEffect(() => {
+    setAssets(loadMultipleFiles(path));
+  }, [path]);
 
-  console.log(window.location);
+  console.log(path, assets);
+
+  const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (
     <PropContext.Provider
