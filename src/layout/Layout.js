@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, c } from "react";
 import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
@@ -12,18 +12,18 @@ function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
-  const [assets, setAssets] = useState(loadMultipleFiles(path));
+  const assets = useRef(loadMultipleFiles(path));
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
   const handleSelectFormat = (selectedFormat) => {
     if (selectedFormat)
-      setAssets({ ...assets, sidebar: { ...assets.sidebar, type: "list" } });
+      assets = { ...assets, sidebar: { ...assets.sidebar, type: "list" } };
     else
-      setAssets({
+      assets = {
         ...assets,
         sidebar: { ...assets.sidebar, type: "carousel" },
-      });
+      };
     setFormat(selectedFormat);
   };
 
@@ -33,13 +33,13 @@ function Layout() {
 
   useEffect(() => {
     function getAssets() {
-      setAssets(loadMultipleFiles(path));
+      assets = loadMultipleFiles(path);
     }
 
     getAssets();
   }, [assets, path]);
 
-  console.log(path, assets, "Fix attempt: 7");
+  console.log(path, assets, "Fix attempt: 8");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
