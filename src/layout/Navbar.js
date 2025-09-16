@@ -10,7 +10,7 @@ import {
   faBook,
   faGamepad,
   faFilm,
-  faCalendar,
+  //faCalendar,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
 import { getAssetTitle } from "../util/api.mjs";

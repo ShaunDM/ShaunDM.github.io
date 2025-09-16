@@ -26,9 +26,7 @@ export default function loadMultipleFiles(path) {
     });
   }
   switch (truncatedPath) {
-    case "/": {
-    }
-    case "/home": {
+    case "/home" || "/": {
       const fetch = require.context("../assets/home", true);
       getAssets(fetch);
       assets.sidebar = { type: null, src: null };

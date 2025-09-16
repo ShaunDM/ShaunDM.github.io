@@ -13,6 +13,7 @@ import "./App.css";
 import Test from "./test/Test";
 
 function App() {
+  console.log("test: 2");
   return (
     <Routes>
       <Route element={<Layout />}>
