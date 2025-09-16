@@ -35,18 +35,13 @@ function Layout() {
   };
 
   useEffect(() => {
-    function getAssets() {
-      assets.current = loadMultipleFiles(path);
-    }
-
-    getAssets();
+    assets.current = loadMultipleFiles(path);
+    console.log(path, assets, "Fix attempt: 12");
   }, [assets, path]);
 
   if (assets.current.origin !== path.substring(1)) {
-    window.location.reload();
+    return "...Loading";
   }
-
-  console.log(path, assets, "Fix attempt: 11");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
