@@ -40,7 +40,7 @@ function Layout() {
     console.log(path, assets, "Fix attempt: 13");
   }, []);
 
-  if (assets.current.origin !== path.substring(1)) {
+  if (assets.origin !== path.substring(1)) {
     return "...Loading";
   }
 
