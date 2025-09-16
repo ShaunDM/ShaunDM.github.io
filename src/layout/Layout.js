@@ -33,6 +33,7 @@ function Layout() {
 
   useEffect(() => {
     setAssets(loadMultipleFiles(path));
+    return () => setAssets(null);
   }, [assets]);
 
   console.log(path, assets);
