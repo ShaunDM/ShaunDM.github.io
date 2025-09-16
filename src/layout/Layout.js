@@ -37,6 +37,7 @@ function Layout() {
     }
 
     getAssets();
+    return () => setAssets(null);
   }, [assets, path]);
 
   if (path.substring(1) !== assets.origin) {
