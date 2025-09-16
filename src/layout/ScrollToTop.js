@@ -10,7 +10,11 @@ export default function ScrollToTop() {
       placement="top"
       overlay={<Tooltip id={`tooltip-scroll-to-top`}>Scroll to top</Tooltip>}
     >
-      <Button variant="outline-light" href="#header" className="scroll-to-top">
+      <Button
+        variant="outline-light"
+        onClick={() => document.getElementById("header")?.scrollIntoView()}
+        className="scroll-to-top"
+      >
         <FontAwesomeIcon icon={faArrowUpFromBracket} className="fa-lg" />
       </Button>
     </OverlayTrigger>

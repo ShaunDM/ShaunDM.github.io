@@ -16,7 +16,7 @@ export default function SidebarList({ list = undefined }) {
 
     links.push(
       <ListGroup.Item
-        href={`#${id}`}
+        onClick={() => document.getElementById(id)?.scrollIntoView()}
         key={`${id}_toc`}
         id={`${id}_toc`}
         className="sidebar-item"

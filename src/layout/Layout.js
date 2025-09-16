@@ -9,7 +9,8 @@ import ScrollToTop from "./ScrollToTop";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
-  const [path, setPath] = useState(window.location.hash.substring(1));
+  const path = window.location.hash.substring(1);
+
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
@@ -31,16 +32,10 @@ function Layout() {
   };
 
   const handleSelectPath = (selectedPath) => {
-    setPath(selectedPath);
+    setAssets(loadMultipleFiles(selectedPath));
   };
 
-  useEffect(() => {
-    const newAssets = loadMultipleFiles(path);
-    setAssets(newAssets);
-    console.log(path, assets, "Fix attempt: 13");
-  }, []);
-
-  if (assets.origin !== path.substring(1)) {
+  if (!assets) {
     return "...Loading";
   }
 
@@ -49,7 +44,7 @@ function Layout() {
   return (
     <PropContext.Provider
       value={{
-        assets: assets.current,
+        assets: assets,
         index: index,
         handleSelectIndex: handleSelectIndex,
         format: format,
