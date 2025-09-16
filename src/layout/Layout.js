@@ -32,9 +32,16 @@ function Layout() {
   };
 
   useEffect(() => {
-    setAssets(loadMultipleFiles(path));
+    function getAssets() {
+      setAssets(loadMultipleFiles(path));
+    }
+
+    if (path.substring(1) !== assets.origin) {
+      getAssets();
+    }
+
     return () => setAssets(null);
-  }, [path]);
+  }, [assets]);
 
   console.log(path, assets);
 
