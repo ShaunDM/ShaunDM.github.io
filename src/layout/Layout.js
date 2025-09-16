@@ -37,14 +37,11 @@ function Layout() {
     }
 
     getAssets();
+
     return () => setAssets(null);
   }, [assets, path]);
 
-  if (path.substring(1) !== assets.origin) {
-    window.location.reload();
-  }
-
-  console.log(path, assets, "Fix attempt: 4");
+  console.log(path, assets, "Fix attempt: 5");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 

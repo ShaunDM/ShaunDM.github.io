@@ -16,7 +16,7 @@ import {
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function Navbar() {
-  const { path, handleSelectPath } = useContext(PropContext);
+  const { handleSelectPath } = useContext(PropContext);
   const links = [
     { title: "Home", icon: faHouse },
     { title: "Portfolio", icon: faFolder },
