@@ -13,7 +13,7 @@ import "./App.css";
 import Test from "./test/Test";
 import { useState, useEffect } from "react";
 import { PropContext } from "./PropContext";
-import loadMultipleFiles from "../util/loadMultipleFiles";
+import loadMultipleFiles from "./util/loadMultipleFiles";
 
 const [path, setPath] = useState(window.location.hash.substring(1));
 const [index, setIndex] = useState(0);
@@ -49,7 +49,7 @@ useEffect(() => {
   return () => setAssets(null);
 }, [assets]);
 
-console.log(path, assets);
+console.log(path, assets, "Fix attempt: 1");
 
 function App() {
   return (
