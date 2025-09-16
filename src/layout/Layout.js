@@ -39,7 +39,7 @@ function Layout() {
     getAssets();
   }, [assets, path]);
 
-  console.log(path, assets, "Fix attempt: 9");
+  console.log(path, assets, "Fix attempt: 10");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
