@@ -12,13 +12,16 @@ function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
-  const assets = useRef(loadMultipleFiles(path)).current;
+  const assets = useRef(loadMultipleFiles(path));
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
   const handleSelectFormat = (selectedFormat) => {
     if (selectedFormat)
-      assets = { ...assets, sidebar: { ...assets.sidebar, type: "list" } };
+      assets.current = {
+        ...assets,
+        sidebar: { ...assets.sidebar, type: "list" },
+      };
     else
       assets = {
         ...assets,
@@ -39,14 +42,14 @@ function Layout() {
     getAssets();
   }, [assets, path]);
 
-  console.log(path, assets, "Fix attempt: 10");
+  console.log(path, assets, "Fix attempt: 11");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (
     <PropContext.Provider
       value={{
-        assets: assets,
+        assets: assets.current,
         index: index,
         handleSelectIndex: handleSelectIndex,
         format: format,
