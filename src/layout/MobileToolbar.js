@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PropContext } from "./PropContext";
+import { PropContext } from "../PropContext";
 import { useState } from "react";
 import { OverlayTrigger, ListGroup, Tooltip } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";

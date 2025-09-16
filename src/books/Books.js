@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
-import { PropContext } from "../layout/PropContext";
+import { PropContext } from "../PropContext";
 import { Button, Row } from "react-bootstrap";
 import ViewCarousel from "../format/ViewCarousel";
 import List from "../format/List";

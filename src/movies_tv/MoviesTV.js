@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Col, Row, Image } from "react-bootstrap";
 import { useContext } from "react";
-import { PropContext } from "../layout/PropContext";
+import { PropContext } from "../PropContext";
 import List from "../format/List";
 
 export default function MoviesTV() {

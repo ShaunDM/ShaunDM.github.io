@@ -1,6 +1,6 @@
 import MediaQuery from "react-responsive";
 import { useContext } from "react";
-import { PropContext } from "./PropContext";
+import { PropContext } from "../PropContext";
 import { Row, Col } from "react-bootstrap";
 import Sidebar from "../sidebar/Sidebar";
 import { convertPathToTitle } from "../util/api.mjs";

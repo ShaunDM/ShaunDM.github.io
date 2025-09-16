@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
-import { PropContext } from "../layout/PropContext";
+import { PropContext } from "../PropContext";
 import List from "../format/List";
 import { Row, Col } from "react-bootstrap";
 export default function Music() {
