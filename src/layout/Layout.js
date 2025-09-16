@@ -36,12 +36,14 @@ function Layout() {
       setAssets(loadMultipleFiles(path));
     }
 
-    if (path.substring(1) !== assets.origin) {
-      getAssets();
-    }
+    getAssets();
   }, [assets, path]);
 
-  console.log(path, assets, "Fix attempt: 2");
+  if (path.substring(1) !== assets.origin) {
+    window.location.reload();
+  }
+
+  console.log(path, assets, "Fix attempt: 3");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
