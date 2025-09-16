@@ -33,7 +33,9 @@ export default function Navbar() {
     return (
       <OverlayTrigger
         overlay={
-          <Tooltip id={`${pathName}_tooltip`}>{getAssetTitle(path)}</Tooltip>
+          <Tooltip id={`${pathName}_tooltip`}>
+            {getAssetTitle(pathName)}
+          </Tooltip>
         }
         key={`nav_${pathName}`}
       >

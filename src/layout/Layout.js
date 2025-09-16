@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
@@ -33,7 +33,7 @@ function Layout() {
 
   useEffect(() => {
     setAssets(loadMultipleFiles(path));
-  }, [path]);
+  }, [assets]);
 
   console.log(path, assets);
 
