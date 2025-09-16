@@ -23,7 +23,7 @@ function Layout() {
         sidebar: { ...assets.sidebar, type: "list" },
       };
     else
-      assets = {
+      assets.current = {
         ...assets,
         sidebar: { ...assets.sidebar, type: "carousel" },
       };
@@ -36,7 +36,7 @@ function Layout() {
 
   useEffect(() => {
     function getAssets() {
-      assets = loadMultipleFiles(path);
+      assets.current = loadMultipleFiles(path);
     }
 
     getAssets();
