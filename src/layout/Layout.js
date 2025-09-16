@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
 import { Container, Row } from "react-bootstrap";
@@ -12,21 +12,21 @@ function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
-  const assets = useRef(loadMultipleFiles(path));
+  const [assets, setAssets] = useState(loadMultipleFiles(path));
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
   const handleSelectFormat = (selectedFormat) => {
     if (selectedFormat)
-      assets.current = {
+      setAssets({
         ...assets,
         sidebar: { ...assets.sidebar, type: "list" },
-      };
+      });
     else
-      assets.current = {
+      setAssets({
         ...assets,
         sidebar: { ...assets.sidebar, type: "carousel" },
-      };
+      });
     setFormat(selectedFormat);
   };
 
@@ -35,9 +35,10 @@ function Layout() {
   };
 
   useEffect(() => {
-    assets.current = loadMultipleFiles(path);
-    console.log(path, assets, "Fix attempt: 12");
-  }, [assets, path]);
+    const newAssets = loadMultipleFiles(path);
+    setAssets(newAssets);
+    console.log(path, assets, "Fix attempt: 13");
+  }, []);
 
   if (assets.current.origin !== path.substring(1)) {
     return "...Loading";
