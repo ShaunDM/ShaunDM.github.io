@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
 import Links from "../layout/Links";
 

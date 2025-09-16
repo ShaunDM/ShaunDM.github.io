@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { Accordion } from "react-bootstrap";
 import { getAssetTitle } from "../util/api";
 import SidebarList from "./SidebarList";

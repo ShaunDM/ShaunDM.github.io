@@ -1,7 +1,7 @@
 import { ListGroup, Col } from "react-bootstrap";
 import Item from "./Item";
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function AlternatingListGroup({

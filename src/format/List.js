@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ListGroup } from "react-bootstrap";
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import ViewListGroup from "./ViewListGroup";
 import ViewModal from "./ViewModal";
 import AlternatingListGroup from "./AlternatingListGroup";

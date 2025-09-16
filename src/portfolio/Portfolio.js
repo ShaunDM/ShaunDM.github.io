@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { getAssetTitle } from "../util/api.mjs";
 import { Row } from "react-bootstrap";
 import List from "../format/List";

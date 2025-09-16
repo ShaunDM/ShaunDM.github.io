@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";

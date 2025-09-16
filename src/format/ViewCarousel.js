@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { PropContext } from "../PropContext";
+import { PropContext } from "../layout/PropContext";
 import { referenceAsset } from "../util/api.mjs";
 import { Carousel } from "react-bootstrap";
 import Item from "./Item";
