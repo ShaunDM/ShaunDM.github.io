@@ -12,7 +12,7 @@ function Layout() {
   const [path, setPath] = useState(window.location.hash.substring(1));
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
-  const assets = useRef(loadMultipleFiles(path));
+  const assets = useRef(loadMultipleFiles(path)).current;
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -39,7 +39,7 @@ function Layout() {
     getAssets();
   }, [assets, path]);
 
-  console.log(path, assets, "Fix attempt: 8");
+  console.log(path, assets, "Fix attempt: 9");
 
   const footerStyle = path === "/" ? "position-bottom" : null;
 
