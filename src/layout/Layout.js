@@ -33,7 +33,7 @@ function Layout() {
 
   useEffect(() => {
     function getAssets() {
-      assets.current = loadMultipleFiles(path);
+      assets = loadMultipleFiles(path);
     }
 
     getAssets();
