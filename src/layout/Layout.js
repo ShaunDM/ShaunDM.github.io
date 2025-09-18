@@ -35,10 +35,6 @@ function Layout() {
     setAssets(loadMultipleFiles(selectedPath));
   };
 
-  if (!assets) {
-    return "...Loading";
-  }
-
   const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (

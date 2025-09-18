@@ -1,4 +1,11 @@
+import { checkURL } from "../util/api.mjs";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
+
 export default function Home() {
+  const { assets } = useContext(PropContext);
+  checkURL(assets.origin);
+
   return (
     <>
       <main>

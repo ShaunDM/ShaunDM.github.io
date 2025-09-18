@@ -1,3 +1,4 @@
+import { ErrorBoundary } from "react-error-boundary";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./layout/Layout";
 import Home from "./home/Home";
@@ -10,24 +11,33 @@ import ContactMe from "./contact_me/ContactMe";
 import ErrorPage from "./error/ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Test from "./test/Test";
+import NoMatch from "./error/NoMatch";
 
 function App() {
-  console.log("test: 2");
+  if (
+    window.location.href === window.location.origin ||
+    !window.location.hash.includes("#/")
+  ) {
+    window.location.href = window.location.origin + "/#/";
+    setTimeout(() => {
+      window.location.reload();
+    }, 0);
+  }
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="test" element={<Test />} />
-        <Route path="portfolio" element={<Portfolio />} />
-        <Route path="books" element={<Books />} />
-        <Route path="music" element={<Music />} />
-        <Route path="movies_tv" element={<MoviesTV />} />
-        <Route path="games" element={<Games />} />
-        <Route path="contact_me" element={<ContactMe />} />
-        <Route element={<ErrorPage />} />
-      </Route>
-    </Routes>
+    <ErrorBoundary FallbackComponent={ErrorPage}>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="books" element={<Books />} />
+          <Route path="music" element={<Music />} />
+          <Route path="movies_tv" element={<MoviesTV />} />
+          <Route path="games" element={<Games />} />
+          <Route path="contact_me" element={<ContactMe />} />
+          <Route path="*" element={<NoMatch />} />
+        </Route>
+      </Routes>
+    </ErrorBoundary>
   );
 }
 

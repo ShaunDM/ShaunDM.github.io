@@ -3,8 +3,12 @@ import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import List from "../format/List";
 import { Row, Col } from "react-bootstrap";
+import { checkURL } from "../util/api.mjs";
+
 export default function Music() {
   const { assets } = useContext(PropContext);
+  checkURL(assets.origin);
+
   const isMobile = useMediaQuery({ query: "(max-width: 991px)" })
     ? "standard"
     : "alternating";

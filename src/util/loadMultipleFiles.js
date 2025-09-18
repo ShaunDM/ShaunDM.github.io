@@ -26,7 +26,8 @@ export default function loadMultipleFiles(path) {
     });
   }
   switch (truncatedPath) {
-    case "/home" || "/": {
+    case "/":
+    case "/home": {
       const fetch = require.context("../assets/home", true);
       getAssets(fetch);
       assets.sidebar = { type: null, src: null };
@@ -76,7 +77,8 @@ export default function loadMultipleFiles(path) {
     }
 
     default: {
-      return console.error(`Something went wrong! Path: ${path}`);
+      console.log(`Something went wrong! Path: ${path}`);
+      assets = { origin: "error", sidebar: { type: null } };
     }
   }
   return assets;

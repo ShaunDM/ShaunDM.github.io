@@ -124,8 +124,8 @@ embed {
 .scroll-to-top {
   display: block;
   position: fixed;
-  bottom: 5vh;
-  right: 5vw;
+  bottom: 10vh;
+  right: 10vw;
   opacity: 50%;
 }
 

@@ -13,7 +13,7 @@ export default function SidebarDropdown() {
   return (
     <Accordion defaultActiveKey={eventKeyArray(Object.keys(assets))}>
       {Object.entries(assets).map(([key, value], index) => {
-        if (key === "sidebar") return null;
+        if (key === "sidebar" || key === "origin") return null;
         return (
           <Accordion.Item eventKey={index}>
             <Accordion.Header>{getAssetTitle(key)}</Accordion.Header>

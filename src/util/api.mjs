@@ -144,3 +144,9 @@ export const emailFunction = () => {
   window.location = "mailto:smcra49@gmail.com";
   return false;
 };
+
+//due to using hash, state won't update if url is manually entered after initial navigation to site. Triggers reload to update state if URL doesn't match its component.
+
+export function checkURL(component) {
+  if (window.location.hash !== "#/" + component) window.location.reload();
+}

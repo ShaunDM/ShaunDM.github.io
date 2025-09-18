@@ -3,14 +3,18 @@ import { Col, Row, Image } from "react-bootstrap";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import List from "../format/List";
+import { checkURL } from "../util/api.mjs";
 
 export default function MoviesTV() {
   const { assets } = useContext(PropContext);
+  checkURL(assets.origin);
+
   for (const key of Object.keys(assets.items)) {
     if (!Object.keys(assets.comments).some((comment) => comment === key))
       console.error(`Improperly matched key, assets/movies_tv, ${key}`);
     assets.items[key] = { ...assets.items[key], comment: assets.comments[key] };
   }
+
   return (
     <>
       <Row>

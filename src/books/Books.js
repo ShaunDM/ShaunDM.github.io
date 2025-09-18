@@ -4,12 +4,17 @@ import { PropContext } from "../layout/PropContext";
 import { Button, Row } from "react-bootstrap";
 import ViewCarousel from "../format/ViewCarousel";
 import List from "../format/List";
+import { checkURL } from "../util/api.mjs";
 
 export default function Books() {
   const { assets, format, handleSelectFormat } = useContext(PropContext);
+
   const isMobile = useMediaQuery({ query: "(max-width: 991px)" })
     ? "standard"
     : "horizontal";
+
+  checkURL(assets.origin);
+
   return (
     <>
       <Row>
