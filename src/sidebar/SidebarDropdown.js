@@ -1,7 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
-import { Accordion } from "react-bootstrap";
+import { Accordion, ListGroup } from "react-bootstrap";
 import { getAssetTitle } from "../util/api";
 import SidebarList from "./SidebarList";
 
@@ -11,23 +11,23 @@ export default function SidebarDropdown() {
   const eventKeyArray = (keys) =>
     isMobile ? null : keys.map((key, index) => index);
   return (
-    <Accordion defaultActiveKey={eventKeyArray(Object.keys(assets))}>
+    <ListGroup className="sidebar">
       {Object.entries(assets).map(([key, value], index) => {
         if (key === "sidebar" || key === "origin") return null;
         return (
-          <Accordion.Item eventKey={index}>
-            <Accordion.Header>{getAssetTitle(key)}</Accordion.Header>
-            <Accordion.Body style={{ padding: 0 }}>
+          <ListGroup.Item className="sidebar-header" eventKey={index}>
+            <h4>{getAssetTitle(key)}</h4>
+            <ListGroup style={{ padding: 0 }}>
               <SidebarList
                 list={{
                   [key]: value,
                   sidebar: { src: key },
                 }}
               />
-            </Accordion.Body>
-          </Accordion.Item>
+            </ListGroup>
+          </ListGroup.Item>
         );
       })}
-    </Accordion>
+    </ListGroup>
   );
 }

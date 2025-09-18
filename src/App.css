@@ -147,6 +147,12 @@ embed {
   max-height: 99%;
 }
 
+.sidebar-header {
+  background-color: #343840;
+  color: whitesmoke;
+  border-color: #1c1e20;
+}
+
 .sidebar-item {
   background-color: #282c34;
   color: whitesmoke;

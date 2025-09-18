@@ -16,7 +16,9 @@ export default function MobileToolbar() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleFocus = (e) => e.target.blur();
+  const handleFocus = (e) => {
+    e.target.blur();
+  };
 
   return (
     <>

@@ -46,7 +46,6 @@ export default function ErrorPage({ error }) {
   if (error.message === "Page not found") {
     return container;
   }
-  console.log("hit error delay");
   setTimeout(() => {
     return container;
   }, 100);
