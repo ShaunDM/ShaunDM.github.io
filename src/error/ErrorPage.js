@@ -2,7 +2,7 @@ import { Container, Row, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 export default function ErrorPage({ error }) {
-  return (
+  const container = (
     <Container
       id="error-page"
       className="contr"
@@ -43,4 +43,11 @@ export default function ErrorPage({ error }) {
       </Row>
     </Container>
   );
+  if (error.message === "Page not found") {
+    return container;
+  }
+  console.log("hit error delay");
+  setTimeout(() => {
+    return container;
+  }, 100);
 }
