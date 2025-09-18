@@ -9,7 +9,7 @@
   },
   "email": {
     "onClick": true,
-    "url": "#",
+    "url": null,
     "icon_name": "fa-solid fa-envelope"
   }
 }

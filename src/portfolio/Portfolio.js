@@ -13,7 +13,7 @@ export default function Portfolio() {
     if (key === "sidebar" || key === "origin") return null;
     const itemType = (dir) => (dir.includes("projects") ? "card" : "image");
     return (
-      <>
+      <div key={key}>
         <Row>
           <h4>{getAssetTitle(key)}</h4>
         </Row>
@@ -25,7 +25,7 @@ export default function Portfolio() {
             items={value}
           />
         </Row>
-      </>
+      </div>
     );
   });
 }

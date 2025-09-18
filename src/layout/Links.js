@@ -17,7 +17,7 @@ export default function Links({ component = "ContactMe", assets }) {
     <Button
       key={`link_${key}`}
       id={key}
-      href={value.url}
+      href={value.url ? value.url : null}
       target={value.onClick ? null : "_blank"}
       variant={varnt}
       onClick={value.onClick ? emailFunction : null}
