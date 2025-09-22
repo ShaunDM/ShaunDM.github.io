@@ -1,4 +1,4 @@
-import Links from "./Links";
+import Links from "../contact_me/Links";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 export default function Footer() {
