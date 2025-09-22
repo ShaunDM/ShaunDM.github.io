@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { PropContext } from "./PropContext";
 import { Outlet } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Offcanvas } from "react-bootstrap";
 import Footer from "./Footer";
 import Main from "./Main";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
+import Sidebar from "../sidebar/Sidebar";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
@@ -14,6 +15,8 @@ function Layout() {
   const [index, setIndex] = useState(0);
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
+  const [showOverlay, setShowOverlay] = useState(false);
+
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
   };
@@ -35,6 +38,16 @@ function Layout() {
     setAssets(loadMultipleFiles(selectedPath));
   };
 
+  const handleShowOverlay = () => {
+    setShowOverlay(true);
+  };
+
+  const handleCloseOverlay = () => setShowOverlay(false);
+
+  const handleFocus = (e) => {
+    e.target.blur();
+  };
+
   const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (
@@ -47,8 +60,23 @@ function Layout() {
         handleSelectFormat: handleSelectFormat,
         path: path,
         handleSelectPath: handleSelectPath,
+        handleShowOverlay: handleShowOverlay,
+        handleFocus: handleFocus,
       }}
     >
+      <Offcanvas
+        id="mobile_sidebar"
+        show={showOverlay}
+        onHide={handleCloseOverlay}
+        onClick={handleCloseOverlay}
+        className="btn-close-light"
+        backdrop="static"
+      >
+        <Offcanvas.Header closeButton className="btn-close-white" />
+        <Offcanvas.Body>
+          <Sidebar />
+        </Offcanvas.Body>
+      </Offcanvas>
       <Container className="contr" fluid>
         <Row>
           <Header />

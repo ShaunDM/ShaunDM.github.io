@@ -34,10 +34,8 @@ export default function Sidebar() {
     }
   }
   return (
-    <aside className="sidebar-container">
-      <ListGroup className="sidebar" id={name}>
-        {sidebar}
-      </ListGroup>
-    </aside>
+    <ListGroup className="sidebar" id={name}>
+      {sidebar}
+    </ListGroup>
   );
 }

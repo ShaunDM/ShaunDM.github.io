@@ -17,6 +17,10 @@ import { getAssetTitle } from "../util/api.mjs";
 
 export default function Navbar() {
   const { handleSelectPath } = useContext(PropContext);
+  const handleFocus = (e) => {
+    e.target.blur();
+  };
+
   const links = [
     { title: "Home", icon: faHouse },
     { title: "Portfolio", icon: faFolder },
@@ -45,6 +49,7 @@ export default function Navbar() {
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
             onClick={(e) => handleSelectPath(`/${pathName}`)}
+            onFocus={(e) => handleFocus(e)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon
@@ -60,6 +65,7 @@ export default function Navbar() {
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
             onClick={(e) => handleSelectPath(`/${pathName}`)}
+            onFocus={(e) => handleFocus(e)}
           >
             <ListGroup.Item className="nav-icon" action>
               <FontAwesomeIcon

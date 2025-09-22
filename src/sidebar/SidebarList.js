@@ -10,19 +10,26 @@ export default function SidebarList({ list = undefined }) {
     list = assets;
   }
 
+  const clickHandler = (id) => {
+    document.getElementById(id).scrollIntoView();
+  };
+
   for (const [key] of Object.entries(list[list.sidebar.src])) {
     const assetReference = referenceAsset(key);
     const { id, title } = assetReference;
 
     links.push(
       <ListGroup.Item
-        onClick={() => document.getElementById(id)?.scrollIntoView()}
+        onClick={() => clickHandler(id)}
         key={`${id}_toc`}
         id={`${id}_toc`}
         className="sidebar-item"
         aria-label={title}
         action
         active={false}
+        style={{
+          zIndex: "9999",
+        }}
       >
         {title}
       </ListGroup.Item>
