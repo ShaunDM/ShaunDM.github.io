@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.573cf237.css",
-    "main.js": "/static/js/main.e1748815.js",
+    "main.js": "/static/js/main.b9e68a4b.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
     "static/media/image.JPG": "/static/media/image.d1f49a44d5cbcf5f4867.JPG",
@@ -54,7 +54,7 @@
     "static/media/certificate_of_completion-_thinkful.pdf": "/static/media/certificate_of_completion-_thinkful.1546ef6ac63f8176e14f.pdf",
     "static/media/Country.svg": "/static/media/Country.819b5d9a703a58457065.svg",
     "static/media/mystery.png": "/static/media/mystery.ce8ca6b616bdd91340eb.png",
-    "static/media/shooter.jpg": "/static/media/shooter.4d43a0e66cb821b06d6d.jpg",
+    "static/media/action.jpg": "/static/media/action.4d43a0e66cb821b06d6d.jpg",
     "static/media/Dance.png": "/static/media/Dance.7586a2a5c3f6e222fcd9.png",
     "static/media/Dance.svg": "/static/media/Dance.b2de028edf3c1643b3eb.svg",
     "static/media/strategy.jpg": "/static/media/strategy.9df47f5cc74864c37bc9.jpg",
@@ -81,12 +81,13 @@
     "static/media/post-apocalyptic.jpg": "/static/media/post-apocalyptic.39adc853d6a0bbca7da4.jpg",
     "static/media/Half_a_Day_of_Songs_I_enjoy.png": "/static/media/Half_a_Day_of_Songs_I_enjoy.54d4d53a9cceaa33ab75.png",
     "static/media/Rhythm_and_Blues.png": "/static/media/Rhythm_and_Blues.ebe46a38e9cd2115b3c0.png",
-    "static/media/action_slash_adventure.jpg": "/static/media/action_slash_adventure.05a25d9a2f2c953bc308.jpg",
+    "static/media/adventure.jpg": "/static/media/adventure.05a25d9a2f2c953bc308.jpg",
     "static/media/fantasy.jpg": "/static/media/fantasy.8882c820d84a6998ffd9.jpg",
     "static/media/Alternative.png": "/static/media/Alternative.4490973decfa92d6e852.png",
     "static/media/Electronic.png": "/static/media/Electronic.b5f3c570c9e3ada7a15f.png",
     "static/media/Country.png": "/static/media/Country.af1e7dfddf90972292a8.png",
     "static/media/stealth.jpg": "/static/media/stealth.a10085bfff9817784a25.jpg",
+    "static/media/shooter.jpg": "/static/media/shooter.1a90aabbf7a0abca8b32.jpg",
     "static/media/puzzle.jpg": "/static/media/puzzle.e3808ee46c38950a761f.jpg",
     "static/media/All.png": "/static/media/All.317fe11d2f55fd7dc331.png",
     "static/media/Alternative.svg": "/static/media/Alternative.5d63b08f8faec00f71b7.svg",
@@ -96,10 +97,10 @@
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
     "main.573cf237.css.map": "/static/css/main.573cf237.css.map",
-    "main.e1748815.js.map": "/static/js/main.e1748815.js.map"
+    "main.b9e68a4b.js.map": "/static/js/main.b9e68a4b.js.map"
   },
   "entrypoints": [
     "static/css/main.573cf237.css",
-    "static/js/main.e1748815.js"
+    "static/js/main.b9e68a4b.js"
   ]
 }
