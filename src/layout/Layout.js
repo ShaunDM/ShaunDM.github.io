@@ -17,6 +17,7 @@ function Layout() {
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
   const [showOverlay, setShowOverlay] = useState(false);
+  //variable used in devolpment to find if an event was fired on mobile.
   const [hit, setHit] = useState(false);
 
   const handleSelectIndex = (selectedIndex) => {
