@@ -4,7 +4,7 @@ import { ListGroup } from "react-bootstrap";
 import { getAssetTitle } from "../util/api";
 import SidebarList from "./SidebarList";
 
-export default function SidebarDropdown() {
+export default function SidebarMultipleLists() {
   const { assets } = useContext(PropContext);
 
   return (

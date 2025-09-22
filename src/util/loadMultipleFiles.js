@@ -66,7 +66,7 @@ export default function loadMultipleFiles(path) {
     case "/portfolio": {
       const fetch = require.context("../assets/portfolio", true);
       getAssets(fetch);
-      assets.sidebar = { type: "dropdown", src: null };
+      assets.sidebar = { type: "lists", src: null };
       break;
     }
 

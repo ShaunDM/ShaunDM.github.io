@@ -3,7 +3,7 @@ import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import SidebarCarousel from "./SidebarCarousel";
 import SidebarList from "./SidebarList";
-import SidebarDropdown from "./SidebarDropdown";
+import SidebarMultipleLists from "./SidebarMultipleLists";
 
 export default function Sidebar() {
   const { assets, path } = useContext(PropContext);
@@ -21,8 +21,8 @@ export default function Sidebar() {
       sidebar = <SidebarCarousel />;
       break;
     }
-    case "dropdown": {
-      sidebar = <SidebarDropdown />;
+    case "lists": {
+      sidebar = <SidebarMultipleLists />;
       break;
     }
     case "calendar": {
