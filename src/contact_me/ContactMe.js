@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
-import Links from "../layout/Links";
+import Links from "./Links";
 import { checkURL } from "../util/api.mjs";
 
 export default function ContactMe() {
