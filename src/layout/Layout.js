@@ -7,6 +7,7 @@ import Main from "./Main";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
 import Sidebar from "../sidebar/Sidebar";
+import Hit from "./Hit";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
@@ -16,6 +17,7 @@ function Layout() {
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
   const [showOverlay, setShowOverlay] = useState(false);
+  const [hit, setHit] = useState(false);
 
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -48,6 +50,8 @@ function Layout() {
     e.target.blur();
   };
 
+  const handleHit = () => setHit(!hit);
+
   const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (
@@ -62,6 +66,8 @@ function Layout() {
         handleSelectPath: handleSelectPath,
         handleShowOverlay: handleShowOverlay,
         handleFocus: handleFocus,
+        hit: hit,
+        handleHit: handleHit,
       }}
     >
       <Offcanvas
@@ -80,6 +86,9 @@ function Layout() {
       <Container className="ctnr" fluid>
         <Row>
           <Header />
+        </Row>
+        <Row>
+          <Hit />
         </Row>
         <Row>
           <Main>

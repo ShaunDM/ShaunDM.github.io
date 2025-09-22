@@ -4,13 +4,14 @@ import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
 export default function SidebarList({ list = undefined }) {
-  const { assets } = useContext(PropContext);
+  const { assets, handleHit } = useContext(PropContext);
   let links = [];
   if (!list) {
     list = assets;
   }
 
   const clickHandler = (id) => {
+    handleHit();
     document.getElementById(id).scrollIntoView();
   };
 
