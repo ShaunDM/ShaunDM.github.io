@@ -5,7 +5,7 @@ export default function ErrorPage({ error }) {
   const container = (
     <Container
       id="error-page"
-      className="contr"
+      className="ctnr"
       fluid
       style={{
         display: "flex",

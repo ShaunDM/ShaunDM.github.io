@@ -77,7 +77,7 @@ function Layout() {
           <Sidebar />
         </Offcanvas.Body>
       </Offcanvas>
-      <Container className="contr" fluid>
+      <Container className="ctnr" fluid>
         <Row>
           <Header />
         </Row>
