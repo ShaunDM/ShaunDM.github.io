@@ -1,3 +1,4 @@
+import { MediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
@@ -16,13 +17,15 @@ export default function ContactMe() {
           to contact me or learn more there are some links down below.
         </p>
       </Row>
-      <Row style={{ flexWrap: "nowrap" }}>
+      <Row style={{ flexWrap: "nowrap", justifyContent: "space-evenly" }}>
         <Col className="contact-me">
           <Links assets={assets} />
         </Col>
-        <Col xs={8} className="contact-me-image-container">
-          <Image src={assets.image} className="contact-me-image" />
-        </Col>
+        <MediaQuery minWidth={992}>
+          <Col xs={8} className="contact-me-image-container">
+            <Image src={assets.image} className="contact-me-image" />
+          </Col>
+        </MediaQuery>
       </Row>
     </>
   );

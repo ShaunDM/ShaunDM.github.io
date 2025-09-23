@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import { Image, Card, Button } from "react-bootstrap";
 import Description from "./Description";
 
@@ -9,6 +10,8 @@ export default function Item({
   alt,
   handleShowModal,
 }) {
+  const isMobile = useMediaQuery({ query: "(max-width: 991px)" });
+
   const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {
     case "card": {
@@ -66,14 +69,35 @@ export default function Item({
     }
     case "image": {
       return value.includes("pdf") ? (
-        <embed id={id} src={value} alt={alt} onClick={onclick} />
+        <embed
+          id={id}
+          src={value}
+          alt={alt}
+          onClick={onclick}
+          className="image-container"
+        />
       ) : (
-        <img
+        <Image
           id={id}
           src={value}
           alt={alt}
           onClick={onclick ? onclick : () => window.open(value, "_blank")}
-          className="pointer-on-hover"
+          className="pointer-on-hover image-container"
+          style={isMobile ? { maxWidth: "100%" } : null}
+        />
+      );
+    }
+
+    case "image_horizontal_list": {
+      return value.includes("pdf") ? (
+        <embed id={id} src={value} alt={alt} onClick={onclick} />
+      ) : (
+        <Image
+          id={id}
+          src={value}
+          alt={alt}
+          onClick={onclick ? onclick : () => window.open(value, "_blank")}
+          className="pointer-on-hover image-container"
         />
       );
     }
@@ -81,11 +105,11 @@ export default function Item({
     case "image_carousel": {
       return (
         <div
-          style={{ justifySelf: "center" }}
           id={id}
           className="pointer-on-hover"
+          style={{ justifySelf: "center" }}
         >
-          <img src={value} alt={alt} onClick={onclick} />
+          <img src={value} alt={alt} onClick={onclick} className="contain" />
         </div>
       );
     }

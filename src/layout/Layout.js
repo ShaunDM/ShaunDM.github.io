@@ -7,7 +7,6 @@ import Main from "./Main";
 import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
 import Sidebar from "../sidebar/Sidebar";
-import Hit from "./Hit";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Layout() {
@@ -17,8 +16,6 @@ function Layout() {
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
   const [showOverlay, setShowOverlay] = useState(false);
-  //variable used in devolpment to find if an event was fired on mobile.
-  const [hit, setHit] = useState(false);
 
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -51,8 +48,6 @@ function Layout() {
     e.target.blur();
   };
 
-  const handleHit = () => setHit(!hit);
-
   const footerStyle = path === "/" ? "position-bottom" : null;
 
   return (
@@ -67,8 +62,6 @@ function Layout() {
         handleSelectPath: handleSelectPath,
         handleShowOverlay: handleShowOverlay,
         handleFocus: handleFocus,
-        hit: hit,
-        handleHit: handleHit,
       }}
     >
       <Offcanvas
@@ -80,18 +73,13 @@ function Layout() {
         backdrop="static"
       >
         <Offcanvas.Header closeButton className="btn-close-white" />
-        <Offcanvas.Body>
-          <Sidebar />
-        </Offcanvas.Body>
+        <Sidebar />
       </Offcanvas>
-      <Container className="ctnr" fluid>
-        <Row>
+      <Container className="ctnr contain" fluid>
+        <Row className="contain">
           <Header />
         </Row>
-        <Row>
-          <Hit />
-        </Row>
-        <Row>
+        <Row className="contain">
           <Main>
             <Outlet />
           </Main>

@@ -74,7 +74,7 @@ export default function List({
           }}
         >
           <ViewListGroup
-            itemType={itemType}
+            itemType={itemType === "image" ? "image_horizontal_list" : itemType}
             items={items}
             handleShowModal={hasModal}
           />

@@ -32,7 +32,10 @@ export default function ViewCarousel({ itemType, modalType, items, modals }) {
     const assetReference = referenceAsset(key);
     const { id, alt, title } = assetReference;
     carouselItems.push(
-      <Carousel.Item key={id} id={id} className="pointer-on-hover">
+      <Carousel.Item
+        key={id}
+        className="pointer-on-hover image-container-carousel"
+      >
         <Item
           itemType={itemType}
           id={key}

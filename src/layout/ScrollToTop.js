@@ -12,7 +12,7 @@ export default function ScrollToTop() {
     >
       <Button
         variant="outline-light"
-        onClick={() => document.getElementById("header")?.scrollIntoView()}
+        onClick={() => document.getElementById("header").scrollIntoView()}
         className="scroll-to-top"
       >
         <FontAwesomeIcon icon={faArrowUpFromBracket} className="fa-lg" />
