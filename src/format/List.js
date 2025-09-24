@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, ButtonGroup } from "react-bootstrap";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import ViewListGroup from "./ViewListGroup";
-import ViewModal from "./ViewModal";
 import AlternatingListGroup from "./AlternatingListGroup";
+import ViewButtonGroup from "./ViewButtonGroup";
+import ViewModal from "./ViewModal";
 
 export default function List({
   listType = "standard",
@@ -63,6 +64,14 @@ export default function List({
       );
       break;
     }
+    case "buttonGroup": {
+      list = (
+        <ButtonGroup>
+          <ViewButtonGroup items={items} />
+        </ButtonGroup>
+      );
+      break;
+    }
     case "horizontal": {
       list = (
         <ListGroup
@@ -70,7 +79,10 @@ export default function List({
           horizontal
           className="list-horizontal"
           style={{
-            maxHeight: `${(76 + lists * 4) / lists}vh`,
+            maxHeight: "fit-content",
+            height: `${(76 + lists * 4) / lists}vh`,
+            minHeight: "250px",
+            overflow: "auto",
           }}
         >
           <ViewListGroup
@@ -82,6 +94,7 @@ export default function List({
       );
       break;
     }
+
     default: {
       console.error("Something went wrong. format/List.js listType");
     }

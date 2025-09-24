@@ -11,21 +11,21 @@ export default function Portfolio() {
 
   return Object.entries(assets).map(([key, value]) => {
     if (key === "sidebar" || key === "origin") return null;
-    const itemType = (dir) => (dir.includes("projects") ? "card" : "image");
+    const itemType = (dir) => (dir.includes("projects") ? "button" : "image");
     return (
-      <div key={key}>
+      <Row key={key} style={{ padding: "1rem 0" }}>
         <Row>
           <h4>{getAssetTitle(key)}</h4>
         </Row>
         <Row>
           <List
-            listType="horizontal"
+            listType={itemType(key) === "button" ? "buttonGroup" : "horizontal"}
             lists={Object.keys(assets).length - 1}
             itemType={itemType(key)}
             items={value}
           />
         </Row>
-      </div>
+      </Row>
     );
   });
 }

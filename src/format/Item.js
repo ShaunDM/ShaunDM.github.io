@@ -14,43 +14,55 @@ export default function Item({
 
   const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {
+    case "button": {
+      return (
+        <Button
+          href={value.link ? value.link : ""}
+          target="_blank"
+          variant="dark"
+          id={id}
+          className="add-column-border"
+          style={{ alignContent: "center" }}
+        >
+          {title}
+        </Button>
+      );
+    }
     case "card": {
       //look into including multiple cards on smaller pages
       return (
-        <div id={id}>
-          <Button
-            href={value.link ? value.link : ""}
-            target="_blank"
-            variant="dark"
-          >
-            <Card bg="dark" text="light" className="card-style">
-              <Card.Header>
-                <Card.Title>{title}</Card.Title>
-                {value.genres ? (
-                  <Card.Subtitle className="mb-2 text-muted">
-                    {value.genres.join(" / ")}
-                  </Card.Subtitle>
-                ) : null}
-              </Card.Header>
-              <Card.Body>
-                {value.image ? (
-                  <Image src={value.image} alt={alt} fluid />
-                ) : null}
-                <Card.Text>
-                  <Description src={value.description} />
+        <Button
+          href={value.link ? value.link : ""}
+          target="_blank"
+          variant="dark"
+          id={id}
+        >
+          <Card bg="dark" text="light" className="card-style">
+            <Card.Header>
+              <Card.Title>{title}</Card.Title>
+              {value.genres ? (
+                <Card.Subtitle className="mb-2 text-muted">
+                  {value.genres.join(" / ")}
+                </Card.Subtitle>
+              ) : null}
+            </Card.Header>
+
+            <Card.Body>
+              {value.image ? <Image src={value.image} alt={alt} fluid /> : null}
+              <Card.Text>
+                <Description src={value.description} />
+              </Card.Text>
+              {value.comment ? (
+                <Card.Text
+                  className="blockquote-footer"
+                  style={{ margin: "1em 0 0 0" }}
+                >
+                  {value.comment}
                 </Card.Text>
-                {value.comment ? (
-                  <Card.Text
-                    className="blockquote-footer"
-                    style={{ margin: "1em 0 0 0" }}
-                  >
-                    {value.comment}
-                  </Card.Text>
-                ) : null}
-              </Card.Body>
-            </Card>
-          </Button>
-        </div>
+              ) : null}
+            </Card.Body>
+          </Card>
+        </Button>
       );
     }
 
@@ -69,20 +81,21 @@ export default function Item({
     }
     case "image": {
       return value.includes("pdf") ? (
-        <embed
-          id={id}
-          src={value}
-          alt={alt}
-          onClick={onclick}
-          className="image-container"
-        />
+        <object
+          data={value}
+          type="application/pdf"
+          style={{ width: "auto", height: "100%" }}
+          className="contain"
+        >
+          <p>{title}</p>
+        </object>
       ) : (
         <Image
           id={id}
           src={value}
           alt={alt}
           onClick={onclick ? onclick : () => window.open(value, "_blank")}
-          className="pointer-on-hover image-container"
+          className="pointer-on-hover"
           style={isMobile ? { maxWidth: "100%" } : null}
         />
       );
@@ -90,7 +103,18 @@ export default function Item({
 
     case "image_horizontal_list": {
       return value.includes("pdf") ? (
-        <embed id={id} src={value} alt={alt} onClick={onclick} />
+        <object
+          data={value}
+          type="application/pdf"
+          style={{
+            height: "100%",
+            width: "auto",
+            maxWidth: "100vw",
+            maxHeight: "100%",
+          }}
+        >
+          <p>{title}</p>
+        </object>
       ) : (
         <Image
           id={id}

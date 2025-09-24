@@ -6,9 +6,8 @@ export default function ViewListGroup({ itemType, items, handleShowModal }) {
   return Object.entries(items).map(([key, value]) => {
     const assetReference = referenceAsset(key);
     const { id, alt, title } = assetReference;
-
     return (
-      <ListGroup.Item key={id} id={id}>
+      <ListGroup.Item key={id} id={id} style={{ alignContent: "center" }}>
         <Item
           itemType={itemType}
           id={key}

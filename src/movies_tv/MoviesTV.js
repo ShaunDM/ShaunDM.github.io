@@ -30,7 +30,7 @@ export default function MoviesTV() {
       <Row>
         <List itemType="card" items={assets.items} />
       </Row>
-      <Row style={{ margin: "1rem 0 0 0" }}>
+      <Row style={{ margin: "1rem 0 0 0", padding: "1rem 0" }}>
         <Col className="movies-tv-tmdb-container">
           <p>
             "This website uses TMDB and the TMDB APIs but is not endorsed,
