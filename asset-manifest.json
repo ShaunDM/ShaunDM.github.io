@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.4f7320dd.css",
-    "main.js": "/static/js/main.4db27dc9.js",
+    "main.css": "/static/css/main.ccc94651.css",
+    "main.js": "/static/js/main.0c1a76a3.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
     "static/media/image.JPG": "/static/media/image.d1f49a44d5cbcf5f4867.JPG",
@@ -96,11 +96,11 @@
     "static/media/All.svg": "/static/media/All.649e5e54533028ef5e96.svg",
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
-    "main.4f7320dd.css.map": "/static/css/main.4f7320dd.css.map",
-    "main.4db27dc9.js.map": "/static/js/main.4db27dc9.js.map"
+    "main.ccc94651.css.map": "/static/css/main.ccc94651.css.map",
+    "main.0c1a76a3.js.map": "/static/js/main.0c1a76a3.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f7320dd.css",
-    "static/js/main.4db27dc9.js"
+    "static/css/main.ccc94651.css",
+    "static/js/main.0c1a76a3.js"
   ]
 }
