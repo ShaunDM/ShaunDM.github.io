@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <main>
-        <h3 style={{ margin: "0px 0px 1rem 0px" }}>
+        <h3 style={{ margin: "0px 0px 1rem 0px", padding: "1rem 0 0 0" }}>
           Hello, thanks for looking at my site.
         </h3>
         <p>
@@ -18,7 +18,7 @@ export default function Home() {
         </p>
         <p>I hope you find something to appreciate, have a good one :)</p>
         <p className="blockquote-footer" style={{ padding: "1rem" }}>
-          Last update of content was Aug 2025
+          Last update of content was Sept 2025
         </p>
       </main>
     </>

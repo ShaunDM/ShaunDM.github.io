@@ -26,7 +26,7 @@ function Header() {
         <h1 className="contain">{headerAssets.text.title}</h1>
       </Row>
       {/*To do: get sticky working, probably not working due to ancestor overflow needing to be set to visible*/}
-      <Row className="add-row-border contain sticky">
+      <Row className="add-row-border contain">
         <Nav />
       </Row>
     </header>
