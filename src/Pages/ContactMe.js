@@ -2,7 +2,7 @@ import { MediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
-import Links from "./Links";
+import Links from "../assets/Links";
 import { checkURL } from "../util/api.mjs";
 
 export default function ContactMe() {
