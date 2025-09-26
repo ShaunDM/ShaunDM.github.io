@@ -29,6 +29,17 @@ export default function Music() {
           multiple albums to pull from, but mostly I just included bands/songs I
           enjoy.
         </p>
+        <p>
+          If you liked some or all of these playlists and would like more, there
+          is an additional playlist filled with artists that I couldn't fit in
+          due to limiting the size of each playlist to about an album's worth of
+          songs, except the one. Like before, no artists are repeated, including
+          all the playlist's you see here. It's the only other playlist on my{" "}
+          <a href="https://open.spotify.com/user/317yn6u2b2y373d2waaudtyvyaae">
+            profile
+          </a>
+          .
+        </p>
       </Row>
       <Row>
         <Col>
