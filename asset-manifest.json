@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd2cfe11.css",
-    "main.js": "/static/js/main.0ca9e70b.js",
+    "main.css": "/static/css/main.41ebce16.css",
+    "main.js": "/static/js/main.d98b528b.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
     "static/media/image.JPG": "/static/media/image.d1f49a44d5cbcf5f4867.JPG",
@@ -29,7 +29,7 @@
     "static/media/certificate_of_appreciation-_moscow.jpg": "/static/media/certificate_of_appreciation-_moscow.b3aa0f09a3ce47bf8774.jpg",
     "static/media/Classical.svg": "/static/media/Classical.4580de814ebafdfb82c5.svg",
     "static/media/cpe_certification-_c++_institute.pdf": "/static/media/cpe_certification-_c++_institute.7565731311853087cc9c.pdf",
-    "static/media/action_adventure.png": "/static/media/action_adventure.a04e40ca1bfe0c5a7cdb.png",
+    "static/media/action_&_adventure.png": "/static/media/action_&_adventure.a04e40ca1bfe0c5a7cdb.png",
     "static/media/letter_of_appreciation-_moscow.jpg": "/static/media/letter_of_appreciation-_moscow.d1e37d4fe8109214d860.jpg",
     "static/media/drama.png": "/static/media/drama.481f5c5ce022c9ec011d.png",
     "static/media/biography.png": "/static/media/biography.313df760ec9d8aec221f.png",
@@ -40,7 +40,7 @@
     "static/media/horror.png": "/static/media/horror.ab1835117318013c9c90.png",
     "static/media/fantasy.png": "/static/media/fantasy.f008e3e40a093b94ee7c.png",
     "static/media/graphic_novel.png": "/static/media/graphic_novel.2f38a702fd4ceb8d0b92.png",
-    "static/media/thriller_suspense.png": "/static/media/thriller_suspense.6ab4d7aa229d42509eae.png",
+    "static/media/thriller_&_suspense.png": "/static/media/thriller_&_suspense.6ab4d7aa229d42509eae.png",
     "static/media/Classic_Rock.svg": "/static/media/Classic_Rock.d32db4babd6c75f225a1.svg",
     "static/media/short_story.png": "/static/media/short_story.29845782289577078920.png",
     "static/media/fitness.png": "/static/media/fitness.d96670c604f2c66012e1.png",
@@ -96,11 +96,11 @@
     "static/media/All.svg": "/static/media/All.649e5e54533028ef5e96.svg",
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
-    "main.cd2cfe11.css.map": "/static/css/main.cd2cfe11.css.map",
-    "main.0ca9e70b.js.map": "/static/js/main.0ca9e70b.js.map"
+    "main.41ebce16.css.map": "/static/css/main.41ebce16.css.map",
+    "main.d98b528b.js.map": "/static/js/main.d98b528b.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd2cfe11.css",
-    "static/js/main.0ca9e70b.js"
+    "static/css/main.41ebce16.css",
+    "static/js/main.d98b528b.js"
   ]
 }
