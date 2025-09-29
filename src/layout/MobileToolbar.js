@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function MobileToolbar() {
-  const { handleFocus, handleShowOverlay, assets } = useContext(PropContext);
+  const { handleFocus, handleShowOverlay, assets, isTablet } =
+    useContext(PropContext);
   if (!assets.sidebar.type) {
     return null;
   }
@@ -22,7 +23,11 @@ export default function MobileToolbar() {
         onFocus={(e) => handleFocus(e)}
         action
       >
-        <FontAwesomeIcon icon={faBars} title="Index" size="2x" />
+        <FontAwesomeIcon
+          icon={faBars}
+          title="Index"
+          size={isTablet ? ".5x" : "2x"}
+        />
       </ListGroup.Item>
     </OverlayTrigger>
   );

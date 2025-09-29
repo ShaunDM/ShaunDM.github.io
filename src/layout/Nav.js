@@ -1,14 +1,14 @@
-import MediaQuery from "react-responsive";
+import { useContext } from "react";
+import { PropContext } from "./PropContext";
 import { ListGroup } from "react-bootstrap";
 import MobileToolbar from "./MobileToolbar";
 import Navbar from "./Navbar";
 
 export default function Nav() {
+  const { isMobile } = useContext(PropContext);
   return (
-    <ListGroup name="navbar" className="navbar" horizontal>
-      <MediaQuery maxWidth={991}>
-        <MobileToolbar />
-      </MediaQuery>
+    <ListGroup id="navbar" name="navbar" className="navbar" horizontal>
+      {isMobile ? <MobileToolbar /> : null}
       <Navbar />
     </ListGroup>
   );

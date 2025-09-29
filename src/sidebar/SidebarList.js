@@ -4,14 +4,24 @@ import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
 export default function SidebarList({ list = undefined }) {
-  const { assets } = useContext(PropContext);
+  const { assets, isMobile } = useContext(PropContext);
   let links = [];
   if (!list) {
     list = assets;
   }
 
   const clickHandler = (id) => {
-    document.getElementById(id).scrollIntoView();
+    if (!isMobile) document.getElementById(id).scrollIntoView();
+    //Offsets scroll to compensate for sticky navbar.
+    else
+      window.scrollTo(
+        0,
+        document.getElementById(id).offsetTop -
+          document.getElementById("navbar").offsetHeight
+      );
+    document
+      .getElementById(id)
+      .parentNode.scrollTo(document.getElementById(id).offsetLeft, 0);
   };
 
   for (const [key] of Object.entries(list[list.sidebar.src])) {
@@ -27,9 +37,6 @@ export default function SidebarList({ list = undefined }) {
         aria-label={title}
         action
         active={false}
-        style={{
-          zIndex: "9999",
-        }}
       >
         {title}
       </ListGroup.Item>

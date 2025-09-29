@@ -16,10 +16,7 @@ import {
 import { getAssetTitle } from "../util/api.mjs";
 
 export default function Navbar() {
-  const { handleSelectPath } = useContext(PropContext);
-  const handleFocus = (e) => {
-    e.target.blur();
-  };
+  const { handleSelectPath, isTablet, handleFocus } = useContext(PropContext);
 
   const links = [
     { title: "Home", icon: faHouse },
@@ -55,7 +52,7 @@ export default function Navbar() {
               <FontAwesomeIcon
                 icon={link.icon}
                 title={`${link.title}`}
-                size="2x"
+                size={isTablet ? ".5x" : "2x"}
               />
             </ListGroup.Item>
           </Link>
@@ -71,7 +68,7 @@ export default function Navbar() {
               <FontAwesomeIcon
                 icon={link.icon}
                 title={`${link.title}`}
-                size="2x"
+                size={isTablet ? ".5x" : "2x"}
               />
             </ListGroup.Item>
           </Link>

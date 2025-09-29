@@ -1,4 +1,3 @@
-import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import List from "../format/List";
@@ -6,12 +5,10 @@ import { Row, Col } from "react-bootstrap";
 import { checkURL } from "../util/api.mjs";
 
 export default function Music() {
-  const { assets } = useContext(PropContext);
+  const { assets, isMobile } = useContext(PropContext);
   checkURL(assets.origin);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 991px)" })
-    ? "standard"
-    : "alternating";
+  const format = isMobile ? "standard" : "alternating";
 
   return (
     <>
@@ -43,7 +40,7 @@ export default function Music() {
       </Row>
       <Row>
         <Col>
-          <List listType={isMobile} itemType="spotify" assets={assets} />
+          <List listType={format} itemType="spotify" assets={assets} />
         </Col>
       </Row>
     </>

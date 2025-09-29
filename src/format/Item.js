@@ -1,4 +1,5 @@
-import { useMediaQuery } from "react-responsive";
+import { useContext } from "react";
+import { PropContext } from "../layout/PropContext";
 import { Image, Card, Button } from "react-bootstrap";
 import Description from "./Description";
 
@@ -10,7 +11,7 @@ export default function Item({
   alt,
   handleShowModal,
 }) {
-  const isMobile = useMediaQuery({ query: "(max-width: 991px)" });
+  const { isMobile } = useContext(PropContext);
 
   const onclick = handleShowModal ? () => handleShowModal(id) : null;
   switch (itemType) {

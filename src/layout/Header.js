@@ -1,5 +1,4 @@
 import { Row } from "react-bootstrap";
-import Nav from "./Nav";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
 function Header() {
@@ -14,7 +13,6 @@ function Header() {
               backgroundImage: "url(" + headerAssets.banner + ")",
             }}
           >
-            {/*Used to make sure the banner doesn't cut partway through <h1> */}
             <h1
               className="contain"
               style={{ position: "static", opacity: "0" }}
@@ -24,10 +22,6 @@ function Header() {
           </div>
         </div>
         <h1 className="contain">{headerAssets.text.title}</h1>
-      </Row>
-      {/*To do: get sticky working, probably not working due to ancestor overflow needing to be set to visible*/}
-      <Row className="add-row-border contain">
-        <Nav />
       </Row>
     </header>
   );

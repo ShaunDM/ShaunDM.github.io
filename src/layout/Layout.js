@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PropContext } from "./PropContext";
+import { useMediaQuery } from "react-responsive";
 import { Outlet } from "react-router-dom";
 import { Container, Row, Offcanvas } from "react-bootstrap";
 import Footer from "./Footer";
@@ -8,6 +8,7 @@ import Header from "./Header";
 import ScrollToTop from "./ScrollToTop";
 import Sidebar from "../sidebar/Sidebar";
 import loadMultipleFiles from "../util/loadMultipleFiles";
+import { PropContext } from "./PropContext";
 
 function Layout() {
   const path = window.location.hash.substring(1);
@@ -16,6 +17,9 @@ function Layout() {
   const [format, setFormat] = useState(true);
   const [assets, setAssets] = useState(loadMultipleFiles(path));
   const [showOverlay, setShowOverlay] = useState(false);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 991px)" });
+  const isTablet = useMediaQuery({ query: "(max-width: 767px)" });
 
   const handleSelectIndex = (selectedIndex) => {
     setIndex(selectedIndex);
@@ -62,6 +66,8 @@ function Layout() {
         handleSelectPath: handleSelectPath,
         handleShowOverlay: handleShowOverlay,
         handleFocus: handleFocus,
+        isMobile: isMobile,
+        isTablet: isTablet,
       }}
     >
       <Offcanvas

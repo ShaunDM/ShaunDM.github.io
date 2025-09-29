@@ -1,4 +1,3 @@
-import { useMediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Button, Row } from "react-bootstrap";
@@ -7,11 +6,10 @@ import List from "../format/List";
 import { checkURL } from "../util/api.mjs";
 
 export default function Books() {
-  const { assets, format, handleSelectFormat } = useContext(PropContext);
+  const { assets, format, handleSelectFormat, isMobile } =
+    useContext(PropContext);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 991px)" })
-    ? "standard"
-    : "horizontal";
+  const type = isMobile ? "standard" : "horizontal";
 
   checkURL(assets.origin);
 
@@ -37,7 +35,7 @@ export default function Books() {
       <Row>
         {format ? (
           <List
-            listType={`${isMobile}`}
+            listType={`${type}`}
             itemType="image"
             items={assets.items}
             modalType="image"

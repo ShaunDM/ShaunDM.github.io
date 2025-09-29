@@ -34,7 +34,7 @@ export default function Sidebar() {
     }
   }
   return (
-    <ListGroup className="sidebar" id={name}>
+    <ListGroup className="sidebar sticky" id={name}>
       {sidebar}
     </ListGroup>
   );

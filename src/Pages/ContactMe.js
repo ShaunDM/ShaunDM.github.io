@@ -1,4 +1,3 @@
-import { MediaQuery } from "react-responsive";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Image, Col, Row } from "react-bootstrap";
@@ -6,7 +5,7 @@ import Links from "../assets/Links";
 import { checkURL } from "../util/api.mjs";
 
 export default function ContactMe() {
-  const { assets } = useContext(PropContext);
+  const { assets, isMobile } = useContext(PropContext);
   checkURL(assets.origin);
 
   return (
@@ -21,11 +20,11 @@ export default function ContactMe() {
         <Col className="contact-me">
           <Links assets={assets} />
         </Col>
-        <MediaQuery minWidth={992}>
+        {isMobile ? null : (
           <Col xs={8} className="contact-me-image-container">
             <Image src={assets.image} className="contact-me-image" />
           </Col>
-        </MediaQuery>
+        )}
       </Row>
     </>
   );
