@@ -1,12 +1,61 @@
-# Getting Started with Create React App
+#  Personal Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose
+A perosnal site used to showcase and practice my coding, while sharing things I enjoy.
 
-## Available Scripts
+## Live Site
+
+https://shaundm.github.io/#/
+
+## Instructions
+
+### Installation
+
+1. Fork and clone this repository.
+1. Update `/.env` file with personal MOVIE_API_TOKEN and MOVIE_API_KEY from TMDB API.
+1. Add MOVIE_BASE_URL="https://api.themoviedb.org/3/" MOVIE_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/" to `/.env`
+1. Run `npm install` to install project dependencies.
+1. Run `npm start` to start your server in development mode.
+
+For more information on TMDB API visit: [TMDB developer docs](https://developer.themoviedb.org/docs/getting-started)
+
+### Available Scripts
+
+#### `npm run get:movie_assets`
+
+Utilizing TMDB API, requests TMDB database utilizing IMDB URLs as references to get data on requested movies and TV shows and then writes file: items.json to src/assets/movies_tv with the data formatted to be used in the site. The site is static so if any changes are made it requires redeployment to reflect those changes.
+
+For more information on TMDB API visit: [TMDB developer docs](https://developer.themoviedb.org/docs/getting-started)
+
+#### `npm run deploy'
+
+Requires changing the homepage object in package.json and is currently formatted to deploy to Github Pages.
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+## Improvements and future
+
+- Implement testing
+- Add fitness and dog pages
+- Link more projects
+- Improve assets
+
+## Technologies used
+
+- Javascript
+- HTML
+- CSS
+- React
+- React-router
+- Bootstrap
+
+## React App Instructions
+
+### Available Scripts from initial Create React App
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,12 +63,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
+
+No relevant tests implemented currently
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,7 +80,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -39,32 +90,28 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+#### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+#### Analyzing the Bundle Size
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+#### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+#### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
+#### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
