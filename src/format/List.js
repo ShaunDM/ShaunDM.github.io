@@ -40,7 +40,7 @@ export default function List({
       list = (
         <ListGroup
           name={`${path} list group`}
-          id={`${path}-list-group`}
+          id={`${path}_list_group`}
           data-bs-theme="dark"
           horizontal
           className="flex-wrap list-standard"
@@ -56,7 +56,7 @@ export default function List({
     }
     case "alternating": {
       list = (
-        <ListGroup name={`${path} list group`} id={`${path}-list-group`}>
+        <ListGroup name={`${path} list group`} id={`${path}_list_group`}>
           <AlternatingListGroup
             itemType={itemType}
             items={items}
@@ -68,7 +68,7 @@ export default function List({
     }
     case "buttonGroup": {
       list = (
-        <ButtonGroup name={`${path} list group`} id={`${path}-list-group`}>
+        <ButtonGroup name={`${path} list group`} id={`${path}_list_group`}>
           <ViewButtonGroup items={items} />
         </ButtonGroup>
       );
@@ -78,7 +78,7 @@ export default function List({
       list = (
         <ListGroup
           name={`${path} list group`}
-          id={`${path}-list-group`}
+          id={`${path}_list_group`}
           data-bs-theme="dark"
           horizontal
           className="list-horizontal"
