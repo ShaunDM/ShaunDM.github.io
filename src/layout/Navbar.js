@@ -13,8 +13,10 @@ import {
   //faCalendar,
   faAddressCard,
 } from "@fortawesome/free-solid-svg-icons";
+
 import { getAssetTitle } from "../util/api.mjs";
 
+//Renders the nav links of nav
 export default function Navbar() {
   const { handleSelectPath, isTablet, handleFocus } = useContext(PropContext);
 
@@ -42,6 +44,7 @@ export default function Navbar() {
       >
         {link.title === "Home" ? (
           <Link
+            name={`nav ${pathName}`}
             to=""
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}
@@ -58,6 +61,7 @@ export default function Navbar() {
           </Link>
         ) : (
           <Link
+            name={`nav ${pathName}`}
             to={`/${pathName}`}
             id={`nav_${pathName}`}
             key={`nav_${pathName}`}

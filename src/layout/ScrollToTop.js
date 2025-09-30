@@ -11,6 +11,8 @@ export default function ScrollToTop() {
       overlay={<Tooltip id={`tooltip-scroll-to-top`}>Scroll to top</Tooltip>}
     >
       <Button
+        id="scroll_to_top"
+        name="scroll to top"
         variant="outline-light"
         onClick={() => document.getElementById("header").scrollIntoView()}
         className="scroll-to-top"

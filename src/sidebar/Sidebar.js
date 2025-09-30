@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
-import SidebarCarousel from "./SidebarCarousel";
-import SidebarList from "./SidebarList";
-import SidebarMultipleLists from "./SidebarMultipleLists";
+import CarouselSidebar from "./CarouselSidebar";
+import ListSidebar from "./ListSidebar";
+import MultipleListsSidebar from "./MultipleListsSidebar";
 
+//Chooses sidebar type
 export default function Sidebar() {
   const { assets, path } = useContext(PropContext);
   let sidebar = null;
@@ -14,15 +15,15 @@ export default function Sidebar() {
     case null:
       return null;
     case "list": {
-      sidebar = <SidebarList />;
+      sidebar = <ListSidebar />;
       break;
     }
     case "carousel": {
-      sidebar = <SidebarCarousel />;
+      sidebar = <CarouselSidebar />;
       break;
     }
     case "lists": {
-      sidebar = <SidebarMultipleLists />;
+      sidebar = <MultipleListsSidebar />;
       break;
     }
     case "calendar": {
@@ -34,7 +35,7 @@ export default function Sidebar() {
     }
   }
   return (
-    <ListGroup className="sidebar sticky" id={name}>
+    <ListGroup name="sidebar" className="sidebar sticky" id={name}>
       {sidebar}
     </ListGroup>
   );

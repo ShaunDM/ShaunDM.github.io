@@ -3,7 +3,7 @@ import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
-export default function SidebarList({ list = undefined }) {
+export default function ListSidebar({ list = undefined }) {
   const { assets, isMobile } = useContext(PropContext);
   let links = [];
   if (!list) {

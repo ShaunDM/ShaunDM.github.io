@@ -29,7 +29,13 @@ export default function ViewModal({
   }
   return (
     id && (
-      <Modal show={showModal} onHide={handleClose} size="xl" id={`${id}_modal`}>
+      <Modal
+        show={showModal}
+        onHide={handleClose}
+        size="xl"
+        name={`${id} modal`}
+        id={`${id}_modal`}
+      >
         <Modal.Body>
           <div className="modalBody">{modalBody}</div>
         </Modal.Body>

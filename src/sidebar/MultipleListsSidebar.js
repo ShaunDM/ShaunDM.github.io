@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import { getAssetTitle } from "../util/api";
-import SidebarList from "./SidebarList";
+import SidebarList from "./ListSidebar";
 
-export default function SidebarMultipleLists() {
+export default function MultipleListsSidebar() {
   const { assets } = useContext(PropContext);
 
   return (

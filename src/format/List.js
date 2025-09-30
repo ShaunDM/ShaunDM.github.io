@@ -17,7 +17,7 @@ export default function List({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const { assets } = useContext(PropContext);
+  const { assets, path } = useContext(PropContext);
 
   const handleClose = () => {
     setShowModal(false);
@@ -39,6 +39,8 @@ export default function List({
     case "standard": {
       list = (
         <ListGroup
+          name={`${path} list group`}
+          id={`${path}-list-group`}
           data-bs-theme="dark"
           horizontal
           className="flex-wrap list-standard"
@@ -54,7 +56,7 @@ export default function List({
     }
     case "alternating": {
       list = (
-        <ListGroup>
+        <ListGroup name={`${path} list group`} id={`${path}-list-group`}>
           <AlternatingListGroup
             itemType={itemType}
             items={items}
@@ -66,7 +68,7 @@ export default function List({
     }
     case "buttonGroup": {
       list = (
-        <ButtonGroup>
+        <ButtonGroup name={`${path} list group`} id={`${path}-list-group`}>
           <ViewButtonGroup items={items} />
         </ButtonGroup>
       );
@@ -75,14 +77,13 @@ export default function List({
     case "horizontal": {
       list = (
         <ListGroup
+          name={`${path} list group`}
+          id={`${path}-list-group`}
           data-bs-theme="dark"
           horizontal
           className="list-horizontal"
           style={{
-            maxHeight: "fit-content",
             height: `${(76 + lists * 4) / lists}vh`,
-            minHeight: "250px",
-            overflow: "auto",
           }}
         >
           <ViewListGroup

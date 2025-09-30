@@ -21,11 +21,12 @@ export default function Item({
           href={value.link ? value.link : ""}
           target="_blank"
           variant="dark"
-          id={id}
+          name={`btn ${id}`}
+          id={`btn_${id}`}
           className="add-column-border"
           style={{ alignContent: "center" }}
         >
-          {title}
+          {value.child ? value.child : title}
         </Button>
       );
     }
@@ -36,6 +37,7 @@ export default function Item({
           href={value.link ? value.link : ""}
           target="_blank"
           variant="dark"
+          name={title}
           id={id}
         >
           <Card bg="dark" text="light" className="card-style">
@@ -70,6 +72,7 @@ export default function Item({
     case "iframe": {
       return (
         <iframe
+          name={title}
           id={id}
           src={value}
           width="100%"
@@ -83,6 +86,9 @@ export default function Item({
     case "image": {
       return value.includes("pdf") ? (
         <object
+          name={title}
+          id={id}
+          alt={alt}
           data={value}
           type="application/pdf"
           style={{ width: "auto", height: "100%" }}
@@ -92,6 +98,7 @@ export default function Item({
         </object>
       ) : (
         <Image
+          name={title}
           id={id}
           src={value}
           alt={alt}
@@ -105,19 +112,18 @@ export default function Item({
     case "image_horizontal_list": {
       return value.includes("pdf") ? (
         <object
+          name={title}
+          id={id}
           data={value}
+          alt={alt}
           type="application/pdf"
-          style={{
-            height: "100%",
-            width: "auto",
-            maxWidth: "100vw",
-            maxHeight: "100%",
-          }}
+          className="image-container-horizontal-list"
         >
           <p>{title}</p>
         </object>
       ) : (
         <Image
+          name={title}
           id={id}
           src={value}
           alt={alt}
@@ -130,6 +136,7 @@ export default function Item({
     case "image_carousel": {
       return (
         <div
+          name={title}
           id={id}
           className="pointer-on-hover"
           style={{ justifySelf: "center" }}
@@ -142,6 +149,7 @@ export default function Item({
     case "spotify": {
       return (
         <iframe
+          name={title}
           id={id}
           src={`https://open.spotify.com/embed/playlist/${value}?utm_source=generator`}
           width="100%"

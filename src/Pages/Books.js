@@ -16,7 +16,7 @@ export default function Books() {
   return (
     <>
       <Row>
-        <p>
+        <p name="page description" id="page_description">
           A list of books I enjoy. Click the book to open a modal with a
           personal description. Originally, this was formatted as a carousel and
           I spent longer than I care to admit to get it somewhat functional,
@@ -25,6 +25,8 @@ export default function Books() {
           formats.
         </p>
         <Button
+          name="toggle format"
+          id="toggle_format_btn"
           variant="dark"
           onClick={() => handleSelectFormat(!format)}
           style={{ justifySelf: "end" }}

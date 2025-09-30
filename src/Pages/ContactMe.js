@@ -11,7 +11,7 @@ export default function ContactMe() {
   return (
     <>
       <Row>
-        <p>
+        <p name="page description">
           Thank you for showing interest in my website and myself. If you'd like
           to contact me or learn more there are some links down below.
         </p>
@@ -22,7 +22,11 @@ export default function ContactMe() {
         </Col>
         {isMobile ? null : (
           <Col xs={8} className="contact-me-image-container">
-            <Image src={assets.image} className="contact-me-image" />
+            <Image
+              src={assets.image}
+              className="contact-me-image"
+              alt="background pic"
+            />
           </Col>
         )}
       </Row>

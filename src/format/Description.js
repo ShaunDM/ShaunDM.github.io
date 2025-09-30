@@ -7,7 +7,7 @@ export default function Description({ src }) {
   }
 
   const links = Object.entries(src.links).map(([key, value], index) => (
-    <object key={key}>
+    <object key={key} name={`link to ${key}`} id={`link_${key}`}>
       <Link to={value} target="_blank">
         {getAssetTitle(key)}
       </Link>

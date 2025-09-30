@@ -4,6 +4,8 @@ import os from "node:os";
 import path from "node:path";
 import links from "../assets/movies_tv/links.json" with { type: "json" };
 
+//Loads movie and tv assets using TMDB api and referencing their db using src/assets/movies_tv/links.json, set up statically, so have to run and redeploy with any change to reference file.
+
 const ENV_PATH = (import.meta.url + '../../../../.env').substring(8);
 
 dotenv.config({
@@ -47,7 +49,7 @@ async function fetchJson(
   }
 }
 
-//this is checks the base url of getting images and replaces if necessary. See https://developer.themoviedb.org/reference/configuration-details
+//this checks the base url for getting images and replaces if necessary. See https://developer.themoviedb.org/reference/configuration-details
 async function checkBaseURL() {
   const requestBaseURL = await fetchJson(baseURL + "configuration").then(
     (response) => response.images.secure_base_url

@@ -4,6 +4,7 @@ import { OverlayTrigger, ListGroup, Tooltip } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
+//renders MobileToolbar.js as part of the Navbar.js. Toggles sidebar on mobile devices, not shown on desktop.
 export default function MobileToolbar() {
   const { handleFocus, handleShowOverlay, assets, isTablet } =
     useContext(PropContext);
@@ -17,8 +18,9 @@ export default function MobileToolbar() {
       onFocus={(e) => handleFocus(e)}
     >
       <ListGroup.Item
+        name="toggle sidebar"
         id="nav_index"
-        className="nav-icon-item"
+        className="nav-icon"
         onClick={(e) => handleShowOverlay(e)}
         onFocus={(e) => handleFocus(e)}
         action

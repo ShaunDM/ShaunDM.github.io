@@ -7,10 +7,14 @@ export default function ViewListGroup({ itemType, items, handleShowModal }) {
     const assetReference = referenceAsset(key);
     const { id, alt, title } = assetReference;
     return (
-      <ListGroup.Item key={id} id={id} style={{ alignContent: "center" }}>
+      <ListGroup.Item
+        key={id}
+        id={`${id}_container`}
+        style={{ alignContent: "center" }}
+      >
         <Item
           itemType={itemType}
-          id={key}
+          id={id}
           value={value}
           title={title}
           alt={alt}

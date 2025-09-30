@@ -11,68 +11,69 @@ export default function loadMultipleFiles(path) {
     ? path.substring(0, path.substring(1).indexOf("/") + 1)
     : path;
 
-  function getAssets(fetch) {
-    fetch.keys().forEach((item) => {
-      const newKey = getAssetId(item.replace("./", ""));
+  function getAssets(files) {
+    console.log(files);
+    files.keys().forEach((file) => {
+      const newKey = getAssetId(file.replace("./", ""));
       const slash = newKey.indexOf("/");
       if (slash >= 0) {
         assets[newKey.slice(0, slash)] = {
           ...assets[newKey.slice(0, slash)],
-          [newKey.slice(slash + 1)]: fetch(item),
+          [newKey.slice(slash + 1)]: files(file),
         };
       } else {
-        assets = { ...assets, [newKey]: fetch(item) };
+        assets = { ...assets, [newKey]: files(file) };
       }
     });
   }
   switch (truncatedPath) {
     case "/":
     case "/home": {
-      const fetch = require.context("../assets/home", true);
-      getAssets(fetch);
+      const files = require.context("../assets/home", true);
+      getAssets(files);
       assets.sidebar = { type: null, src: null };
       break;
     }
     case "/books": {
-      const fetch = require.context("../assets/books", true);
-      getAssets(fetch);
+      const files = require.context("../assets/books", true);
+      getAssets(files);
       assets.sidebar = { type: "list", src: "items" };
       break;
     }
     case "/contact_me": {
-      const fetch = require.context("../assets/contact_me", true);
-      getAssets(fetch);
+      const files = require.context("../assets/contact_me", true);
+      getAssets(files);
       assets.sidebar = { type: null, src: null };
       break;
     }
     case "/games": {
-      const fetch = require.context("../assets/games", true);
-      getAssets(fetch);
+      const files = require.context("../assets/games", true);
+      getAssets(files);
       assets.sidebar = { type: "list", src: "images" };
       break;
     }
     case "/movies_tv": {
-      const fetch = require.context("../assets/movies_tv", true);
-      getAssets(fetch);
+      const files = require.context("../assets/movies_tv", true);
+      getAssets(files);
       assets.sidebar = { type: "list", src: "links" };
       break;
     }
     case "/music": {
-      const fetch = require.context("../assets/music", true);
-      getAssets(fetch);
+      const files = require.context("../assets/music", true);
+      getAssets(files);
       assets.sidebar = { type: "list", src: "playlistSrcs" };
       break;
     }
     case "/portfolio": {
-      const fetch = require.context("../assets/portfolio", true);
-      getAssets(fetch);
+      const files = require.context("../assets/portfolio", true);
+      getAssets(files);
       assets.sidebar = { type: "lists", src: null };
       break;
     }
 
     case "header": {
-      const fetch = require.context("../assets/header", true);
-      getAssets(fetch);
+      const files = require.context("../assets/header", true);
+      getAssets(files);
       break;
     }
 

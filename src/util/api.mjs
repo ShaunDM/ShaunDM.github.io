@@ -1,38 +1,3 @@
-export function getAssets(path) {
-  let assets = null;
-  const truncatedPath = path.substring(1).includes("/")
-    ? path.substring(0, path.substring(1).indexOf("/") + 1)
-    : path;
-  switch (truncatedPath) {
-    case "/": {
-      break;
-    }
-    case "/books": {
-      break;
-    }
-    case "/games": {
-      break;
-    }
-
-    case "/movies_tv": {
-      break;
-    }
-    case "/music": {
-      break;
-    }
-    case "/portfolio": {
-      break;
-    }
-    case "/contact_me": {
-      break;
-    }
-    default: {
-      return console.error(`Something went wrong! Path: ${path}`);
-    }
-  }
-  return assets;
-}
-
 export function getAssetId(assetName) {
   return assetName.substring(0, assetName.lastIndexOf(".")) || assetName;
 }
@@ -74,13 +39,6 @@ export function getAssetTitle(assetName) {
       (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
     )
     .replaceAll(" Slash ", "/")
-    .replaceAll(
-      /[^a-zA-Z0-9_']\S*/g,
-      (text) =>
-        text.charAt(0) +
-        text.charAt(1).toUpperCase() +
-        text.substring(2).toLowerCase()
-    )
     .replace(/Odk/, "ODK")
     .replace(/Cpe/, "CPE")
     .replace(/Oif/, "OIF")

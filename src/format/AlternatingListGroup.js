@@ -14,11 +14,8 @@ export default function AlternatingListGroup({
     const title = getAssetTitle(key);
     return (
       <ListGroup.Item
-        className={
-          index % 2
-            ? "alternating-list-group"
-            : "alternating-list-group alternating-list-group-reverse"
-        }
+        className={`alternating-list-group 
+          ${index % 2 ? null : "alternating-list-group-reverse"}`}
         key={key}
         id={key}
       >
@@ -34,15 +31,13 @@ export default function AlternatingListGroup({
         </Col>
 
         <Col
+          id={`${key}_description_container`}
+          className="alternating-list-group-description"
           style={{
             backgroundImage: "url(" + assets.icons[key] + ")",
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundBlendMode: "lighten",
           }}
         >
-          <div>{assets.descriptions[key]}</div>
+          <p name={`${key}_description`}>{assets.descriptions[key]}</p>
         </Col>
       </ListGroup.Item>
     );

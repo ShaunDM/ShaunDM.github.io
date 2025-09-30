@@ -18,7 +18,7 @@ export default function MoviesTV() {
   return (
     <>
       <Row>
-        <p>
+        <p name="page description" id="page_description">
           To be honest I don't watch much TV and movies have fallen to the
           wayside as well. When I do watch things they tend to be more
           fantastical, which is why a large portion, especially TV shows, are
@@ -31,7 +31,7 @@ export default function MoviesTV() {
         <List itemType="card" items={assets.items} />
       </Row>
       <Row style={{ margin: "1rem 0 0 0", padding: "1rem 0" }}>
-        <Col className="movies-tv-tmdb-container">
+        <Col name="TMDB acknowledgement" className="movies-tv-tmdb-container">
           <p>
             "This website uses TMDB and the TMDB APIs but is not endorsed,
             certified, or otherwise approved by TMDB."
