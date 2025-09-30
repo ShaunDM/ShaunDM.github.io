@@ -29,6 +29,8 @@ For more information on TMDB API visit: [TMDB developer docs](https://developer.
 
 #### `npm run deploy`
 
+Builds and deploys the website to a designated URL utilizing Github Pages as the host server.
+
 Requires changing the homepage object in package.json to a URL of your choosing and is currently formatted to deploy to Github Pages.
 
 For more information: [React deployment docs](https://create-react-app.dev/docs/deployment/), paying special attention to the Github Pages section.
