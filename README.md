@@ -27,7 +27,7 @@ Utilizing TMDB API, requests TMDB database utilizing IMDB URLs as references to 
 
 For more information on TMDB API visit: [TMDB developer docs](https://developer.themoviedb.org/docs/getting-started)
 
-#### `npm run deploy'
+#### `npm run deploy`
 
 Requires changing the homepage object in package.json to a URL of your choosing and is currently formatted to deploy to Github Pages.
 
