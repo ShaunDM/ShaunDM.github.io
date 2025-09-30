@@ -1,7 +1,7 @@
 #  Personal Website
 
 ## Purpose
-A perosnal site used to showcase and practice my coding, while sharing things I enjoy.
+A personal site used to showcase and practice my coding, while sharing things I enjoy.
 
 ## Live Site
 
