@@ -12,7 +12,7 @@ https://shaundm.github.io/#/
 ### Installation
 
 1. Fork and clone this repository.
-1. Update `/.env` file with personal MOVIE_API_TOKEN and MOVIE_API_KEY from TMDB API.
+1. Update `/.env` file by setting variables MOVIE_API_TOKEN and MOVIE_API_KEY with your respective API token and key from TMDB API.
 1. Add MOVIE_BASE_URL="https://api.themoviedb.org/3/" MOVIE_IMAGE_BASE_URL = "https://image.tmdb.org/t/p/" to `/.env`
 1. Run `npm install` to install project dependencies.
 1. Run `npm start` to start your server in development mode.
