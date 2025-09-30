@@ -29,9 +29,9 @@ For more information on TMDB API visit: [TMDB developer docs](https://developer.
 
 #### `npm run deploy'
 
-Requires changing the homepage object in package.json and is currently formatted to deploy to Github Pages.
+Requires changing the homepage object in package.json to a URL of your choosing and is currently formatted to deploy to Github Pages.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+For more information: [React deployment docs](https://create-react-app.dev/docs/deployment/), paying special attention to the Github Pages section.
 
 ## Improvements and future
 
