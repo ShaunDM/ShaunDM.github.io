@@ -3,6 +3,7 @@ import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
+//Renders a sidebar that navigates the page when a carousel is used.
 export default function CarouselSidebar() {
   const { assets, handleSelectIndex, path } = useContext(PropContext);
   let links = [];

@@ -5,7 +5,7 @@ import Sidebar from "../sidebar/Sidebar";
 import Nav from "./Nav";
 import { convertPathToTitle } from "../util/api.mjs";
 
-//Renders Route Outlet (location.pathname) content, sidebar on non-mobile device, and navbar.
+//Renders Route Outlet (location.pathname) content through children variable, sidebar on non-mobile device, and navbar.
 export default function Main({ children }) {
   const { path, isMobile } = useContext(PropContext);
 

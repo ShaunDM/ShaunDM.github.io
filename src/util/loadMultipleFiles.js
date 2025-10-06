@@ -12,7 +12,6 @@ export default function loadMultipleFiles(path) {
     : path;
 
   function getAssets(files) {
-    console.log(files);
     files.keys().forEach((file) => {
       const newKey = getAssetId(file.replace("./", ""));
       const slash = newKey.indexOf("/");

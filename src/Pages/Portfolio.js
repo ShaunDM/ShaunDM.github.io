@@ -19,6 +19,7 @@ export default function Portfolio() {
         </Row>
         <Row>
           <List
+            listName={key}
             listType={itemType(key) === "button" ? "buttonGroup" : "horizontal"}
             lists={Object.keys(assets).length - 1}
             itemType={itemType(key)}

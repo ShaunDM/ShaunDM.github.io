@@ -1,30 +1,30 @@
-import { useState } from "react";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { referenceAsset } from "../util/api.mjs";
 import { Carousel } from "react-bootstrap";
 import Item from "./Item";
-import ViewModal from "./ViewModal";
 import ContentLoading from "../layout/ContentLoading";
 
-export default function ViewCarousel({ itemType, modalType, items, modals }) {
-  const [showModal, setShowModal] = useState(false);
-  const [modalContent, setModalContent] = useState(null);
+/*
+Renders a carousel of items supplied by the page's assets in src/assets/*. 
+
+-itemType: string, is decided by the page being rendered from src/pages/* and chooses which switch case is rendered. 
+-items: object, is an object containing all files for the page's list being rendered, sourced from its asset folder in src/assets/*.
+-itemType: string, is decided by the page being rendered from src/pages/* and chooses which switch case is rendered. 
+-handleShowModal: function, is conditional for rendering modals, utilized in ./Item.js.
+-showModal: string, state variable based on the id of a modal if it is shown, null if not. Used in this instance to prevent carousel from sliding to next slide.
+*/
+export default function ViewCarousel({
+  itemType,
+  items,
+  handleShowModal,
+  showModal,
+}) {
   const { index, handleSelectIndex, path } = useContext(PropContext);
 
   if (!items) return <ContentLoading />;
 
   const urlPath = path.substring(1);
-
-  const handleClose = () => {
-    setShowModal(false);
-    setModalContent(null);
-  };
-
-  const handleShowModal = (id) => {
-    setModalContent(modals[id]);
-    setShowModal(id);
-  };
 
   let carouselItems = [];
 
@@ -49,28 +49,19 @@ export default function ViewCarousel({ itemType, modalType, items, modals }) {
   }
 
   return (
-    <>
-      <Carousel
-        activeIndex={index}
-        onSelect={handleSelectIndex}
-        name={`${urlPath}_carousel`}
-        id={`${urlPath}_carousel`}
-        interval={showModal ? null : "3000"}
-        indicatorLabels={Object.keys(items)}
-        pause="false"
-        style={{
-          backgroundColor: "black",
-        }}
-      >
-        {carouselItems}
-      </Carousel>
-      <ViewModal
-        type={modalType}
-        id={showModal}
-        content={modalContent}
-        showModal={showModal}
-        handleClose={handleClose}
-      />
-    </>
+    <Carousel
+      activeIndex={index}
+      onSelect={handleSelectIndex}
+      name={`${urlPath}_carousel`}
+      id={`${urlPath}_carousel`}
+      interval={showModal ? null : "3000"}
+      indicatorLabels={Object.keys(items)}
+      pause="false"
+      style={{
+        backgroundColor: "black",
+      }}
+    >
+      {carouselItems}
+    </Carousel>
   );
 }

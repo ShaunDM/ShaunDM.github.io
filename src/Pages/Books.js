@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 import { Button, Row } from "react-bootstrap";
-import ViewCarousel from "../format/ViewCarousel";
 import List from "../format/List";
 import { checkURL } from "../util/api.mjs";
 
@@ -37,14 +36,16 @@ export default function Books() {
       <Row>
         {format ? (
           <List
-            listType={`${type}`}
+            listName="books"
+            listType={type}
             itemType="image"
             items={assets.items}
             modalType="image"
             modals={assets.modals}
           />
         ) : (
-          <ViewCarousel
+          <List
+            listType="carousel"
             itemType="image_carousel"
             modalType="image"
             items={assets.items}

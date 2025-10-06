@@ -13,7 +13,7 @@ export default function Games() {
   for (const [key, value] of Object.entries(assets.images)) {
     items[key] = {
       image: value,
-      description: assets.card_descriptions[key],
+      description: assets.descriptions[key],
       link: assets.links[key],
     };
   }
@@ -27,7 +27,7 @@ export default function Games() {
         </p>
       </Row>
       <Row>
-        <List itemType="card" items={items} />
+        <List listName="games" itemType="card" items={items} />
       </Row>
     </>
   );

@@ -28,7 +28,7 @@ export default function MoviesTV() {
         </p>
       </Row>
       <Row>
-        <List itemType="card" items={assets.items} />
+        <List listName="movies_tv" itemType="card" items={assets.items} />
       </Row>
       <Row style={{ margin: "1rem 0 0 0", padding: "1rem 0" }}>
         <Col name="TMDB acknowledgement" className="movies-tv-tmdb-container">

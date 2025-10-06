@@ -4,6 +4,7 @@ import { ListGroup } from "react-bootstrap";
 import { getAssetTitle } from "../util/api";
 import SidebarList from "./ListSidebar";
 
+//Renders a sidebar with multiple categories when the page has more than one list.
 export default function MultipleListsSidebar() {
   const { assets } = useContext(PropContext);
 

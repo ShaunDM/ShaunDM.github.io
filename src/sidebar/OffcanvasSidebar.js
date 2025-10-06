@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import { useContext } from "react";
 import { PropContext } from "../layout/PropContext";
 
-//Renders offcanvas sidebar for mobile devices
+//Renders offcanvas sidebar that navigates the page for mobile devices
 export default function OffCanvasSidebar() {
   const { showOverlay, handleCloseOverlay } = useContext(PropContext);
 

@@ -40,7 +40,12 @@ export default function Music() {
       </Row>
       <Row>
         <Col>
-          <List listType={format} itemType="spotify" assets={assets} />
+          <List
+            listName="music"
+            listType={format}
+            itemType="spotify"
+            assets={assets}
+          />
         </Col>
       </Row>
     </>

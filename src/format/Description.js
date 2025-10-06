@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { getAssetTitle } from "../util/api.mjs";
 
+//Adds a description to 'card' itemtype in ./Item.js, renders only if the page's assets have a descriptions file in its folder and the page in src/pages/* formats the data correctly, see src/pages/Games for an example. src: object, object with source item's description and possibly navigation links.
+
 export default function Description({ src }) {
   if (!src.description) {
     return src;

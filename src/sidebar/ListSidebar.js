@@ -3,6 +3,7 @@ import { PropContext } from "../layout/PropContext";
 import { ListGroup } from "react-bootstrap";
 import { referenceAsset } from "../util/api";
 
+//Renders a sidebar that navigates the page when the page's list isn't a carousel.
 export default function ListSidebar({ list = undefined }) {
   const { assets, isMobile } = useContext(PropContext);
   let links = [];
@@ -13,15 +14,21 @@ export default function ListSidebar({ list = undefined }) {
   const clickHandler = (id) => {
     if (!isMobile) document.getElementById(id).scrollIntoView();
     //Offsets scroll to compensate for sticky navbar.
-    else
+    else {
       window.scrollTo(
         0,
-        document.getElementById(id).offsetTop -
-          document.getElementById("navbar").offsetHeight
+        document.getElementById(id).getBoundingClientRect().y -
+          document.getElementById("navbar").offsetHeight +
+          window.scrollY
       );
-    document
-      .getElementById(id)
-      .parentNode.scrollTo(document.getElementById(id).offsetLeft, 0);
+      document
+        .getElementById(`${id}_container`)
+        .parentNode.scrollTo(
+          document.getElementById(`${id}_container`).offsetLeft -
+            document.getElementById(`${id}_container`).parentNode.offsetLeft,
+          0
+        );
+    }
   };
 
   for (const [key] of Object.entries(list[list.sidebar.src])) {

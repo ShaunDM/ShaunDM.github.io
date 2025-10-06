@@ -16,9 +16,13 @@ function Layout() {
   const isMobile = useMediaQuery({ query: "(max-width: 991px)" });
   const isTablet = useMediaQuery({ query: "(max-width: 767px)" });
 
+  //index is only used to navigate carousel lists, src/format/List.js and /ViewCarousel.js
   const [index, setIndex] = useState(0);
+  //format controls a button to switch between two types of lists, example src/pages/Books.js
   const [format, setFormat] = useState(true);
+  //assets for a page, sourced from src/assets/*.
   const [assets, setAssets] = useState(loadMultipleFiles(path));
+  //controls mobile toolbar overlay.
   const [showOverlay, setShowOverlay] = useState(false);
 
   //function for navigating carousel.
@@ -79,7 +83,7 @@ function Layout() {
     >
       <OffcanvasSidebar />
       <Container className="ctnr contain" fluid>
-        {/*div below required to place footer on bottom of page when content < vh*/}
+        {/*div below required to place footer on bottom of page when content is less than vh of viewport*/}
         <div>
           <Row className="contain">
             <Header />
