@@ -138,8 +138,8 @@ footer {
 }
 
 .header-image {
-  background-size: cover;
-  background-position-y: -180px;
+  background-size: 100% auto;
+  background-position-y: 17%;
 }
 
 .navbar {
