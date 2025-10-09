@@ -18,7 +18,7 @@ function App() {
   //due to hash routing, requires origin + '/#/' to render site, navs to home if URL is not formatted correctly.
   if (
     window.location.href === window.location.origin ||
-    !window.location.hash.includes("#/")
+    window.location.hash.substring(0, 2) != "#/"
   ) {
     window.location.href = window.location.origin + "/#/";
     setTimeout(() => {

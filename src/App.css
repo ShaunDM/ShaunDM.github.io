@@ -139,6 +139,7 @@ footer {
 
 .header-image {
   background-size: cover;
+  background-position-y: -180px;
 }
 
 .navbar {
