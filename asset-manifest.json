@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.66abc68c.css",
+    "main.css": "/static/css/main.4cb089f2.css",
     "main.js": "/static/js/main.3c68d876.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/banner.png": "/static/media/banner.f055e417fb2097849a0d.png",
@@ -96,11 +96,11 @@
     "static/media/All.svg": "/static/media/All.649e5e54533028ef5e96.svg",
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
-    "main.66abc68c.css.map": "/static/css/main.66abc68c.css.map",
+    "main.4cb089f2.css.map": "/static/css/main.4cb089f2.css.map",
     "main.3c68d876.js.map": "/static/js/main.3c68d876.js.map"
   },
   "entrypoints": [
-    "static/css/main.66abc68c.css",
+    "static/css/main.4cb089f2.css",
     "static/js/main.3c68d876.js"
   ]
 }
