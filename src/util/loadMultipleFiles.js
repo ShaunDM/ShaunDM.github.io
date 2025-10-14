@@ -48,7 +48,7 @@ export default function loadMultipleFiles(path) {
     case "/games": {
       const files = require.context("../assets/games", true);
       getAssets(files);
-      assets.sidebar = { type: "list", src: "images" };
+      assets.sidebar = { type: "list", src: "links" };
       break;
     }
     case "/movies_tv": {

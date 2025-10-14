@@ -1,5 +1,3 @@
-import { useContext } from "react";
-import { PropContext } from "./PropContext";
 import { Row } from "react-bootstrap";
 import loadMultipleFiles from "../util/loadMultipleFiles";
 
