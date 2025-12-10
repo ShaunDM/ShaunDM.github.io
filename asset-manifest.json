@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bc2ab2e5.css",
-    "main.js": "/static/js/main.6cd187b3.js",
+    "main.js": "/static/js/main.d6270c25.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/banner.png": "/static/media/banner.f055e417fb2097849a0d.png",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
@@ -41,7 +41,7 @@
     "static/media/horror.png": "/static/media/horror.ab1835117318013c9c90.png",
     "static/media/fantasy.png": "/static/media/fantasy.f008e3e40a093b94ee7c.png",
     "static/media/graphic_novel.png": "/static/media/graphic_novel.2f38a702fd4ceb8d0b92.png",
-    "static/media/thriller_slash_suspense.png": "/static/media/thriller_slash_suspense.40cb6faabdde003ccf04.png",
+    "static/media/thriller__slash__suspense.png": "/static/media/thriller__slash__suspense.9bf0600ae0b51d1a5b0b.png",
     "static/media/Classic_Rock.svg": "/static/media/Classic_Rock.d32db4babd6c75f225a1.svg",
     "static/media/short_story.png": "/static/media/short_story.29845782289577078920.png",
     "static/media/fitness.png": "/static/media/fitness.d96670c604f2c66012e1.png",
@@ -49,7 +49,6 @@
     "static/media/romance.png": "/static/media/romance.accf2f1a6d6c55dcb2cc.png",
     "static/media/humor.png": "/static/media/humor.c63e51b6f83abf8d6b83.png",
     "static/media/realistic_fiction.png": "/static/media/realistic_fiction.f11f0488c5c677479b7a.png",
-    "static/media/thriller__slash__suspense.png": "/static/media/thriller__slash__suspense.9bf0600ae0b51d1a5b0b.png",
     "static/media/fable.png": "/static/media/fable.1d4cb8f8a29e5070c3a4.png",
     "static/media/Electronic.svg": "/static/media/Electronic.d3b55bc654738e0d9f99.svg",
     "static/media/certificate_of_completion-_thinkful.pdf": "/static/media/certificate_of_completion-_thinkful.1546ef6ac63f8176e14f.pdf",
@@ -98,10 +97,10 @@
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
     "main.bc2ab2e5.css.map": "/static/css/main.bc2ab2e5.css.map",
-    "main.6cd187b3.js.map": "/static/js/main.6cd187b3.js.map"
+    "main.d6270c25.js.map": "/static/js/main.d6270c25.js.map"
   },
   "entrypoints": [
     "static/css/main.bc2ab2e5.css",
-    "static/js/main.6cd187b3.js"
+    "static/js/main.d6270c25.js"
   ]
 }
