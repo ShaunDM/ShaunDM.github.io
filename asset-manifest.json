@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.672d45bc.css",
-    "main.js": "/static/js/main.1054257f.js",
+    "main.js": "/static/js/main.3fc4d5d4.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/banner.png": "/static/media/banner.f055e417fb2097849a0d.png",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
@@ -49,10 +49,12 @@
     "static/media/romance.png": "/static/media/romance.accf2f1a6d6c55dcb2cc.png",
     "static/media/humor.png": "/static/media/humor.c63e51b6f83abf8d6b83.png",
     "static/media/realistic_fiction.png": "/static/media/realistic_fiction.f11f0488c5c677479b7a.png",
+    "static/media/certificate_of_completion-_national_ems_institute.pdf": "/static/media/certificate_of_completion-_national_ems_institute.17eaf7e86f2a0b203c02.pdf",
     "static/media/fable.png": "/static/media/fable.1d4cb8f8a29e5070c3a4.png",
     "static/media/Electronic.svg": "/static/media/Electronic.d3b55bc654738e0d9f99.svg",
     "static/media/certificate_of_completion-_thinkful.pdf": "/static/media/certificate_of_completion-_thinkful.1546ef6ac63f8176e14f.pdf",
     "static/media/Country.svg": "/static/media/Country.819b5d9a703a58457065.svg",
+    "static/media/basic_life_support.pdf": "/static/media/basic_life_support.aae137637b63859ebbfb.pdf",
     "static/media/mystery.png": "/static/media/mystery.ce8ca6b616bdd91340eb.png",
     "static/media/action.jpg": "/static/media/action.4d43a0e66cb821b06d6d.jpg",
     "static/media/Dance.png": "/static/media/Dance.7586a2a5c3f6e222fcd9.png",
@@ -60,7 +62,7 @@
     "static/media/strategy.jpg": "/static/media/strategy.9df47f5cc74864c37bc9.jpg",
     "static/media/horror.jpg": "/static/media/horror.73c59423a8b0c96b809a.jpg",
     "static/media/Pop.png": "/static/media/Pop.9538629ec02c6e9e0675.png",
-    "static/media/resume.pdf": "/static/media/resume.55c1929b80016a997469.pdf",
+    "static/media/resume.pdf": "/static/media/resume.8e1b968e15cc7c1c2f94.pdf",
     "static/media/Heavy_Metal.png": "/static/media/Heavy_Metal.79be59ad63c4cd5d0efd.png",
     "static/media/Classic_Rock.png": "/static/media/Classic_Rock.06a28f44447a4774bd6a.png",
     "static/media/Classical.png": "/static/media/Classical.8bff0b73851981af99f3.png",
@@ -97,10 +99,10 @@
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
     "main.672d45bc.css.map": "/static/css/main.672d45bc.css.map",
-    "main.1054257f.js.map": "/static/js/main.1054257f.js.map"
+    "main.3fc4d5d4.js.map": "/static/js/main.3fc4d5d4.js.map"
   },
   "entrypoints": [
     "static/css/main.672d45bc.css",
-    "static/js/main.1054257f.js"
+    "static/js/main.3fc4d5d4.js"
   ]
 }
