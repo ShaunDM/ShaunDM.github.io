@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/static/css/main.0bb37205.css",
-    "main.js": "/static/js/main.11cb7edd.js",
+    "main.js": "/static/js/main.31c06e43.js",
     "static/media/Rhythm_and_Blues.svg": "/static/media/Rhythm_and_Blues.eae4d07770ff5d274497.svg",
     "static/media/banner.png": "/static/media/banner.f055e417fb2097849a0d.png",
     "static/media/Oldies.svg": "/static/media/Oldies.c5202bda8d7847cbc51a.svg",
     "static/media/image.JPG": "/static/media/image.d1f49a44d5cbcf5f4867.JPG",
     "static/media/Heavy_Metal.svg": "/static/media/Heavy_Metal.c28e1ab0ec6fafe0ae30.svg",
+    "static/media/emt_certificate.pdf": "/static/media/emt_certificate.0fa46b2d0fbe2d040bb2.pdf",
     "static/media/Hard_Rock.svg": "/static/media/Hard_Rock.9d55304b0afcc61ec83c.svg",
     "static/media/Rock.svg": "/static/media/Rock.ec4e96167b680b5862ff.svg",
     "static/media/letter_of_continuity-_moscow.pdf": "/static/media/letter_of_continuity-_moscow.4002189abb1073b699be.pdf",
@@ -99,10 +100,10 @@
     "static/media/Default.svg": "/static/media/Default.c6809e58df05dc5ef483.svg",
     "index.html": "/index.html",
     "main.0bb37205.css.map": "/static/css/main.0bb37205.css.map",
-    "main.11cb7edd.js.map": "/static/js/main.11cb7edd.js.map"
+    "main.31c06e43.js.map": "/static/js/main.31c06e43.js.map"
   },
   "entrypoints": [
     "static/css/main.0bb37205.css",
-    "static/js/main.11cb7edd.js"
+    "static/js/main.31c06e43.js"
   ]
 }
